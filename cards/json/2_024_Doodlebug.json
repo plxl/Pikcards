@@ -1,0 +1,33 @@
+{
+    "set": "2",
+    "number": 24,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Doodlebug",
+    "image": "024_Doodlebug.png",
+    "class_": 0,
+    "type": 0,
+    "energy": 4,
+    "time": 7,
+    "attack": 1,
+    "health": 4,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Poison"
+    ],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Wall"
+    ],
+    "abilities": [
+        "Stinky Scuttle",
+        "Belly Stash"
+    ],
+    "notes": ""
+}

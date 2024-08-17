@@ -1,0 +1,37 @@
+{
+    "set": "2",
+    "number": 34,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Anode Beetle",
+    "image": "034_Anode_Beetle.png",
+    "class_": 3,
+    "type": 0,
+    "energy": 3,
+    "time": 2,
+    "attack": 0,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Electricity"
+    ],
+    "immunities": [
+        "Explosive"
+    ],
+    "weaknesses": [
+        "Crush"
+    ],
+    "traits": [
+        "Defense",
+        "Swarm"
+    ],
+    "abilities": [
+        "Swarm"
+    ],
+    "notes": ""
+}

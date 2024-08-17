@@ -1,0 +1,29 @@
+{
+    "set": "2",
+    "number": 1,
+    "fifth": false,
+    "rarity": 2,
+    "name": "Louie",
+    "image": "001_Louie.png",
+    "class_": 0,
+    "type": 0,
+    "energy": 4,
+    "time": 4,
+    "attack": 1,
+    "health": 5,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Gourmand",
+        "Conjure"
+    ],
+    "notes": "Chance Weight"
+}

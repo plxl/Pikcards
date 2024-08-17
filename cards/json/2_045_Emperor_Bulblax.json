@@ -1,0 +1,31 @@
+{
+    "set": "2",
+    "number": 45,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Emperor Bulblax",
+    "image": "045_Emperor_Bulblax.png",
+    "class_": 0,
+    "type": 0,
+    "energy": 4,
+    "time": 5,
+    "attack": 4,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [
+        "Explosive"
+    ],
+    "traits": [],
+    "abilities": [
+        "Pull Buff",
+        "Panic"
+    ],
+    "notes": ""
+}

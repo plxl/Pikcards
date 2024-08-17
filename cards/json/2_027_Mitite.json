@@ -1,0 +1,32 @@
+{
+    "set": "2",
+    "number": 27,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Mitite",
+    "image": "027_Mitite.png",
+    "class_": 1,
+    "type": 0,
+    "energy": 0,
+    "time": 3,
+    "attack": 0,
+    "health": 1,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Passive",
+        "Swarm"
+    ],
+    "abilities": [
+        "Smelly Entrance",
+        "Overswarm"
+    ],
+    "notes": ""
+}

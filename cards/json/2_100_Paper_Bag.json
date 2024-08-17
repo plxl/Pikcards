@@ -1,0 +1,30 @@
+{
+    "set": "2",
+    "number": 100,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Paper Bag",
+    "image": "100_Paper_Bag.png",
+    "class_": 0,
+    "type": 0,
+    "energy": 4,
+    "time": 3,
+    "attack": 0,
+    "health": 10,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Wall"
+    ],
+    "abilities": [
+        "Press Down"
+    ],
+    "notes": ""
+}

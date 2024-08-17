@@ -1,0 +1,28 @@
+{
+    "set": "C",
+    "number": 19,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Occupational Hazards",
+    "image": "19_Occupational_Hazards.png",
+    "class_": 4,
+    "type": 2,
+    "energy": 4,
+    "time": 5,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Occupational Hazards"
+    ],
+    "notes": ""
+}

@@ -1,0 +1,33 @@
+{
+    "set": "2",
+    "number": 44,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Empress Bulblax",
+    "image": "044_Empress_Bulblax.png",
+    "class_": 3,
+    "type": 0,
+    "energy": 6,
+    "time": 5,
+    "attack": 2,
+    "health": 8,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Crush"
+    ],
+    "immunities": [
+        "Piercing"
+    ],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Spawn",
+        "Field Roll"
+    ],
+    "notes": ""
+}

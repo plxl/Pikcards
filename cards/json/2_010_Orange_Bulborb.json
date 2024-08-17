@@ -1,0 +1,28 @@
+{
+    "set": "2",
+    "number": 10,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Orange Bulborb",
+    "image": "010_Orange_Bulborb.png",
+    "class_": 3,
+    "type": 0,
+    "energy": 3,
+    "time": 9,
+    "attack": 4,
+    "health": 4,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "First Strike"
+    ],
+    "abilities": [],
+    "notes": ""
+}

@@ -1,0 +1,35 @@
+{
+    "set": "C",
+    "number": 26,
+    "fifth": false,
+    "rarity": 2,
+    "name": "Golden Pikpik Carrot",
+    "image": "26_Golden_Pikpik_Carrot.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 3,
+    "time": 6,
+    "attack": 12,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [
+        "Fire"
+    ],
+    "traits": [
+        "Digging",
+        "Passive",
+        "Pikmin"
+    ],
+    "abilities": [
+        "Carrot Power",
+        "Profit"
+    ],
+    "notes": ""
+}

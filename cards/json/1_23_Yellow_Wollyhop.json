@@ -1,0 +1,30 @@
+{
+    "set": "1",
+    "number": 23,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Yellow Wollyhop",
+    "image": "23_Yellow_Wollyhop.png",
+    "class_": 2,
+    "type": 0,
+    "energy": 3,
+    "time": 4,
+    "attack": 2,
+    "health": 4,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Crush"
+    ],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "First Strike"
+    ],
+    "abilities": [],
+    "notes": ""
+}

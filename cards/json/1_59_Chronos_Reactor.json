@@ -1,0 +1,30 @@
+{
+    "set": "1",
+    "number": 59,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Chronos Reactor",
+    "image": "59_Chronos_Reactor.png",
+    "class_": 0,
+    "type": 1,
+    "energy": 4,
+    "time": 6,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Dolphin Part"
+    ],
+    "abilities": [
+        "Convert Time"
+    ],
+    "notes": ""
+}

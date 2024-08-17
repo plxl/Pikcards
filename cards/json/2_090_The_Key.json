@@ -1,0 +1,30 @@
+{
+    "set": "2",
+    "number": 90,
+    "fifth": true,
+    "rarity": 1,
+    "name": "The Key",
+    "image": "090_The_Key.png",
+    "class_": 4,
+    "type": 1,
+    "energy": 2,
+    "time": 1,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Debt Treasure"
+    ],
+    "abilities": [
+        "Conjure"
+    ],
+    "notes": "Chance Weight"
+}

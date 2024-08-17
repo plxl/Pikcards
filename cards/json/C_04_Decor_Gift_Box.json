@@ -1,0 +1,29 @@
+{
+    "set": "C",
+    "number": 4,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Decor Gift Box",
+    "image": "04_Decor_Gift_Box.png",
+    "class_": 4,
+    "type": 1,
+    "energy": 1,
+    "time": 2,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Random Gift",
+        "Decor Pikmin"
+    ],
+    "notes": "Chance Weight"
+}

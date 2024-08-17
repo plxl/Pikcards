@@ -1,0 +1,37 @@
+{
+    "set": "2",
+    "number": 50,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Ranging Bloyster",
+    "image": "050_Ranging_Bloyster.png",
+    "class_": 2,
+    "type": 0,
+    "energy": 4,
+    "time": 8,
+    "attack": 3,
+    "health": 6,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Water",
+        "Poison"
+    ],
+    "immunities": [
+        "Water",
+        "Crush"
+    ],
+    "weaknesses": [],
+    "traits": [
+        "Explorer"
+    ],
+    "abilities": [
+        "Chase",
+        "Ink Spread"
+    ],
+    "notes": ""
+}

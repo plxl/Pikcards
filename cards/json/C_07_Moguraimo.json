@@ -1,0 +1,35 @@
+{
+    "set": "C",
+    "number": 7,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Moguraimo",
+    "image": "07_Moguraimo.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 2,
+    "time": 4,
+    "attack": 0,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Poison"
+    ],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Explorer",
+        "Passive",
+        "Swarm"
+    ],
+    "abilities": [
+        "Transform",
+        "Stun"
+    ],
+    "notes": ""
+}

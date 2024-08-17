@@ -1,0 +1,31 @@
+{
+    "set": "0",
+    "number": 0,
+    "fifth": false,
+    "rarity": -1,
+    "name": "Puckering Blinnow",
+    "image": "Puckering_Blinnow.png",
+    "class_": -1,
+    "type": 0,
+    "energy": 1,
+    "time": 2,
+    "attack": 1,
+    "health": 1,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [
+        "Area"
+    ],
+    "traits": [],
+    "abilities": [
+        "School Call",
+        "Jump Out"
+    ],
+    "notes": ""
+}

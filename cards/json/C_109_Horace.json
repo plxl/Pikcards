@@ -1,0 +1,34 @@
+{
+    "set": "C",
+    "number": 109,
+    "fifth": false,
+    "rarity": 2,
+    "name": "Horace",
+    "image": "109_Horace.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 3,
+    "time": 4,
+    "attack": 1,
+    "health": 1,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Gloom",
+        "Explosive"
+    ],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Indirect",
+        "Multi-Attack"
+    ],
+    "abilities": [
+        "Conjure"
+    ],
+    "notes": ""
+}

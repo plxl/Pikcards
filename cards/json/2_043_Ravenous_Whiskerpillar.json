@@ -1,0 +1,31 @@
+{
+    "set": "2",
+    "number": 43,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Ravenous Whiskerpillar",
+    "image": "043_Ravenous_Whiskerpillar.png",
+    "class_": 1,
+    "type": 0,
+    "energy": 1,
+    "time": 6,
+    "attack": 0,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Burrowing",
+        "Passive"
+    ],
+    "abilities": [
+        "Passive Agressive"
+    ],
+    "notes": "Chance Weight"
+}

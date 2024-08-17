@@ -1,0 +1,28 @@
+{
+    "set": "C",
+    "number": 27,
+    "fifth": true,
+    "rarity": 2,
+    "name": "test_item_1",
+    "image": "27_test_item_1.png",
+    "class_": 4,
+    "type": 1,
+    "energy": 1,
+    "time": 6,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Conjure"
+    ],
+    "notes": ""
+}

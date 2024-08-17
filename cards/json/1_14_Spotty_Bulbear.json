@@ -1,0 +1,26 @@
+{
+    "set": "1",
+    "number": 14,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Spotty Bulbear",
+    "image": "14_Spotty_Bulbear.png",
+    "class_": 0,
+    "type": 0,
+    "energy": 4,
+    "time": 4,
+    "attack": 5,
+    "health": 4,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [],
+    "notes": ""
+}

@@ -1,0 +1,31 @@
+{
+    "set": "1",
+    "number": 38,
+    "fifth": false,
+    "rarity": 2,
+    "name": "Sovereign Bulblax",
+    "image": "38_Sovereign_Bulblax.png",
+    "class_": 0,
+    "type": 0,
+    "energy": 7,
+    "time": 7,
+    "attack": 7,
+    "health": 6,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [
+        "Explosive"
+    ],
+    "traits": [],
+    "abilities": [
+        "Pull Buff",
+        "Jump Attack"
+    ],
+    "notes": ""
+}

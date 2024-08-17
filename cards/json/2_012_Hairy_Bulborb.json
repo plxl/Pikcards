@@ -1,0 +1,30 @@
+{
+    "set": "2",
+    "number": 12,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Hairy Bulborb",
+    "image": "012_Hairy_Bulborb.png",
+    "class_": 2,
+    "type": 0,
+    "energy": 4,
+    "time": 6,
+    "attack": 4,
+    "health": 6,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [
+        "Ice"
+    ],
+    "weaknesses": [],
+    "traits": [
+        "Explorer"
+    ],
+    "abilities": [],
+    "notes": ""
+}

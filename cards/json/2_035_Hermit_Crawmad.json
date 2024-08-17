@@ -1,0 +1,35 @@
+{
+    "set": "2",
+    "number": 35,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Hermit Crawmad",
+    "image": "035_Hermit_Crawmad.png",
+    "class_": 3,
+    "type": 0,
+    "energy": 2,
+    "time": 4,
+    "attack": 2,
+    "health": 4,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Piercing"
+    ],
+    "immunities": [
+        "Water",
+        "First Strike"
+    ],
+    "weaknesses": [],
+    "traits": [
+        "Burrowing"
+    ],
+    "abilities": [
+        "Den Defense"
+    ],
+    "notes": ""
+}

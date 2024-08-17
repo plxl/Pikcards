@@ -1,0 +1,31 @@
+{
+    "set": "C",
+    "number": 18,
+    "fifth": true,
+    "rarity": 1,
+    "name": "Treasure in a Bottle",
+    "image": "18_Treasure_in_a_Bottle.png",
+    "class_": 4,
+    "type": 1,
+    "energy": 3,
+    "time": 2,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        true
+    ],
+    "elements": [],
+    "immunities": [
+        "Explosive",
+        "Gloom"
+    ],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Conjure"
+    ],
+    "notes": "Chance Weight"
+}

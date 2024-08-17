@@ -1,0 +1,29 @@
+{
+    "set": "0",
+    "number": 0,
+    "fifth": false,
+    "rarity": -1,
+    "name": "Falling Boulders",
+    "image": "Falling_Boulders.png",
+    "class_": -1,
+    "type": 1,
+    "energy": 1,
+    "time": 2,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Weightless",
+        "Rockfall"
+    ],
+    "notes": ""
+}

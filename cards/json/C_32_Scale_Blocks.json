@@ -1,0 +1,28 @@
+{
+    "set": "C",
+    "number": 32,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Scale Blocks",
+    "image": "32_Scale_Blocks.png",
+    "class_": 4,
+    "type": 2,
+    "energy": 2,
+    "time": 5,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Scale Blocks"
+    ],
+    "notes": ""
+}

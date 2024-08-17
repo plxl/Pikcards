@@ -1,0 +1,30 @@
+{
+    "set": "2",
+    "number": 73,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Mystical Energy Series",
+    "image": "073_Mystical_Energy_Series.png",
+    "class_": 3,
+    "type": 1,
+    "energy": 4,
+    "time": 6,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Debt Treasure"
+    ],
+    "abilities": [
+        "Energy Boost"
+    ],
+    "notes": ""
+}

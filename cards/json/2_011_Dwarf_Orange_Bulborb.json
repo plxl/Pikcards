@@ -1,0 +1,31 @@
+{
+    "set": "2",
+    "number": 11,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Dwarf Orange Bulborb",
+    "image": "011_Dwarf_Orange_Bulborb.png",
+    "class_": 3,
+    "type": 0,
+    "energy": 2,
+    "time": 4,
+    "attack": 2,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [
+        "Crush",
+        "First Strike"
+    ],
+    "traits": [
+        "First Strike"
+    ],
+    "abilities": [],
+    "notes": ""
+}

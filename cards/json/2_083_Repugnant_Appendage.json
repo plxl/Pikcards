@@ -1,0 +1,31 @@
+{
+    "set": "2",
+    "number": 83,
+    "fifth": true,
+    "rarity": 1,
+    "name": "Repugnant Appendage",
+    "image": "083_Repugnant_Appendage.png",
+    "class_": 1,
+    "type": 1,
+    "energy": 2,
+    "time": 2,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        true
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Debt Treasure"
+    ],
+    "abilities": [
+        "Steady Feet",
+        "Speedy Feet"
+    ],
+    "notes": ""
+}

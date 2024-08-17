@@ -1,0 +1,36 @@
+{
+    "set": "2",
+    "number": 23,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Iridescent Glint Beetle",
+    "image": "023_Iridescent_Glint_Beetle.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 3,
+    "time": 3,
+    "attack": 0,
+    "health": 5,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [
+        "Piercing",
+        "Gloom"
+    ],
+    "weaknesses": [
+        "Crush"
+    ],
+    "traits": [
+        "Wall"
+    ],
+    "abilities": [
+        "Scuttle",
+        "Glitter Hoard"
+    ],
+    "notes": ""
+}

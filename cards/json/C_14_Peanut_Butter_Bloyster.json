@@ -1,0 +1,36 @@
+{
+    "set": "C",
+    "number": 14,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Peanut Butter Bloyster",
+    "image": "14_Peanut_Butter_Bloyster.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 4,
+    "time": 4,
+    "attack": 2,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Water",
+        "Poison"
+    ],
+    "immunities": [
+        "Water",
+        "Crush"
+    ],
+    "weaknesses": [],
+    "traits": [
+        "Explorer"
+    ],
+    "abilities": [
+        "Ink Spread"
+    ],
+    "notes": ""
+}

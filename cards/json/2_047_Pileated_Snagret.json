@@ -1,0 +1,33 @@
+{
+    "set": "2",
+    "number": 47,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Pileated Snagret",
+    "image": "047_Pileated_Snagret.png",
+    "class_": 1,
+    "type": 0,
+    "energy": 6,
+    "time": 6,
+    "attack": 4,
+    "health": 4,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Piercing"
+    ],
+    "immunities": [],
+    "weaknesses": [
+        "First Strike"
+    ],
+    "traits": [
+        "Burrowing",
+        "First Strike"
+    ],
+    "abilities": [],
+    "notes": ""
+}

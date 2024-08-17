@@ -1,0 +1,28 @@
+{
+    "set": "C",
+    "number": 37,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Pikmin Finder",
+    "image": "37_Pikmin_Finder.png",
+    "class_": 4,
+    "type": 3,
+    "energy": 2,
+    "time": 2,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Pikmin Finder"
+    ],
+    "notes": ""
+}

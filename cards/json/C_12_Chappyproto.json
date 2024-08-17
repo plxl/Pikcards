@@ -1,0 +1,30 @@
+{
+    "set": "C",
+    "number": 12,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Chappyproto",
+    "image": "12_Chappyproto.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 3,
+    "time": 5,
+    "attack": 1,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Digging"
+    ],
+    "abilities": [
+        "Base Concept"
+    ],
+    "notes": "Chance Weight"
+}

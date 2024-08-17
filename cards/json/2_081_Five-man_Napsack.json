@@ -1,0 +1,30 @@
+{
+    "set": "2",
+    "number": 81,
+    "fifth": true,
+    "rarity": 1,
+    "name": "Five-man Napsack",
+    "image": "081_Five-man_Napsack.png",
+    "class_": 2,
+    "type": 1,
+    "energy": 2,
+    "time": 5,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Debt Treasure"
+    ],
+    "abilities": [
+        "Heal"
+    ],
+    "notes": ""
+}

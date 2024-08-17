@@ -1,0 +1,33 @@
+{
+    "set": "2",
+    "number": 75,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Survival Series",
+    "image": "075_Survival_Series.png",
+    "class_": 0,
+    "type": 1,
+    "energy": 3,
+    "time": 3,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [
+        "Poison",
+        "Mushroom"
+    ],
+    "traits": [
+        "Debt Treasure"
+    ],
+    "abilities": [
+        "Overheal"
+    ],
+    "notes": ""
+}

@@ -1,0 +1,28 @@
+{
+    "set": "2",
+    "number": 116,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Shower Room",
+    "image": "116_Shower_Room.png",
+    "class_": 0,
+    "type": 3,
+    "energy": 2,
+    "time": 1,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Shower Room"
+    ],
+    "notes": ""
+}

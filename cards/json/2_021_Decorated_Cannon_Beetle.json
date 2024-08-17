@@ -1,0 +1,35 @@
+{
+    "set": "2",
+    "number": 21,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Decorated Cannon Beetle",
+    "image": "021_Decorated_Cannon_Beetle.png",
+    "class_": 0,
+    "type": 0,
+    "energy": 4,
+    "time": 5,
+    "attack": 4,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Crush"
+    ],
+    "immunities": [],
+    "weaknesses": [
+        "Up High"
+    ],
+    "traits": [
+        "Indirect",
+        "Digging"
+    ],
+    "abilities": [
+        "Magnet Attack"
+    ],
+    "notes": ""
+}

@@ -1,0 +1,30 @@
+{
+    "set": "2",
+    "number": 78,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Spherical Atlas",
+    "image": "078_Spherical_Atlas.png",
+    "class_": 4,
+    "type": 1,
+    "energy": 3,
+    "time": 5,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Debt Treasure"
+    ],
+    "abilities": [
+        "Conjure"
+    ],
+    "notes": "Chance Weight"
+}

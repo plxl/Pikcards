@@ -1,0 +1,28 @@
+{
+    "set": "2",
+    "number": 111,
+    "fifth": true,
+    "rarity": 0,
+    "name": "White Flower Garden",
+    "image": "111_White_Flower_Garden.png",
+    "class_": 1,
+    "type": 3,
+    "energy": 1,
+    "time": 1,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "White Flower Garden"
+    ],
+    "notes": ""
+}

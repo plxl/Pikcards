@@ -1,0 +1,36 @@
+{
+    "set": "2",
+    "number": 59,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Sweet Tooth Series",
+    "image": "059_Sweet_Tooth_Series.png",
+    "class_": 2,
+    "type": 1,
+    "energy": 3,
+    "time": 3,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        true,
+        false
+    ],
+    "elements": [
+        "Piercing",
+        "Ice"
+    ],
+    "immunities": [
+        "Piercing",
+        "Ice"
+    ],
+    "weaknesses": [
+        "Mushroom"
+    ],
+    "traits": [
+        "Debt Treasure"
+    ],
+    "abilities": [],
+    "notes": ""
+}

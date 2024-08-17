@@ -1,0 +1,28 @@
+{
+    "set": "C",
+    "number": 31,
+    "fifth": false,
+    "rarity": 0,
+    "name": "play_4",
+    "image": "31_play_4.png",
+    "class_": 4,
+    "type": 2,
+    "energy": 3,
+    "time": 4,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "play_4"
+    ],
+    "notes": ""
+}

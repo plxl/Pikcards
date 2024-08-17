@@ -1,0 +1,36 @@
+{
+    "set": "2",
+    "number": 31,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Hydro Dweevil",
+    "image": "031_Hydro_Dweevil.png",
+    "class_": 3,
+    "type": 0,
+    "energy": 2,
+    "time": 3,
+    "attack": 2,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Water"
+    ],
+    "immunities": [
+        "Water"
+    ],
+    "weaknesses": [
+        "Crush",
+        "Piercing"
+    ],
+    "traits": [],
+    "abilities": [
+        "Terrified",
+        "Carry Camo"
+    ],
+    "notes": ""
+}

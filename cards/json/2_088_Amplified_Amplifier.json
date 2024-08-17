@@ -1,0 +1,30 @@
+{
+    "set": "2",
+    "number": 88,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Amplified Amplifier",
+    "image": "088_Amplified_Amplifier.png",
+    "class_": 3,
+    "type": 1,
+    "energy": 3,
+    "time": 5,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Debt Treasure"
+    ],
+    "abilities": [
+        "Return"
+    ],
+    "notes": ""
+}

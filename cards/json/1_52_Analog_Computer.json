@@ -1,0 +1,30 @@
+{
+    "set": "1",
+    "number": 52,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Analog Computer",
+    "image": "52_Analog_Computer.png",
+    "class_": 0,
+    "type": 1,
+    "energy": 2,
+    "time": 5,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Dolphin Part"
+    ],
+    "abilities": [
+        "Copy"
+    ],
+    "notes": ""
+}

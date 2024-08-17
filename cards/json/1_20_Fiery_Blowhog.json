@@ -1,0 +1,35 @@
+{
+    "set": "1",
+    "number": 20,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Fiery Blowhog",
+    "image": "20_Fiery_Blowhog.png",
+    "class_": 2,
+    "type": 0,
+    "energy": 3,
+    "time": 4,
+    "attack": 1,
+    "health": 6,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Fire"
+    ],
+    "immunities": [
+        "Fire"
+    ],
+    "weaknesses": [],
+    "traits": [
+        "Indirect",
+        "Explorer"
+    ],
+    "abilities": [
+        "Draw"
+    ],
+    "notes": ""
+}

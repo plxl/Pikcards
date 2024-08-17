@@ -1,0 +1,30 @@
+{
+    "set": "2",
+    "number": 6,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Ivory Candypop Bud",
+    "image": "006_Ivory_Candypop_Bud.png",
+    "class_": 1,
+    "type": 0,
+    "energy": 3,
+    "time": 4,
+    "attack": 0,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Passive"
+    ],
+    "abilities": [
+        "Candypop"
+    ],
+    "notes": ""
+}

@@ -1,0 +1,31 @@
+{
+    "set": "1",
+    "number": 1,
+    "fifth": false,
+    "rarity": 2,
+    "name": "Captain Olimar",
+    "image": "01_Captain_Olimar.png",
+    "class_": 3,
+    "type": 0,
+    "energy": 6,
+    "time": 14,
+    "attack": 0,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Explorer"
+    ],
+    "abilities": [
+        "Leadership",
+        "Conjure"
+    ],
+    "notes": "Chance Weight"
+}

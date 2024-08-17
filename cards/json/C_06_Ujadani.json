@@ -1,0 +1,34 @@
+{
+    "set": "C",
+    "number": 6,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Ujadani",
+    "image": "06_Ujadani.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 0,
+    "time": 10,
+    "attack": 1,
+    "health": 4,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Poison"
+    ],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Digging",
+        "Swarm"
+    ],
+    "abilities": [
+        "Counter Only",
+        "Conjure"
+    ],
+    "notes": "Chance Weight"
+}

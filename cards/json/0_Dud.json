@@ -1,0 +1,28 @@
+{
+    "set": "0",
+    "number": 0,
+    "fifth": false,
+    "rarity": -1,
+    "name": "Dud",
+    "image": "Dud.png",
+    "class_": -1,
+    "type": 1,
+    "energy": 0,
+    "time": 4,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Dud"
+    ],
+    "notes": ""
+}

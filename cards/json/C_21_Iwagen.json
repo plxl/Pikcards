@@ -1,0 +1,32 @@
+{
+    "set": "C",
+    "number": 21,
+    "fifth": true,
+    "rarity": 1,
+    "name": "Iwagen",
+    "image": "21_Iwagen.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 6,
+    "time": 2,
+    "attack": 4,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Crush"
+    ],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Multi-Attack",
+        "Digging",
+        "Wall"
+    ],
+    "abilities": [],
+    "notes": ""
+}

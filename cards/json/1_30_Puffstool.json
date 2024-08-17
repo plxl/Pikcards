@@ -1,0 +1,33 @@
+{
+    "set": "1",
+    "number": 30,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Puffstool",
+    "image": "30_Puffstool.png",
+    "class_": 3,
+    "type": 0,
+    "energy": 4,
+    "time": 4,
+    "attack": 1,
+    "health": 5,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Mushroom"
+    ],
+    "immunities": [
+        "Mushroom"
+    ],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Summon",
+        "Shroomify"
+    ],
+    "notes": ""
+}

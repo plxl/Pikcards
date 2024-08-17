@@ -1,0 +1,30 @@
+{
+    "set": "2",
+    "number": 36,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Antenna Beetle",
+    "image": "036_Antenna_Beetle.png",
+    "class_": 1,
+    "type": 0,
+    "energy": 2,
+    "time": 1,
+    "attack": 0,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Wall"
+    ],
+    "abilities": [
+        "Disruption"
+    ],
+    "notes": ""
+}

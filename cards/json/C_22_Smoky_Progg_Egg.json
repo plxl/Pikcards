@@ -1,0 +1,30 @@
+{
+    "set": "C",
+    "number": 22,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Smoky Progg Egg",
+    "image": "22_Smoky_Progg_Egg.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 4,
+    "time": 9,
+    "attack": 0,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Passive"
+    ],
+    "abilities": [
+        "Hatch"
+    ],
+    "notes": ""
+}

@@ -1,0 +1,34 @@
+{
+    "set": "C",
+    "number": 5,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Nectar Weed",
+    "image": "05_Nectar_Weed.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 2,
+    "time": 3,
+    "attack": 0,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [
+        "Crush"
+    ],
+    "weaknesses": [
+        "Swarm"
+    ],
+    "traits": [
+        "Passive"
+    ],
+    "abilities": [
+        "Conjure"
+    ],
+    "notes": ""
+}

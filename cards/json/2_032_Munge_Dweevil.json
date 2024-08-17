@@ -1,0 +1,36 @@
+{
+    "set": "2",
+    "number": 32,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Munge Dweevil",
+    "image": "032_Munge_Dweevil.png",
+    "class_": 0,
+    "type": 0,
+    "energy": 2,
+    "time": 3,
+    "attack": 3,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Poison"
+    ],
+    "immunities": [
+        "Poison"
+    ],
+    "weaknesses": [
+        "Crush",
+        "Piercing"
+    ],
+    "traits": [],
+    "abilities": [
+        "Terrified",
+        "Carry Camo"
+    ],
+    "notes": ""
+}

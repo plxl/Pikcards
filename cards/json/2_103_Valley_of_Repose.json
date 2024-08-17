@@ -1,0 +1,28 @@
+{
+    "set": "2",
+    "number": 103,
+    "fifth": true,
+    "rarity": 1,
+    "name": "Valley of Repose",
+    "image": "103_Valley_of_Repose.png",
+    "class_": 2,
+    "type": 2,
+    "energy": 1,
+    "time": 5,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Valley of Repose"
+    ],
+    "notes": ""
+}

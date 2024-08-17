@@ -1,0 +1,32 @@
+{
+    "set": "2",
+    "number": 97,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Electric Gate",
+    "image": "097_Electric_Gate.png",
+    "class_": 3,
+    "type": 0,
+    "energy": 3,
+    "time": 3,
+    "attack": 0,
+    "health": 5,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Electricity"
+    ],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Wall"
+    ],
+    "abilities": [
+        "Shock"
+    ],
+    "notes": ""
+}

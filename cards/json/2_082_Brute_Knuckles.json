@@ -1,0 +1,31 @@
+{
+    "set": "2",
+    "number": 82,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Brute Knuckles",
+    "image": "082_Brute_Knuckles.png",
+    "class_": 0,
+    "type": 1,
+    "energy": 5,
+    "time": 3,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        true,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Digging",
+        "Debt Treasure"
+    ],
+    "abilities": [
+        "Power Punch"
+    ],
+    "notes": ""
+}

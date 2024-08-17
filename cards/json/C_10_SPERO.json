@@ -1,0 +1,34 @@
+{
+    "set": "C",
+    "number": 10,
+    "fifth": true,
+    "rarity": 0,
+    "name": "SPERO",
+    "image": "10_SPERO.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 2,
+    "time": 2,
+    "attack": 0,
+    "health": 4,
+    "additions": [
+        false,
+        false,
+        true,
+        false
+    ],
+    "elements": [],
+    "immunities": [
+        "Poison",
+        "Piercing"
+    ],
+    "weaknesses": [],
+    "traits": [
+        "Up-High",
+        "Indirect"
+    ],
+    "abilities": [
+        "Field Scan"
+    ],
+    "notes": ""
+}

@@ -1,0 +1,35 @@
+{
+    "set": "2",
+    "number": 99,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Poison Pipe",
+    "image": "099_Poison_Pipe.png",
+    "class_": 1,
+    "type": 0,
+    "energy": 2,
+    "time": 6,
+    "attack": 4,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Poison"
+    ],
+    "immunities": [],
+    "weaknesses": [
+        "Indirect"
+    ],
+    "traits": [
+        "Indirect",
+        "Wall"
+    ],
+    "abilities": [
+        "Counter Only"
+    ],
+    "notes": ""
+}

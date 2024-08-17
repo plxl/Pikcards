@@ -1,0 +1,28 @@
+{
+    "set": "2",
+    "number": 113,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Snagret Hole",
+    "image": "113_Snagret_Hole.png",
+    "class_": 1,
+    "type": 3,
+    "energy": 0,
+    "time": 3,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Snagret Hole"
+    ],
+    "notes": "Chance Weight"
+}

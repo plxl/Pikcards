@@ -1,0 +1,28 @@
+{
+    "set": "2",
+    "number": 118,
+    "fifth": true,
+    "rarity": 1,
+    "name": "Cavern of Chaos",
+    "image": "118_Cavern_of_Chaos.png",
+    "class_": 2,
+    "type": 3,
+    "energy": 1,
+    "time": 1,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Cavern of Chaos"
+    ],
+    "notes": "Chance Weight"
+}

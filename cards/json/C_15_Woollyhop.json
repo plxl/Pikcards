@@ -1,0 +1,34 @@
+{
+    "set": "C",
+    "number": 15,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Woollyhop",
+    "image": "15_Woollyhop.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 3,
+    "time": 3,
+    "attack": 1,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Water"
+    ],
+    "immunities": [
+        "Ice"
+    ],
+    "weaknesses": [],
+    "traits": [
+        "First Strike"
+    ],
+    "abilities": [
+        "Draw"
+    ],
+    "notes": ""
+}

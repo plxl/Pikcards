@@ -1,0 +1,32 @@
+{
+    "set": "C",
+    "number": 30,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Cinder Block",
+    "image": "30_Cinder_Block.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 4,
+    "time": 4,
+    "attack": 0,
+    "health": 9,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [
+        "Explosive",
+        "Louie"
+    ],
+    "traits": [
+        "2 Defense",
+        "Wall"
+    ],
+    "abilities": [],
+    "notes": ""
+}

@@ -1,0 +1,31 @@
+{
+    "set": "0",
+    "number": 0,
+    "fifth": false,
+    "rarity": -1,
+    "name": "Albino Dwarf Bulborb",
+    "image": "Albino_Dwarf_Bulborb.png",
+    "class_": -1,
+    "type": 0,
+    "energy": 2,
+    "time": 6,
+    "attack": 2,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [
+        "Crush",
+        "First Strike"
+    ],
+    "traits": [],
+    "abilities": [
+        "Transform"
+    ],
+    "notes": "Chance Weight"
+}

@@ -1,0 +1,28 @@
+{
+    "set": "C",
+    "number": 36,
+    "fifth": true,
+    "rarity": 0,
+    "name": "caveinfo",
+    "image": "36_caveinfo.png",
+    "class_": 4,
+    "type": 3,
+    "energy": 0,
+    "time": 3,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "caveinfo"
+    ],
+    "notes": ""
+}

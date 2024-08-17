@@ -1,0 +1,28 @@
+{
+    "set": "C",
+    "number": 35,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Challenge Mode",
+    "image": "35_Challenge_Mode.png",
+    "class_": 4,
+    "type": 3,
+    "energy": 2,
+    "time": 3,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Conjure"
+    ],
+    "notes": "Chance Weight"
+}

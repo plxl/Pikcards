@@ -1,0 +1,33 @@
+{
+    "set": "1",
+    "number": 28,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Burrowing Snagret",
+    "image": "28_Burrowing_Snagret.png",
+    "class_": 1,
+    "type": 0,
+    "energy": 4,
+    "time": 6,
+    "attack": 3,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Piercing"
+    ],
+    "immunities": [],
+    "weaknesses": [
+        "First Strike"
+    ],
+    "traits": [
+        "Burrowing",
+        "Defense"
+    ],
+    "abilities": [],
+    "notes": ""
+}
