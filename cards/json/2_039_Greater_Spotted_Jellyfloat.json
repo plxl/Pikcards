@@ -1,0 +1,35 @@
+{
+    "set": "2",
+    "number": 39,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Greater Spotted Jellyfloat",
+    "image": "039_Greater_Spotted_Jellyfloat.png",
+    "class_": 2,
+    "type": 0,
+    "energy": 4,
+    "time": 8,
+    "attack": 1,
+    "health": 5,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [
+        "Ice"
+    ],
+    "traits": [
+        "Up High",
+        "Indirect",
+        "Passive"
+    ],
+    "abilities": [
+        "Power Suction",
+        "Bubble"
+    ],
+    "notes": ""
+}

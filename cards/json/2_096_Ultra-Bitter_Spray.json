@@ -1,0 +1,29 @@
+{
+    "set": "2",
+    "number": 96,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Ultra-Bitter Spray",
+    "image": "096_Ultra-Bitter_Spray.png",
+    "class_": 2,
+    "type": 1,
+    "energy": 3,
+    "time": 3,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Weightless",
+        "Rockify"
+    ],
+    "notes": ""
+}

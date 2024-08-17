@@ -1,0 +1,32 @@
+{
+    "set": "2",
+    "number": 22,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Bumbling Snitchbug",
+    "image": "022_Bumbling_Snitchbug.png",
+    "class_": 0,
+    "type": 0,
+    "energy": 2,
+    "time": 4,
+    "attack": 2,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Up High",
+        "First Strike",
+        "Swarm"
+    ],
+    "abilities": [
+        "Fling"
+    ],
+    "notes": ""
+}

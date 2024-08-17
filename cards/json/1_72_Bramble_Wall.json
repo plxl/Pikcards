@@ -1,0 +1,28 @@
+{
+    "set": "1",
+    "number": 72,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Bramble Wall",
+    "image": "72_Bramble_Wall.png",
+    "class_": 3,
+    "type": 0,
+    "energy": 2,
+    "time": 4,
+    "attack": 0,
+    "health": 7,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Wall"
+    ],
+    "abilities": [],
+    "notes": ""
+}

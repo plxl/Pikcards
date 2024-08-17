@@ -1,0 +1,30 @@
+{
+    "set": "1",
+    "number": 16,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Water Dumple",
+    "image": "16_Water_Dumple.png",
+    "class_": 2,
+    "type": 0,
+    "energy": 2,
+    "time": 3,
+    "attack": 3,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [
+        "Water"
+    ],
+    "weaknesses": [],
+    "traits": [
+        "Explorer"
+    ],
+    "abilities": [],
+    "notes": ""
+}

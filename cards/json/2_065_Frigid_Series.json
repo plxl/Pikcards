@@ -1,0 +1,30 @@
+{
+    "set": "2",
+    "number": 65,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Frigid Series",
+    "image": "065_Frigid_Series.png",
+    "class_": 2,
+    "type": 1,
+    "energy": 2,
+    "time": 2,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Debt Treasure"
+    ],
+    "abilities": [
+        "Draw"
+    ],
+    "notes": ""
+}

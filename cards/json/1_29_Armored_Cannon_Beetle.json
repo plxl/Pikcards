@@ -1,0 +1,38 @@
+{
+    "set": "1",
+    "number": 29,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Armored Cannon Beetle",
+    "image": "29_Armored_Cannon_Beetle.png",
+    "class_": 2,
+    "type": 0,
+    "energy": 5,
+    "time": 5,
+    "attack": 3,
+    "health": 6,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Crush"
+    ],
+    "immunities": [
+        "Piercing",
+        "Explosive"
+    ],
+    "weaknesses": [
+        "First Strike",
+        "Up High"
+    ],
+    "traits": [
+        "Defense",
+        "Indirect",
+        "Swarm"
+    ],
+    "abilities": [],
+    "notes": ""
+}

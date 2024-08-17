@@ -1,0 +1,31 @@
+{
+    "set": "1",
+    "number": 50,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Anti-Dioxin Filter",
+    "image": "50_Anti-Dioxin_Filter.png",
+    "class_": 2,
+    "type": 1,
+    "energy": 2,
+    "time": 1,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [
+        "Fire",
+        "Poison"
+    ],
+    "weaknesses": [],
+    "traits": [
+        "Dolphin Part"
+    ],
+    "abilities": [],
+    "notes": ""
+}

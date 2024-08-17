@@ -1,0 +1,32 @@
+{
+    "set": "1",
+    "number": 21,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Swooping Snitchbug",
+    "image": "21_Swooping_Snitchbug.png",
+    "class_": 1,
+    "type": 0,
+    "energy": 2,
+    "time": 4,
+    "attack": 2,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "First Strike",
+        "Up High",
+        "Swarm"
+    ],
+    "abilities": [
+        "Return"
+    ],
+    "notes": ""
+}

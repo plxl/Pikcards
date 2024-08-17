@@ -1,0 +1,30 @@
+{
+    "set": "1",
+    "number": 57,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Zirconium Rotor",
+    "image": "57_Zirconium_Rotor.png",
+    "class_": 3,
+    "type": 1,
+    "energy": 3,
+    "time": 4,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Dolphin Part"
+    ],
+    "abilities": [
+        "Part Creation"
+    ],
+    "notes": ""
+}

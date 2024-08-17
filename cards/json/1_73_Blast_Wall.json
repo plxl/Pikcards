@@ -1,0 +1,29 @@
+{
+    "set": "1",
+    "number": 73,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Blast Wall",
+    "image": "73_Blast_Wall.png",
+    "class_": 2,
+    "type": 0,
+    "energy": 3,
+    "time": 6,
+    "attack": 0,
+    "health": 8,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Defense",
+        "Wall"
+    ],
+    "abilities": [],
+    "notes": ""
+}

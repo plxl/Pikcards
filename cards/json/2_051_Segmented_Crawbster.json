@@ -1,0 +1,31 @@
+{
+    "set": "2",
+    "number": 51,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Segmented Crawbster",
+    "image": "051_Segmented_Crawbster.png",
+    "class_": 0,
+    "type": 0,
+    "energy": 7,
+    "time": 5,
+    "attack": 7,
+    "health": 4,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Defense"
+    ],
+    "abilities": [
+        "Rockfall",
+        "Reckless Roll"
+    ],
+    "notes": "On Boulder targets"
+}

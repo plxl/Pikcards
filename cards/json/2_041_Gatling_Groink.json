@@ -1,0 +1,36 @@
+{
+    "set": "2",
+    "number": 41,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Gatling Groink",
+    "image": "041_Gatling_Groink.png",
+    "class_": 0,
+    "type": 0,
+    "energy": 6,
+    "time": 5,
+    "attack": 2,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Explosive"
+    ],
+    "immunities": [
+        "First Strike",
+        "Up High"
+    ],
+    "weaknesses": [],
+    "traits": [
+        "2 Defense"
+    ],
+    "abilities": [
+        "Spread Shot",
+        "Wind Shield"
+    ],
+    "notes": ""
+}

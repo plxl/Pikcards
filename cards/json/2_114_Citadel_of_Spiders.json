@@ -1,0 +1,28 @@
+{
+    "set": "2",
+    "number": 114,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Citadel of Spiders",
+    "image": "114_Citadel_of_Spiders.png",
+    "class_": 3,
+    "type": 3,
+    "energy": 2,
+    "time": 4,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Citadel of Spiders"
+    ],
+    "notes": ""
+}

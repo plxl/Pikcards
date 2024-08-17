@@ -1,0 +1,35 @@
+{
+    "set": "2",
+    "number": 20,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Armored Cannon Larva",
+    "image": "020_Armored_Cannon_Larva.png",
+    "class_": 1,
+    "type": 0,
+    "energy": 3,
+    "time": 3,
+    "attack": 3,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Crush"
+    ],
+    "immunities": [],
+    "weaknesses": [
+        "Up High"
+    ],
+    "traits": [
+        "Indirect",
+        "Burrowing"
+    ],
+    "abilities": [
+        "Transform"
+    ],
+    "notes": ""
+}

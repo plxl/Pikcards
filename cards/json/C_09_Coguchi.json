@@ -1,0 +1,33 @@
+{
+    "set": "C",
+    "number": 9,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Coguchi",
+    "image": "09_Coguchi.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 1,
+    "time": 4,
+    "attack": 1,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [
+        "Area"
+    ],
+    "traits": [
+        "First Strike"
+    ],
+    "abilities": [
+        "School Call",
+        "Jump Out"
+    ],
+    "notes": ""
+}

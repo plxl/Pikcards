@@ -1,0 +1,30 @@
+{
+    "set": "C",
+    "number": 16,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Victory Macaroon",
+    "image": "16_Victory_Macaroon.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 5,
+    "time": 30,
+    "attack": 0,
+    "health": 1,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Passive"
+    ],
+    "abilities": [
+        "Victory"
+    ],
+    "notes": ""
+}

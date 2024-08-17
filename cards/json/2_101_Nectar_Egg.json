@@ -1,0 +1,30 @@
+{
+    "set": "2",
+    "number": 101,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Nectar Egg",
+    "image": "101_Nectar_Egg.png",
+    "class_": 2,
+    "type": 0,
+    "energy": 2,
+    "time": 4,
+    "attack": 0,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Passive"
+    ],
+    "abilities": [
+        "Egg Crack"
+    ],
+    "notes": "Chance Weight"
+}

@@ -1,0 +1,28 @@
+{
+    "set": "2",
+    "number": 110,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Hole of Beasts",
+    "image": "110_Hole_of_Beasts.png",
+    "class_": 3,
+    "type": 3,
+    "energy": 0,
+    "time": 2,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Hole of Beasts"
+    ],
+    "notes": "Chance Weight"
+}

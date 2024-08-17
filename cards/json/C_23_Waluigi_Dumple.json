@@ -1,0 +1,33 @@
+{
+    "set": "C",
+    "number": 23,
+    "fifth": true,
+    "rarity": 1,
+    "name": "Waluigi Dumple",
+    "image": "23_Waluigi_Dumple.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 5,
+    "time": 0,
+    "attack": 1,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [
+        "Water"
+    ],
+    "weaknesses": [],
+    "traits": [
+        "Explorer"
+    ],
+    "abilities": [
+        "Conjure",
+        "Wa Boost"
+    ],
+    "notes": "Chance Weight"
+}

@@ -1,0 +1,31 @@
+{
+    "set": "2",
+    "number": 52,
+    "fifth": true,
+    "rarity": 1,
+    "name": "Waterwraith",
+    "image": "052_Waterwraith.png",
+    "class_": 2,
+    "type": 0,
+    "energy": 2,
+    "time": 5,
+    "attack": 1,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Crush"
+    ],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Chase",
+        "Roll Over"
+    ],
+    "notes": ""
+}

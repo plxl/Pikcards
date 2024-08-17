@@ -1,0 +1,31 @@
+{
+    "set": "1",
+    "number": 8,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Blue Pikmin",
+    "image": "08_Blue_Pikmin.png",
+    "class_": 2,
+    "type": 0,
+    "energy": 1,
+    "time": 1,
+    "attack": 1,
+    "health": 1,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [
+        "Water"
+    ],
+    "weaknesses": [],
+    "traits": [
+        "Explorer",
+        "Pikmin"
+    ],
+    "abilities": [],
+    "notes": ""
+}

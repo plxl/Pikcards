@@ -1,0 +1,34 @@
+{
+    "set": "1",
+    "number": 17,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Female Sheargrub",
+    "image": "17_Female_Sheargrub.png",
+    "class_": 3,
+    "type": 0,
+    "energy": 0,
+    "time": 1,
+    "attack": 0,
+    "health": 1,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [
+        "Burrowing"
+    ],
+    "weaknesses": [
+        "Crush"
+    ],
+    "traits": [
+        "Swarm"
+    ],
+    "abilities": [
+        "Swarm"
+    ],
+    "notes": ""
+}

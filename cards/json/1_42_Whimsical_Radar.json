@@ -1,0 +1,30 @@
+{
+    "set": "1",
+    "number": 42,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Whimsical Radar",
+    "image": "42_Whimsical_Radar.png",
+    "class_": 1,
+    "type": 1,
+    "energy": 2,
+    "time": 4,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Dolphin Part"
+    ],
+    "abilities": [
+        "Search Area"
+    ],
+    "notes": "Chance Weight"
+}

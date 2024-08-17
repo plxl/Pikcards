@@ -1,0 +1,28 @@
+{
+    "set": "2",
+    "number": 117,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Submerged Castle",
+    "image": "117_Submerged_Castle.png",
+    "class_": 2,
+    "type": 3,
+    "energy": 1,
+    "time": 2,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Submerged Castle"
+    ],
+    "notes": ""
+}

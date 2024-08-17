@@ -1,0 +1,34 @@
+{
+    "set": "C",
+    "number": 11,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Bulborb Larva Nest",
+    "image": "11_Bulborb_Larva_Nest.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 3,
+    "time": 3,
+    "attack": 0,
+    "health": 4,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [
+        "Digging",
+        "Burrowing"
+    ],
+    "traits": [
+        "Burrowing",
+        "Passive"
+    ],
+    "abilities": [
+        "Conjure"
+    ],
+    "notes": ""
+}

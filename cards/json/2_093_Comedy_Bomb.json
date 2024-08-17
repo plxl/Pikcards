@@ -1,0 +1,32 @@
+{
+    "set": "2",
+    "number": 93,
+    "fifth": true,
+    "rarity": 1,
+    "name": "Comedy Bomb",
+    "image": "093_Comedy_Bomb.png",
+    "class_": 0,
+    "type": 1,
+    "energy": 2,
+    "time": 4,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        true,
+        false
+    ],
+    "elements": [
+        "Poison"
+    ],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Debt Treasure"
+    ],
+    "abilities": [
+        "Petrify"
+    ],
+    "notes": ""
+}

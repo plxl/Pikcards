@@ -1,0 +1,28 @@
+{
+    "set": "2",
+    "number": 104,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Awakening Wood",
+    "image": "104_Awakening_Wood.png",
+    "class_": 3,
+    "type": 2,
+    "energy": 4,
+    "time": 4,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Awakening Wood"
+    ],
+    "notes": ""
+}

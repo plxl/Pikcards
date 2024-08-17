@@ -1,0 +1,33 @@
+{
+    "set": "2",
+    "number": 8,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Burgeoning Spiderwort",
+    "image": "008_Burgeoning_Spiderwort.png",
+    "class_": 3,
+    "type": 0,
+    "energy": 4,
+    "time": 1,
+    "attack": 0,
+    "health": 4,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [
+        "Fire",
+        "Mushroom"
+    ],
+    "traits": [
+        "Passive"
+    ],
+    "abilities": [
+        "Berry Boost"
+    ],
+    "notes": "Chance Weight"
+}

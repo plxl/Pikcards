@@ -1,0 +1,28 @@
+{
+    "set": "2",
+    "number": 95,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Ultra-Spicy Spray",
+    "image": "095_Ultra-Spicy_Spray.png",
+    "class_": 0,
+    "type": 1,
+    "energy": 3,
+    "time": 4,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Spice-it-up"
+    ],
+    "notes": ""
+}

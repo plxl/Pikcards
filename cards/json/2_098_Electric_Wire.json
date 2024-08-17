@@ -1,0 +1,33 @@
+{
+    "set": "2",
+    "number": 98,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Electric Wire",
+    "image": "098_Electric_Wire.png",
+    "class_": 3,
+    "type": 0,
+    "energy": 3,
+    "time": 2,
+    "attack": 3,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Electricity"
+    ],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Wall"
+    ],
+    "abilities": [
+        "Shock",
+        "Static"
+    ],
+    "notes": ""
+}

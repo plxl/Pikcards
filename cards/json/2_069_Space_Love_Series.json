@@ -1,0 +1,30 @@
+{
+    "set": "2",
+    "number": 69,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Space Love Series",
+    "image": "069_Space_Love_Series.png",
+    "class_": 1,
+    "type": 1,
+    "energy": 0,
+    "time": 3,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        true,
+        false,
+        false,
+        true
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Debt Treasure"
+    ],
+    "abilities": [
+        "Health Boost"
+    ],
+    "notes": ""
+}

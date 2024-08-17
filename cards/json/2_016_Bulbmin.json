@@ -1,0 +1,32 @@
+{
+    "set": "2",
+    "number": 16,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Bulbmin",
+    "image": "016_Bulbmin.png",
+    "class_": 2,
+    "type": 0,
+    "energy": 4,
+    "time": 4,
+    "attack": 2,
+    "health": 4,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [
+        "Fire",
+        "Ice"
+    ],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Abandon",
+        "Pikmin-like"
+    ],
+    "notes": ""
+}

@@ -1,0 +1,28 @@
+{
+    "set": "1",
+    "number": 80,
+    "fifth": false,
+    "rarity": 1,
+    "name": "The Final Trial",
+    "image": "80_The_Final_Trial.png",
+    "class_": 0,
+    "type": 2,
+    "energy": 3,
+    "time": 4,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Final Trial"
+    ],
+    "notes": ""
+}

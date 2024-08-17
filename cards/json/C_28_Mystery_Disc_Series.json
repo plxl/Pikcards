@@ -1,0 +1,30 @@
+{
+    "set": "C",
+    "number": 28,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Mystery Disc Series",
+    "image": "28_Mystery_Disc_Series.png",
+    "class_": 4,
+    "type": 1,
+    "energy": 3,
+    "time": 2,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Debt Treasure"
+    ],
+    "abilities": [
+        "Cover"
+    ],
+    "notes": ""
+}

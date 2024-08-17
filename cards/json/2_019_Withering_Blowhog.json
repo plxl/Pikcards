@@ -1,0 +1,32 @@
+{
+    "set": "2",
+    "number": 19,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Withering Blowhog",
+    "image": "019_Withering_Blowhog.png",
+    "class_": 2,
+    "type": 0,
+    "energy": 2,
+    "time": 4,
+    "attack": 0,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Up High",
+        "Indirect"
+    ],
+    "abilities": [
+        "Weaken",
+        "Return"
+    ],
+    "notes": ""
+}

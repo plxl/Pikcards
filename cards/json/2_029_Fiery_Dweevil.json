@@ -1,0 +1,36 @@
+{
+    "set": "2",
+    "number": 29,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Fiery Dweevil",
+    "image": "029_Fiery_Dweevil.png",
+    "class_": 1,
+    "type": 0,
+    "energy": 2,
+    "time": 3,
+    "attack": 3,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Fire"
+    ],
+    "immunities": [
+        "Fire"
+    ],
+    "weaknesses": [
+        "Crush",
+        "Piercing"
+    ],
+    "traits": [],
+    "abilities": [
+        "Terrified",
+        "Carry Camo"
+    ],
+    "notes": ""
+}

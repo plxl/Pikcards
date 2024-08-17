@@ -1,0 +1,33 @@
+{
+    "set": "1",
+    "number": 25,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Breadbug",
+    "image": "25_Breadbug.png",
+    "class_": 1,
+    "type": 0,
+    "energy": 3,
+    "time": 2,
+    "attack": 1,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [
+        "Crush"
+    ],
+    "traits": [
+        "Defense",
+        "Digging"
+    ],
+    "abilities": [
+        "Item Thief"
+    ],
+    "notes": ""
+}

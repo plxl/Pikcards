@@ -1,0 +1,32 @@
+{
+    "set": "2",
+    "number": 25,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Cloaking Burrow-nit",
+    "image": "025_Cloaking_Burrow-nit.png",
+    "class_": 3,
+    "type": 0,
+    "energy": 3,
+    "time": 3,
+    "attack": 1,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Piercing"
+    ],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Burrowing",
+        "2 Defense",
+        "Swarm"
+    ],
+    "abilities": [],
+    "notes": ""
+}

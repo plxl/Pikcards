@@ -1,0 +1,29 @@
+{
+    "set": "1",
+    "number": 15,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Dwarf Bulbear",
+    "image": "15_Dwarf_Bulbear.png",
+    "class_": 0,
+    "type": 0,
+    "energy": 2,
+    "time": 4,
+    "attack": 3,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [
+        "Crush",
+        "First Strike"
+    ],
+    "traits": [],
+    "abilities": [],
+    "notes": ""
+}

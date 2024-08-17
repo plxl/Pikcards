@@ -1,0 +1,30 @@
+{
+    "set": "C",
+    "number": 1,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Bean Pikmin",
+    "image": "01_Bean_Pikmin.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 1,
+    "time": 1,
+    "attack": 1,
+    "health": 1,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Pikmin"
+    ],
+    "abilities": [
+        "Bean"
+    ],
+    "notes": ""
+}

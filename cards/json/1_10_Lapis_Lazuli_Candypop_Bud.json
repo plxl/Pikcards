@@ -1,0 +1,30 @@
+{
+    "set": "1",
+    "number": 10,
+    "fifth": true,
+    "rarity": 1,
+    "name": "Lapis Lazuli Candypop Bud",
+    "image": "10_Lapis_Lazuli_Candypop_Bud.png",
+    "class_": 2,
+    "type": 0,
+    "energy": 2,
+    "time": 2,
+    "attack": 0,
+    "health": 2,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Passive"
+    ],
+    "abilities": [
+        "Candypop"
+    ],
+    "notes": ""
+}

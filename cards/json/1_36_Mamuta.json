@@ -1,0 +1,33 @@
+{
+    "set": "1",
+    "number": 36,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Mamuta",
+    "image": "36_Mamuta.png",
+    "class_": 0,
+    "type": 0,
+    "energy": 3,
+    "time": 5,
+    "attack": 8,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Crush"
+    ],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Passive"
+    ],
+    "abilities": [
+        "Conjure",
+        "Return"
+    ],
+    "notes": ""
+}

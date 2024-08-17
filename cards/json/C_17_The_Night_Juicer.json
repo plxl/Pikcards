@@ -1,0 +1,28 @@
+{
+    "set": "C",
+    "number": 17,
+    "fifth": true,
+    "rarity": 1,
+    "name": "The Night Juicer",
+    "image": "17_The_Night_Juicer.png",
+    "class_": 4,
+    "type": 3,
+    "energy": 2,
+    "time": 2,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "The Night Juicer"
+    ],
+    "notes": ""
+}

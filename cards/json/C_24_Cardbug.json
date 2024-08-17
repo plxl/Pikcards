@@ -1,0 +1,34 @@
+{
+    "set": "C",
+    "number": 24,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Cardbug",
+    "image": "24_Cardbug.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 3,
+    "time": 3,
+    "attack": 1,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [
+        "Crush"
+    ],
+    "traits": [
+        "Defense",
+        "Digging",
+        "Passive"
+    ],
+    "abilities": [
+        "Item Gifter"
+    ],
+    "notes": ""
+}

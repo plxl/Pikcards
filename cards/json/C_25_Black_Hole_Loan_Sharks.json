@@ -1,0 +1,34 @@
+{
+    "set": "C",
+    "number": 25,
+    "fifth": false,
+    "rarity": 2,
+    "name": "Black Hole Loan Sharks",
+    "image": "25_Black_Hole_Loan_Sharks.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 6,
+    "time": 3,
+    "attack": 2,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Gloom",
+        "Ice"
+    ],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Burrowing",
+        "Passive"
+    ],
+    "abilities": [
+        "Killer Debt"
+    ],
+    "notes": ""
+}

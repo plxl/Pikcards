@@ -1,0 +1,36 @@
+{
+    "set": "2",
+    "number": 46,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Giant Breadbug",
+    "image": "046_Giant_Breadbug.png",
+    "class_": 1,
+    "type": 0,
+    "energy": 4,
+    "time": 5,
+    "attack": 1,
+    "health": 5,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [
+        "First Strike"
+    ],
+    "weaknesses": [
+        "Crush"
+    ],
+    "traits": [
+        "Defense",
+        "Digging"
+    ],
+    "abilities": [
+        "Carry",
+        "Item Thief"
+    ],
+    "notes": ""
+}

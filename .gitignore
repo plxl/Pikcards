@@ -1,0 +1,6 @@
+.venv
+__pycache__
+/allcards.tsv
+/cards.zip
+/cards/images/*.png
+.DS_Store

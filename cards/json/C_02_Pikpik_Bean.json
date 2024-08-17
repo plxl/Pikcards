@@ -1,0 +1,28 @@
+{
+    "set": "C",
+    "number": 2,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Pikpik Bean?",
+    "image": "02_Pikpik_Bean.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 0,
+    "time": 0,
+    "attack": 0,
+    "health": 1,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Heal"
+    ],
+    "notes": ""
+}

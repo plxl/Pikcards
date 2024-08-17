@@ -1,0 +1,30 @@
+{
+    "set": "2",
+    "number": 72,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Blast from the Past Series",
+    "image": "072_Blast_from_the_Past_Series.png",
+    "class_": 1,
+    "type": 1,
+    "energy": 3,
+    "time": 5,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Debt Treasure"
+    ],
+    "abilities": [
+        "Conjure"
+    ],
+    "notes": "Chance Weight"
+}

@@ -1,0 +1,31 @@
+{
+    "set": "C",
+    "number": 13,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Blonghong",
+    "image": "13_Blonghong.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 2,
+    "time": 3,
+    "attack": 0,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Up High",
+        "Indirect"
+    ],
+    "abilities": [
+        "Return"
+    ],
+    "notes": ""
+}

@@ -1,0 +1,36 @@
+{
+    "set": "2",
+    "number": 5,
+    "fifth": true,
+    "rarity": 0,
+    "name": "White Pikmin",
+    "image": "005_White_Pikmin.png",
+    "class_": 1,
+    "type": 0,
+    "energy": 2,
+    "time": 3,
+    "attack": 1,
+    "health": 1,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Poison"
+    ],
+    "immunities": [
+        "Poison"
+    ],
+    "weaknesses": [],
+    "traits": [
+        "Digging",
+        "Pikmin"
+    ],
+    "abilities": [
+        "Poison Body",
+        "Speedy Feet"
+    ],
+    "notes": ""
+}

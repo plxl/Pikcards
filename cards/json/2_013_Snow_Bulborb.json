@@ -1,0 +1,33 @@
+{
+    "set": "2",
+    "number": 13,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Snow Bulborb",
+    "image": "013_Snow_Bulborb.png",
+    "class_": 2,
+    "type": 0,
+    "energy": 2,
+    "time": 4,
+    "attack": 2,
+    "health": 5,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [
+        "Ice"
+    ],
+    "weaknesses": [
+        "Crush",
+        "First Strike"
+    ],
+    "traits": [
+        "Explorer"
+    ],
+    "abilities": [],
+    "notes": ""
+}

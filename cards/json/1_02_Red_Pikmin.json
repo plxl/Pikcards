@@ -1,0 +1,30 @@
+{
+    "set": "1",
+    "number": 2,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Red Pikmin",
+    "image": "02_Red_Pikmin.png",
+    "class_": 0,
+    "type": 0,
+    "energy": 1,
+    "time": 1,
+    "attack": 2,
+    "health": 1,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [
+        "Fire"
+    ],
+    "weaknesses": [],
+    "traits": [
+        "Pikmin"
+    ],
+    "abilities": [],
+    "notes": ""
+}

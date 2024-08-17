@@ -1,0 +1,31 @@
+{
+    "set": "1",
+    "number": 54,
+    "fifth": true,
+    "rarity": 0,
+    "name": "#2 Ionium Jet",
+    "image": "54_#2_Ionium_Jet.png",
+    "class_": 3,
+    "type": 1,
+    "energy": 1,
+    "time": 1,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Multi-Attack",
+        "Dolphin Part"
+    ],
+    "abilities": [
+        "Synergy"
+    ],
+    "notes": ""
+}

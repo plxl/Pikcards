@@ -1,0 +1,31 @@
+{
+    "set": "1",
+    "number": 13,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Dwarf Bulborb",
+    "image": "13_Dwarf_Bulborb.png",
+    "class_": 1,
+    "type": 0,
+    "energy": 2,
+    "time": 2,
+    "attack": 2,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [
+        "Crush",
+        "First Strike"
+    ],
+    "traits": [],
+    "abilities": [
+        "Iconic"
+    ],
+    "notes": ""
+}

@@ -1,0 +1,31 @@
+{
+    "set": "2",
+    "number": 3,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Purple Pikmin",
+    "image": "003_Purple_Pikmin.png",
+    "class_": 0,
+    "type": 0,
+    "energy": 2,
+    "time": 3,
+    "attack": 2,
+    "health": 1,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Pikmin"
+    ],
+    "abilities": [
+        "Thud Entrance",
+        "Steady Feet"
+    ],
+    "notes": ""
+}

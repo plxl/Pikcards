@@ -1,0 +1,28 @@
+{
+    "set": "2",
+    "number": 120,
+    "fifth": true,
+    "rarity": 2,
+    "name": "Dream Den",
+    "image": "120_Dream_Den.png",
+    "class_": 2,
+    "type": 3,
+    "energy": 2,
+    "time": 1,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Dream Den"
+    ],
+    "notes": ""
+}

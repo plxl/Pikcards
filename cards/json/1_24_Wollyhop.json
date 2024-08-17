@@ -1,0 +1,31 @@
+{
+    "set": "1",
+    "number": 24,
+    "fifth": false,
+    "rarity": 0,
+    "name": "Wollyhop",
+    "image": "24_Wollyhop.png",
+    "class_": 0,
+    "type": 0,
+    "energy": 3,
+    "time": 4,
+    "attack": 4,
+    "health": 1,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Crush",
+        "Water"
+    ],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "First Strike"
+    ],
+    "abilities": [],
+    "notes": ""
+}

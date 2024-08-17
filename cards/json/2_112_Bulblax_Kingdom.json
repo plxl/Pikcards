@@ -1,0 +1,28 @@
+{
+    "set": "2",
+    "number": 112,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Bulblax Kingdom",
+    "image": "112_Bulblax_Kingdom.png",
+    "class_": 0,
+    "type": 3,
+    "energy": 2,
+    "time": 3,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [],
+    "abilities": [
+        "Bulblax Kingdom"
+    ],
+    "notes": ""
+}

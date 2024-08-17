@@ -1,0 +1,30 @@
+{
+    "set": "2",
+    "number": 58,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Gourmet Series",
+    "image": "058_Gourmet_Series.png",
+    "class_": 0,
+    "type": 1,
+    "energy": 2,
+    "time": 3,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [],
+    "weaknesses": [],
+    "traits": [
+        "Debt Treasure"
+    ],
+    "abilities": [
+        "Gourmand"
+    ],
+    "notes": ""
+}

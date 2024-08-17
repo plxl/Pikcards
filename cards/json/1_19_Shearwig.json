@@ -1,0 +1,35 @@
+{
+    "set": "1",
+    "number": 19,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Shearwig",
+    "image": "19_Shearwig.png",
+    "class_": 3,
+    "type": 0,
+    "energy": 2,
+    "time": 1,
+    "attack": 2,
+    "health": 1,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [],
+    "immunities": [
+        "Burrowing",
+        "Up High"
+    ],
+    "weaknesses": [
+        "Crush"
+    ],
+    "traits": [
+        "Swarm"
+    ],
+    "abilities": [
+        "Swarm"
+    ],
+    "notes": ""
+}

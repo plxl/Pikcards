@@ -1,0 +1,35 @@
+{
+    "set": "2",
+    "number": 63,
+    "fifth": true,
+    "rarity": 0,
+    "name": "Tortured Artist Series",
+    "image": "063_Tortured_Artist_Series.png",
+    "class_": 1,
+    "type": 1,
+    "energy": 2,
+    "time": 2,
+    "attack": 0,
+    "health": 0,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Poison",
+        "Piercing"
+    ],
+    "immunities": [
+        "Water",
+        "First Strike"
+    ],
+    "weaknesses": [],
+    "traits": [
+        "Explorer",
+        "Debt Treasure"
+    ],
+    "abilities": [],
+    "notes": ""
+}

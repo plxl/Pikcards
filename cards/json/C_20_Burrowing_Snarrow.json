@@ -1,0 +1,36 @@
+{
+    "set": "C",
+    "number": 20,
+    "fifth": false,
+    "rarity": 1,
+    "name": "Burrowing Snarrow",
+    "image": "20_Burrowing_Snarrow.png",
+    "class_": 4,
+    "type": 0,
+    "energy": 4,
+    "time": 5,
+    "attack": 3,
+    "health": 3,
+    "additions": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "elements": [
+        "Piercing"
+    ],
+    "immunities": [],
+    "weaknesses": [
+        "First Strike"
+    ],
+    "traits": [
+        "Burrowing",
+        "Up High"
+    ],
+    "abilities": [
+        "Blind",
+        "Mystery Creature"
+    ],
+    "notes": "Chance Weight"
+}
