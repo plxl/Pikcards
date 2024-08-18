@@ -19,6 +19,7 @@ p2: Player = Player("CPU", False)
 p2.SetDeck(sample_deck.copy())
 
 p1.Draw(4)
+
 p2.Draw(4)
 
 p1.PrintHand()
