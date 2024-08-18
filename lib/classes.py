@@ -109,18 +109,20 @@ class Player:
         self.deck: list[Card] = []
         self.hand: list[Card] = []
 
-    def SetDeck(self, deck: list) -> None:
+    def SetDeck(self, deck: list[str]) -> None:
         if all(isinstance(element, str) for element in deck):
             self.original_deck = []
 
             for card in deck:
-                self.original_deck.append(
-                    [
-                        deepcopy(c)
-                        for c in Cards
-                        if c.name.lower().strip() == card.lower().strip()
-                    ][0]
-                )
+                cards_found = [
+                    deepcopy(c)
+                    for c in Cards
+                    if c.name.lower().strip() == card.lower().strip()
+                ]
+                if len(cards_found) == 0:
+                    raise Exception(f'"{card}" was not found in the card database')
+
+                self.original_deck.append(cards_found[0])
 
         else:
             self.original_deck = deck
