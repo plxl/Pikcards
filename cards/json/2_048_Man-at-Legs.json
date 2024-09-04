@@ -8,7 +8,7 @@
     "class_": 3,
     "type": 0,
     "energy": 3,
-    "time": 11,
+    "time": 13,
     "attack": 1,
     "health": 2,
     "additions": [
@@ -27,7 +27,8 @@
     "weaknesses": [],
     "traits": [
         "Multi-Attack",
-        "Up High"
+        "Up High",
+        "Indirect"
     ],
     "abilities": [
         "Turret",
