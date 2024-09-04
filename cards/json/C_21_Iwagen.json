@@ -24,6 +24,7 @@
     "weaknesses": [],
     "traits": [
         "Multi-Attack",
+        "Indirect",
         "Digging",
         "Wall"
     ],

@@ -21,6 +21,8 @@
     "immunities": [],
     "weaknesses": [
         "Up High",
+        "First Strike",
+        "Crush",
         "Poison"
     ],
     "traits": [

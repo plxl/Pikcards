@@ -19,6 +19,8 @@
     ],
     "elements": [
         "Fire",
+        "Water",
+        "Electricity",
         "Poison"
     ],
     "immunities": [],
@@ -28,6 +30,7 @@
     ],
     "abilities": [
         "Carry",
+        "Carry Force",
         "Weapon Selection"
     ],
     "notes": ""

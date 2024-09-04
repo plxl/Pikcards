@@ -19,6 +19,7 @@
     ],
     "elements": [
         "Water",
+        "Gloom",
         "Poison"
     ],
     "immunities": [

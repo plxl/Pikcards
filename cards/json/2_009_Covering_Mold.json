@@ -25,6 +25,11 @@
     ],
     "weaknesses": [
         "Fire",
+        "Water",
+        "Electricity",
+        "Poison",
+        "Ice",
+        "Gloom",
         "Piercing"
     ],
     "traits": [

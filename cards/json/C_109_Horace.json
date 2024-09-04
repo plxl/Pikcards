@@ -19,12 +19,14 @@
     ],
     "elements": [
         "Gloom",
+        "Poison",
         "Explosive"
     ],
     "immunities": [],
     "weaknesses": [],
     "traits": [
         "Indirect",
+        "Up High",
         "Multi-Attack"
     ],
     "abilities": [

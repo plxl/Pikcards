@@ -9,16 +9,17 @@
     "type": 1,
     "energy": 2,
     "time": 2,
-    "attack": 0,
-    "health": 0,
+    "attack": -2,
+    "health": -2,
     "additions": [
         false,
         false,
-        false,
-        false
+        true,
+        true
     ],
     "elements": [
         "Poison",
+        "Gloom",
         "Piercing"
     ],
     "immunities": [

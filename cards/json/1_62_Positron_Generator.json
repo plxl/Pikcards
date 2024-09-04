@@ -9,12 +9,12 @@
     "type": 1,
     "energy": 3,
     "time": 4,
-    "attack": 0,
+    "attack": -1,
     "health": 0,
     "additions": [
         false,
         false,
-        false,
+        true,
         false
     ],
     "elements": [],
