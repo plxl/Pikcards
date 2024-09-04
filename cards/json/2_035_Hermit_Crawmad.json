@@ -22,6 +22,7 @@
     ],
     "immunities": [
         "Water",
+        "Piercing",
         "First Strike"
     ],
     "weaknesses": [],

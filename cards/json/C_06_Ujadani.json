@@ -28,6 +28,7 @@
     ],
     "abilities": [
         "Counter Only",
+        "Panic",
         "Conjure"
     ],
     "notes": "Chance Weight"

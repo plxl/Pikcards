@@ -23,6 +23,7 @@
     "immunities": [],
     "weaknesses": [
         "Crush",
+        "First Strike",
         "Explosive"
     ],
     "traits": [],

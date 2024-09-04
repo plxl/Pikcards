@@ -9,7 +9,7 @@
     "type": 1,
     "energy": 4,
     "time": 6,
-    "attack": 0,
+    "attack": 1,
     "health": 0,
     "additions": [
         false,

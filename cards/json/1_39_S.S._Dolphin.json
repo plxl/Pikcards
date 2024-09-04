@@ -20,6 +20,7 @@
     "elements": [],
     "immunities": [
         "Poison",
+        "Mushroom",
         "Piercing"
     ],
     "weaknesses": [],
@@ -28,6 +29,7 @@
     ],
     "abilities": [
         "Carry",
+        "Dolphin Powers",
         "Big Heal"
     ],
     "notes": ""

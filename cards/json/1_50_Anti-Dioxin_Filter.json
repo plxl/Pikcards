@@ -20,6 +20,8 @@
     "elements": [],
     "immunities": [
         "Fire",
+        "Water",
+        "Electricity",
         "Poison"
     ],
     "weaknesses": [],
