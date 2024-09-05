@@ -228,7 +228,11 @@ class Game:
                     fs = "First Strike"
                     if fs in m1.traits and not (fs in m2.traits):
                         # m1 attacks first and kills if possible
-                        m2.health -= m1.attack
+                        damagetaken = m1.attack - m2.defense
+                        if damagetaken < 0:
+                            damagetaken = 0
+                        m2.health -= damagetaken
+
                         if m2.health <= 0:
                             print(
                                 f"{ls}Your {m1.name} defeated the {m2.name} before it "
@@ -243,9 +247,14 @@ class Game:
                             else:
                                 print(f"{ls}Both minions survived each other's wrath!")
                         continue
+
                     elif fs in m2.traits and not (fs in m1.traits):
                         # m2 attacks first and kills if possible
-                        m1.health -= m2.attack
+                        damagetaken = m2.attack - m1.defense
+                        if damagetaken < 0:
+                            damagetaken = 0
+                        m1.health -= damagetaken
+
                         if m1.health <= 0:
                             print(f"{ls}CPU's {m2.name} defeated your {m1.name}...")
                             minions[0].remove(m1)
@@ -262,8 +271,15 @@ class Game:
                         continue
 
                     # neither has First Strike or both have First Strike, so simultaneous attack
-                    m1.health -= m2.attack
-                    m2.health -= m1.attack
+                    m1damagetaken = m2.attack - m1.defense
+                    if m1damagetaken < 0:
+                        m1damagetaken = 0
+                    m1.health -= m1damagetaken
+
+                    m2damagetaken = m1.attack - m2.defense
+                    if m2damagetaken < 0:
+                        m2damagetaken = 0
+                    m2.health -= m2damagetaken
 
                     if m1.health <= 0 and m2.health <= 0:
                         print(
