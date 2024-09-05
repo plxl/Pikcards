@@ -1,102 +1,12 @@
 import json
-from os import listdir
 import random
+from .card import *
 from copy import deepcopy
-from enum import Enum
 from beautifultable import BeautifulTable
-from os import path, getcwd
 
 
 def oprint(obj):
     print(json.dumps(obj, default=lambda o: o.__dict__, indent=4))
-
-
-class Class:
-    NONE = 0
-    FIGHTING = 1
-    TRAPPERS = 2
-    SURVIVAL = 3
-    BOOSTER = 4
-    HANDY = 5
-
-
-class Type:
-    Minion = 0
-    Item = 1
-    Area = 2
-    Exploration = 3
-
-
-Rarity = Enum(
-    value="Rarity",
-    names=[
-        ("Plain",     0),
-        ("Common",    1),
-        ("Rare",      2),
-        ("Very Rare", 3)])
-
-
-class Card:
-    def __init__(
-        self,
-        set,
-        number,
-        fifth,
-        rarity,
-        name,
-        image,
-        class_,
-        type,
-        energy,
-        time,
-        attack,
-        health,
-        additions,
-        elements,
-        immunities,
-        weaknesses,
-        traits,
-        abilities,
-        notes,
-    ) -> None:
-        self.set: str = set
-        self.number: int = number
-        self.fifth: bool = fifth
-        self.rarity: int = rarity
-        self.name: str = name
-        self.image: str = image
-        self.class_: int = class_
-        self.type: int = type
-        self.energy: int = energy
-        self.time: int = time
-        self.attack: int = attack
-        self.health: int = health
-        self.additions: list = additions
-        self.elements: list = elements
-        self.immunities: list = immunities
-        self.weaknesses: list = weaknesses
-        self.traits: list = traits
-        self.abilities: list = abilities
-        self.notes: str = notes
-
-    def toJSON(self):
-        return json.dumps(self, default=lambda o: o.__dict__, indent=4)
-
-    def load_cards():
-        folder = path.join(getcwd(), "cards", "json")
-        jsons = [
-            path.join(folder, j) for j in listdir(folder) if j.lower().endswith(".json")
-        ]
-
-        print("Loading Cards...")
-        for j in jsons:
-            # print(f'Loading {j}...')
-            f = open(j, "r")
-            Cards.append(json.loads(f.read(), object_hook=lambda d: Card(**d)))
-            f.close()
-
-
-Cards: list[Card] = []
 
 
 class Player:
@@ -197,13 +107,13 @@ class Player:
         print()
 
     def HasMinions(self) -> bool:
-        if any(c.type == Type.Minion for c in self.hand):
+        if any(c.cardtype == CardType.Minion for c in self.hand):
             return True
 
         return False
 
     def HasItems(self) -> bool:
-        if any(c.type == Type.Item for c in self.hand):
+        if any(c.cardtype == CardType.Item for c in self.hand):
             return True
 
         return False

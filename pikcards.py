@@ -17,7 +17,7 @@ pname = input("What is your name?\n")
 print("Select a deck:")
 for deck in decks:
     i = decks.index(deck)
-    print(f"{i + 1}. {deck["name"]}")
+    print(f"{i + 1}. {deck['name']}")
     
 deck_selection = input("Select a number or leave blank for random: ")
 deck = decks[random.randint(0, len(decks) - 1)]["cards"]

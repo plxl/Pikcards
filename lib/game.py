@@ -1,4 +1,5 @@
 from .classes import *
+from .card import *
 from beautifultable import BeautifulTable
 import platform, subprocess
 from time import sleep
@@ -89,7 +90,7 @@ class Game:
             return lanes
 
         # force the card to be a minion (temporary)
-        if card.type != Type.Minion:
+        if card.cardtype != CardType.Minion:
             return lanes
 
         # Check energy requirements
