@@ -81,8 +81,8 @@ def parse_allcards_tsv():
             Rarity[str(values[3]).title()].value,  # rarity
             str(values[4]),  # name
             "",  # image
-            Class[str(values[5]).upper()].value,  # class
-            Type[str(values[6]).title()].value,  # type
+            CardClass[str(values[5]).upper()].value,  # class
+            CardType[str(values[6]).title()].value,  # type
             0,
             0,
             0,
