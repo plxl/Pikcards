@@ -48,11 +48,14 @@ class Player:
         if number_of_cards > len(self.deck):
             raise Exception("Ran out of cards in the deck, can't draw anymore")
 
-        for i in range(0, number_of_cards):
-            self.hand.append(self.deck.pop(0))
-        print(
-            f"[LOG] Gave {self.name} {number_of_cards} card{'s' if number_of_cards != 1 else ''}"
-        )
+        if len(self.hand) < 10:
+            for i in range(0, number_of_cards):
+                self.hand.append(self.deck.pop(0))
+            print(
+                f"[LOG] Gave {self.name} {number_of_cards} card{'s' if number_of_cards != 1 else ''}"
+            )
+        else:
+            print(f"[LOG] {self.name} has 10 cards and cannot hold any more")
 
     def DrawSpecific(self, card: Card) -> None:
         if not card in self.deck:
