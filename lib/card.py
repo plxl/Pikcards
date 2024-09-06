@@ -6,6 +6,8 @@ from os import path, getcwd
 """
     TO DO:
     - Make this able to import Lane classes
+        - This will make the performAttack function much more versatile, and able to check for things like Snagret weaknesses and Crawmad
+
     - Remove requirement of parser and json files (def ToJSON and part of def load_cards)
     - Turn CardElement and CardTrait into actual used elements
     - Simplify rarity Enum
@@ -14,6 +16,7 @@ from os import path, getcwd
         - remove stun on attempted attack
     - take damage
     - die/discarded
+        - If happens when petrified, provide Nectar
     - make player draw
     - make player conjure
     - setStatus (blind, burrow, stun, petrified, panic, bubble)
@@ -85,6 +88,15 @@ Rarity = Enum(
         ("Rare",      2),
         ("Very Rare", 3)])
 
+# Data needed to perform an attack
+class AttackClass:
+    def __init__(self, damageValue: int, targetLane: int, targetPlayer: int, attackElements, attacktraits):
+        self.damageValue = damageValue
+        self.targetLane = targetLane
+        self.targetPlayer = targetPlayer
+        self.attackElements = attackElements
+        self.attackTraits = attacktraits
+
 
 # Base card abilities and stats
 class Card:
@@ -127,6 +139,7 @@ class Card:
         self.attack = base_attack  # Current attack power of the card
         self.base_health = base_health  # Standard Max Health of the card, used to prevent a card from healing over this number
         self.health = base_health  # Current Health of the card, used to calculate how much damage was taken
+        self.base_defense = defense  # Standard max Defense of the card
         self.defense = defense  # Defense of the card
         self.maxcarry = maxcarry  # Maximum number of Items this card can hold
 
@@ -148,6 +161,7 @@ class Card:
         self.panic = False  # Whether the card is panicked
         self.bubble_time = 0  # Whether the card is bubbled. If the card has bubble, this is set to 12. If zero, it is not bubbled.
 
+        self.hasBeenDamaged = False  # Whether the card took damage this turn
         self.owner: int = -1  # Owner player, p1 is 0, p2 is 1
         self.lane_index: int = -1  # Lane this is currently in. -1 for cards outside the field
     
@@ -169,6 +183,103 @@ class Card:
         ### Perform anything that should be done upon entering a lane ###
 
 
+
+    # Basic attack function.
+    # Returns a list of targets (temporary)
+    def performAttack(self):
+        attacks = list[AttackClass]
+
+        if self.stun:
+        # If stunned, do not attack, but remove the Stun
+            self.stun = False
+            return attacks
+        
+        elif not self.burrowed and not self.petrified:
+            # If not burrowed and not petrified, perform attack in this lane
+            targetside = 0
+            damage = self.attack
+
+            if self.owner == 0:
+                targetside = 1
+
+            # If Panicked, only deal 1 damage
+            if self.panic:
+                damage = 1
+
+            attacks.append(AttackClass(damage, self.lane_index, targetside, self.elements, self.traits))
+
+            return attacks
+
+        # Else it is always either burrowed or petrified, so don't attack
+        return attacks
+            
+    
+    # Used by takeDamage only
+    def applyDamageOnDefense(self, damage, traits):
+        defense = self.defense
+        finaldamage = damage
+
+        if self.petrified:
+            defense = 0
+            finaldamage += 2
+        elif "Gloom" in traits:
+            defense = 0
+        elif "Explosive" in traits and defense > 0:
+            defense -= 1
+        
+        finaldamage = max(0, finaldamage - defense)
+        self.health -= finaldamage
+        
+        print(f"{self.name} took {finaldamage} damage!")
+
+        # Set to damage taken and remove Panic upon taking any damage
+        if finaldamage > 0:
+            self.hasBeenDamaged = True
+
+            if self.panic:
+                self.panic = not self.panic
+                print(f"{self.name} is no longer Panicking")
+
+
+    # Basic function for taking damage, without weaknesses
+    # If the card takes damage, remove Panicked state
+    def takeDamage(self, incomingAttack: AttackClass):
+        damage = incomingAttack.damageValue
+        
+        # Check if immune
+        if bool(set(incomingAttack.attackElements).intersection(self.immunities)) or bool(set(incomingAttack.attackTraits).intersection(self.immunities)):
+            print(f"{self.name} was immune to the attack")
+        
+        elif "Passive" in self.traits and "Passive" in incomingAttack.attackTraits:
+            self.applyDamageOnDefense(1, incomingAttack.attackTraits)
+
+        elif self.burrowed and "Digging" in incomingAttack.attackTraits:
+            damage += 2
+            self.applyDamageOnDefense(damage, incomingAttack.attackTraits)
+        
+        else:
+            self.applyDamageOnDefense(damage, incomingAttack.attackTraits)
+
+
+    # Reset stats for when a card is Returned or Discarded
+    def resetStats(self):
+        self.lane_index = -1
+        self.attack = self.base_attack
+        self.health = self.base_health
+        self.energy = self.base_energy
+        self.time = self.base_time
+        self.defense = self.base_defense
+        self.blind = False
+        self.burrowed = False
+        self.just_unburrowed = False
+        self.wallcounter = 0
+        self.stun = False
+        self.petrified = False
+        self.petrified_nightstarted = False
+        self.panic = False
+        self.bubble_time = 0
+        self.hasBeenDamaged = False
+        
 
     # Loads all existing cards from individual json files
     def load_cards():
