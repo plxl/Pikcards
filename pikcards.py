@@ -29,9 +29,13 @@ cpu_deck = decks[random.randint(0, len(decks) - 1)]["cards"]
 
 p1: Player = Player(pname, True)
 p1.SetDeck(deck.copy())
+for c1 in p1.deck:
+    c1.owner = 0
 
 p2: Player = Player("CPU", False)
 p2.SetDeck(cpu_deck.copy())
+for c2 in p2.deck:
+    c2.owner = 1
 
 p1.Draw(4)
 

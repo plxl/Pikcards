@@ -5,6 +5,7 @@ from os import path, getcwd
 
 """
     TO DO:
+    - Make this able to import Lane classes
     - Remove requirement of parser and json files (def ToJSON and part of def load_cards)
     - Turn CardElement and CardTrait into actual used elements
     - Simplify rarity Enum
@@ -84,6 +85,7 @@ Rarity = Enum(
         ("Rare",      2),
         ("Very Rare", 3)])
 
+
 # Base card abilities and stats
 class Card:
     def __init__(self, 
@@ -145,7 +147,28 @@ class Card:
         self.petrified_nightstarted = False  # So petrified cards know Night has begun
         self.panic = False  # Whether the card is panicked
         self.bubble_time = 0  # Whether the card is bubbled. If the card has bubble, this is set to 12. If zero, it is not bubbled.
+
+        self.owner: int = -1  # Owner player, p1 is 0, p2 is 1
+        self.lane_index: int = -1  # Lane this is currently in. -1 for cards outside the field
     
+
+    # Basic function for entering a lane
+    def onBeingPlayed(self, lane_index: int):
+
+        ### Perform anything that should be done upon playing ###
+
+        # ALWAYS go to entering a lane after
+        self.onEnterLane(lane_index)
+
+
+    # Basic function for entering a lane
+    # This also changes the card's lane value
+    def onEnterLane(self, lane_index: int):
+        self.lane_index = lane_index
+
+        ### Perform anything that should be done upon entering a lane ###
+
+
 
     # Loads all existing cards from individual json files
     def load_cards():
