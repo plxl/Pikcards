@@ -123,13 +123,10 @@ if p2pref == pref:
     starting_player = random.randint(0, 1)
 elif p2pref == 2:
     starting_player = pref
-elif p2pref == 1:
-    if pref == 2:
-        starting_player = 0
-    elif pref == 0:
-        starting_player = 1
+elif pref == 2:
+    starting_player = p2pref
 elif p2pref == 0:
-    starting_player = 1 - pref
+    starting_player = 1
 
 starting_player: Player = p1 if starting_player == 0 else p2
 
