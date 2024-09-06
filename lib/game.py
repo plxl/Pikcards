@@ -1,6 +1,6 @@
 from .classes import *
-from .card import *
 from beautifultable import BeautifulTable
+from os import path, getcwd
 import platform, subprocess
 from time import sleep
 
@@ -158,6 +158,9 @@ class Game:
             self.time -= card_playable.card.time
         player.energy -= card_playable.card.energy
 
+        # Make card perform actions it has upon being played
+        card_playable.card.onBeingPlayed(lane_index)
+
         self.print_board()
         player.PrintHand()
         print(
@@ -212,6 +215,7 @@ class Game:
                 self.print_board()
                 self.player_turn(self.players[0])
 
+            # START NIGHT PHASE
             input(f"Press enter to start the battle!")
             for lane in self.lanes:
                 lane_index = self.lanes.index(lane)
@@ -450,6 +454,9 @@ class Game:
             else:
                 self.time -= card.time
             self.players[1].energy -= card.energy
+
+            # Make card perform actions it has upon being played
+            card.onBeingPlayed(lane)
 
             moves.append(f'CPU played "{card.name}" in Lane {lane + 1}!')
 
