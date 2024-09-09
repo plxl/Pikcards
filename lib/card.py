@@ -13,17 +13,12 @@ from os import path, getcwd
     - Turn CardElement and CardTrait into actual used elements
     - Simplify rarity Enum
 
-    - attack
-        - remove stun on attempted attack
-    - take damage
     - die/discarded
         - If happens when petrified, provide Nectar
     - make player draw
     - make player conjure
     - setStatus (blind, burrow, stun, petrified, panic, bubble)
 
-    - onPlayed
-    - onEnterLane
     - start round
         - If wall, increase. If 3, die
     - start of night
@@ -31,7 +26,6 @@ from os import path, getcwd
     - end of round
 
     - change Items held (both for gaining and losing one)
-    - for Items, check Pikmin on field
 """
 
 
