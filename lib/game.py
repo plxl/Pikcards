@@ -196,6 +196,58 @@ class Game:
 
         print(f"{p1.name} - {p1.energy} ⚡︎ - {self.time} ೱ - {p1.health} ♥")
 
+    
+
+    # Processes attacks from an AttackClass
+    def processAttacks(self, attacks: list[AttackClass]):
+        for att in attacks:
+            targetLane = self.lanes[att.targetLane]
+            targetPlayer = self.players[att.targetPlayer]
+            
+            # If the side has a Minion, attack said Minion
+            if len(targetLane.minions[att.targetPlayer]) > 0:
+                targetMinion = targetLane.minions[att.targetPlayer][0]
+                targetMinion.takeDamage(att)
+                self.processDamageTaken(targetPlayer, targetLane, targetMinion)
+            # Otherwise, attack the player
+            else:
+                targetPlayer.health -= att.damageValue
+                print(f"{targetPlayer.name} took {att.damageValue} damage.")
+                self.processDamageTaken(targetPlayer)
+
+
+    # Call this once something should have taken damage, to see if it has died.
+    # If a Player was attacked, do not send a Minion and Lane
+    def processDamageTaken(self, targetPlayer: Player, lane: Lane = None, targetMinion: Card = None):
+
+        # If a Minion was said to be attacked and it's health 0, kill and discard it
+        if targetMinion is not None and targetMinion.health <= 0:
+            print(
+            f"{targetPlayer.name}'s {targetMinion.name} was defeated!"
+            )
+            targetMinion.resetStats()
+            if targetPlayer == self.players[0]:
+                lane.minions[0].remove(targetMinion)
+            else:
+                lane.minions[1].remove(targetMinion)
+            
+        # If no Minion was attacked, check if the players are still alive
+        if self.players[0].health <= 0:
+            print("You lost...")
+            input("Press enter to see CPU hand")
+            self.players[1].PrintHand()
+            input("Press enter to end game")
+            exit()
+        elif self.players[1].health <= 0:
+            print("YOU GOT THE WWWWWWWWW!")
+            input("Press enter to see CPU hand")
+            self.players[1].PrintHand()
+            input("Press enter to end game")
+            exit()
+
+
+
+    # Main game loop
     def game_loop(self):
         p1 = self.players[0]
         p2 = self.players[1]
@@ -215,123 +267,83 @@ class Game:
                 self.print_board()
                 self.player_turn(self.players[0])
 
+
             # START NIGHT PHASE
             input(f"Press enter to start the battle!")
             for lane in self.lanes:
                 lane_index = self.lanes.index(lane)
                 ls = f"Lane {lane_index + 1}: "
                 minions = lane.minions
+
                 p1_has_minion = len(minions[0]) > 0
                 p2_has_minion = len(minions[1]) > 0
 
-                if p1_has_minion and p2_has_minion:
+                attacksP1: list[AttackClass] = []
+                attacksP2: list[AttackClass] = []
+
+                # Register the attacks that may be performed later
+                m1 = None
+                if p1_has_minion:
                     m1 = minions[0][0]
+                    attacksP1 = m1.performAttack()
+                
+                m2 = None
+                if p2_has_minion:
                     m2 = minions[1][0]
+                    attacksP2 = m2.performAttack()
 
-                    # First Strike check
-                    fs = "First Strike"
-                    if fs in m1.traits and not (fs in m2.traits):
-                        # m1 attacks first and kills if possible
-                        damagetaken = m1.attack - m2.defense
-                        if damagetaken < 0:
-                            damagetaken = 0
-                        m2.health -= damagetaken
 
-                        if m2.health <= 0:
-                            print(
-                                f"{ls}Your {m1.name} defeated the {m2.name} before it "
-                                "could attack!"
-                            )
-                            minions[1].remove(m2)
-                        else:
-                            m1.health -= m2.attack
-                            if m1.health <= 0:
-                                print(f"{ls}CPU's {m2.name} defeated your {m1.name}...")
-                                minions[0].remove(m1)
-                            else:
-                                print(f"{ls}Both minions survived each other's wrath!")
-                        continue
+                # First Strike check on p1, only applies if there are two minions in a lane
+                fs = "First Strike"
+                if p1_has_minion and fs in m1.traits and p2_has_minion and not (fs in m2.traits):
+                    
+                    print(f"\n{ls}{m1.name} has the first strike!")
+                    self.processAttacks(attacksP1)
 
-                    elif fs in m2.traits and not (fs in m1.traits):
-                        # m2 attacks first and kills if possible
-                        damagetaken = m2.attack - m1.defense
-                        if damagetaken < 0:
-                            damagetaken = 0
-                        m1.health -= damagetaken
+                    # Second Minion only attacks if still alive
+                    if len(minions[1]) > 0:
+                        print(f"\n{ls}Now {m2.name} gets to attack!")
+                        self.processAttacks(attacksP2)
 
-                        if m1.health <= 0:
-                            print(f"{ls}CPU's {m2.name} defeated your {m1.name}...")
-                            minions[0].remove(m1)
-                        else:
-                            m2.health -= m1.attack
-                            if m2.health <= 0:
-                                print(
-                                    f"{ls}Your {m1.name} defeated the {m2.name} before it "
-                                    "could attack!"
-                                )
-                                minions[1].remove(m2)
-                            else:
-                                print(f"{ls}Both minions survived each other's wrath!")
-                        continue
+                    continue
 
-                    # neither has First Strike or both have First Strike, so simultaneous attack
-                    m1damagetaken = m2.attack - m1.defense
-                    if m1damagetaken < 0:
-                        m1damagetaken = 0
-                    m1.health -= m1damagetaken
 
-                    m2damagetaken = m1.attack - m2.defense
-                    if m2damagetaken < 0:
-                        m2damagetaken = 0
-                    m2.health -= m2damagetaken
+                # First Strike check on p2, only applies if there are two minions in a lane
+                elif p2_has_minion and fs in m2.traits and p1_has_minion and not (fs in m1.traits):
+                    
+                    print(f"\n{ls}{m2.name} has the first strike!")
+                    self.processAttacks(attacksP2)
 
-                    if m1.health <= 0 and m2.health <= 0:
-                        print(
-                            f"{ls}The {m1.name} and {m2.name} defeated each "
-                            "other simultaneously!"
-                        )
-                        minions[0].remove(m1)
-                        minions[1].remove(m2)
-                    elif m1.health <= 0:
-                        print(f"{ls}CPU's {m2.name} defeated your {m1.name}...")
-                        minions[0].remove(m1)
-                    elif m2.health <= 0:
-                        print(f"{ls}Your {m1.name} defeated CPU's {m2.name}!")
-                        minions[1].remove(m2)
-                    else:
-                        print(f"{ls}Both minions survived each other's wrath!")
+                    # Second Minion only attacks if still alive
+                    if len(minions[0]) > 0:
+                        print(f"\n{ls}Now {m1.name} gets to attack!")
+                        self.processAttacks(attacksP1)
 
-                elif p1_has_minion and not p2_has_minion:
-                    m1 = minions[0][0]
-                    p2.health -= m1.attack
+                    continue
 
-                    if p2.health <= 0:
-                        print("YOU GOT THE WWWWWWWWW!")
-                        input("Press enter to see CPU hand")
-                        p2.PrintHand()
-                        input("Press enter to end game")
-                        exit()
-                    else:
-                        print(f"{ls}Your {m1.name} dealt {m1.attack} damage to" " CPU!")
 
-                elif p2_has_minion and not p1_has_minion:
-                    m2 = minions[1][0]
-                    p1.health -= m2.attack
+                # neither has First Strike or both have First Strike, so simultaneous attack
+                # P1 has priority, so if P1 and P2 minions would both kill the opposing player, P2 would lose.
+                # However, if P1 Minion defeats P2 Minion, P2 Minion still gets to process its attack.
+                else:
+                    if p1_has_minion and not p2_has_minion:
+                        print(f"\n{ls}{m1.name} attacks!")
+                        self.processAttacks(attacksP1)
 
-                    if p1.health <= 0:
-                        print("You lost...")
-                        input("Press enter to see CPU hand")
-                        p2.PrintHand()
-                        input("Press enter to end game")
-                        exit()
-                    else:
-                        print(
-                            f"{ls}CPU's {m2.name} dealt {m2.attack} damage to" " you..."
-                        )
+                    elif p2_has_minion and not p1_has_minion:
+                        print(f"\n{ls}{m2.name} attacks!")
+                        self.processAttacks(attacksP2)
+                        
+                    elif p1_has_minion and p2_has_minion:
+                        print(f"\n{ls}{m1.name} and {m2.name} both attack!")
+                        self.processAttacks(attacksP1)
+                        self.processAttacks(attacksP2)
 
                 sleep(1)
 
-            input(f"Press enter to continue to Round {self.round + 2}...\n")
+
+
+            input(f"\nPress enter to continue to Round {self.round + 2}...\n")
 
             self.morning_player = self.players[
                 1 - self.players.index(self.morning_player)
