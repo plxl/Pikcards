@@ -5,6 +5,7 @@ from copy import deepcopy
 from enum import Enum
 from beautifultable import BeautifulTable
 from os import path, getcwd
+from .game_obj.draggable_image import *
 
 
 def oprint(obj):
@@ -57,14 +58,14 @@ class Card:
         weaknesses,
         traits,
         abilities,
-        notes,
+        notes
     ) -> None:
         self.set: str = set
         self.number: int = number
         self.fifth: bool = fifth
         self.rarity: int = rarity
         self.name: str = name
-        self.image: str = image
+        self.image: str | DraggableImage = image
         self.class_: int = class_
         self.type: int = type
         self.energy: int = energy
