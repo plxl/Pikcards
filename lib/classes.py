@@ -154,6 +154,10 @@ class Player:
         self.deck.remove(card)
         print(f"[LOG] Gave {self.name} a specific card")
 
+    def GiveSpecific(self, card: Card) -> None:
+        self.hand.append(card)
+        print(f"[LOG] Gave {self.name} a specific card, not from their deck")
+
     def GetFifths(self) -> list[Card]:
         # if there multiple valid fifths, the selected fifth must be the bottom-most copy
         # i reverse the deck to get these cards bottom-up
