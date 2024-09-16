@@ -6,11 +6,12 @@ from time import sleep
 
 
 class Lane:
-    def __init__(self, num_players: int = 2) -> None:
+    def __init__(self, index: int, num_players: int = 2) -> None:
         self.minions: list[list[Card]] = [[] for i in range(num_players)]
         self.items: list[list[Card]] = [[] for i in range(num_players)]
         self.area: list[Card] = None
         self.area_owner: int = -1
+        self.lane_index = index
 
     def GetItems(self, player_index: int):
         return self.items[player_index]
@@ -40,7 +41,7 @@ class Game:
         self.round: int = 0
         self.players: list[Player] = players
         self.morning_player: Player = morning_player
-        self.lanes = [Lane() for i in range(5)]
+        self.lanes = [Lane(i) for i in range(5)]
         self.num_lanes: int = num_lanes
         self.time: int = 1
 
@@ -271,7 +272,8 @@ class Game:
             # START NIGHT PHASE
             input(f"Press enter to start the battle!")
             for lane in self.lanes:
-                lane_index = self.lanes.index(lane)
+                lane_index = lane.lane_index
+
                 ls = f"Lane {lane_index + 1}: "
                 minions = lane.minions
 
