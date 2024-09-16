@@ -409,33 +409,33 @@ class Game:
 
             self.IsValidMove(move, player)
 
-    def cpu_turn(self) -> list[str]:
-        print(f"It's {self.players[1].name}'s turn!")
+    def cpu_turn(self, player_index: int = 1) -> list[str]:
+        print(f"It's {self.players[player_index].name}'s turn!")
         sleep(0.5)
         moves = []
         while True:
-            empty_lanes = self.GetEmptyLaneIndices(self.players[1])
+            empty_lanes = self.GetEmptyLaneIndices(self.players[player_index])
             if len(empty_lanes) == 0:
                 break
 
             lane = empty_lanes[random.randint(0, len(empty_lanes) - 1)]
-            playable = self.GetHandPlayableLanes(self.players[1])
+            playable = self.GetHandPlayableLanes(self.players[player_index])
             playable = [p for p in playable if p.lanes[lane]]
             if len(playable) == 0:
                 break
 
             card = playable[random.randint(0, len(playable) - 1)].card
-            self.lanes[lane].minions[1].append(card)
-            self.players[1].hand.remove(card)
+            self.lanes[lane].minions[player_index].append(card)
+            self.players[player_index].hand.remove(card)
 
-            if self.morning_player == self.players[1]:
+            if self.morning_player == self.players[player_index]:
                 self.time += card.time
             else:
                 self.time -= card.time
-            self.players[1].energy -= card.energy
+            self.players[player_index].energy -= card.energy
 
-            moves.append(f'CPU played "{card.name}" in Lane {lane + 1}!')
+            moves.append(f'CPU [{player_index}] played "{card.name}" in Lane {lane + 1}!')
 
         if len(moves) == 0:
-            moves.append("CPU made no moves this round.")
+            moves.append(f"CPU [{player_index}] made no moves this round.")
         return moves
