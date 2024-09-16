@@ -349,11 +349,29 @@ class Game:
         move = ""
         while True:
             move = input("Type your move: ")
-            if move == "debug":
+            if move == "debugme":
                 print("These are your playable options:")
                 t = BeautifulTable()
                 t.columns.header = ["Card", "1", "2", "3", "4", "5"]
                 for p in self.GetHandPlayableLanes(player):
+                    t.rows.append(
+                        [
+                            p.card.name,
+                            "✔" if p.lanes[0] else "",
+                            "✔" if p.lanes[1] else "",
+                            "✔" if p.lanes[2] else "",
+                            "✔" if p.lanes[3] else "",
+                            "✔" if p.lanes[4] else "",
+                        ]
+                    )
+                print(t)
+                continue
+
+            elif move == "debugcpu":
+                print("These are the CPU's playable options:")
+                t = BeautifulTable()
+                t.columns.header = ["Card", "1", "2", "3", "4", "5"]
+                for p in self.GetHandPlayableLanes(self.players[1]):
                     t.rows.append(
                         [
                             p.card.name,
