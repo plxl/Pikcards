@@ -46,8 +46,46 @@ Please note that this current version only takes into account Minion-type cards
 
 
 
+# Using the debugger
+You can set various debugging options in `./debug.json`
+To use the it, run pikcards.py with the `--debug` argument, or type "debug" when asked for a player name.
+In VSCode, you can easily set this up by pressing `Ctrl+Shift+B`, creating a `task.json` file in `.vscode` and setting its command to "`python pikcards.py --debug`". Now whenever you press `Ctrl+Shift+B` in VSCode, it will run the debugger.
 
+These are the debug.json options:
+- `player` / `cpu`: the player's object
+    - `name`: str -> the player's preset name.
+    - `hand`: list[str] -> an array of cards to start this player with in their hand.
+    - `starting_hand_num`: int -> the number of cards to start in the hand. If `hand == ["Red Pikin"]` and `starting_hand_num == 5`, then the debugger will add Red Pikmin to hand and then draw from the player's deck until it reaches 5 cards.
+    - `deck_index`: int -> the index of which deck to use from `decks.json`. If `-1`, it will be random, unless `deck_override` has elements, then it will use that instead.
+    - `deck_override`: list[str] -> list of cards to override the player's deck with. This does not automatically go up to 40 cards.
+- `starting_player`: int -> index of the starting player (0 for `player`, 1 for `cpu`).
+- `num_lanes`: int -> experimental, sets the number of lanes in the game. Not all functions work with this, so probably don't use it for now.
+- `current_day`: int -> start the game on this round.
+- `simulate_days`: bool -> whether to simulate the days up until `current_day`, treating player like a cpu.
 
+This is what an example might look like, note that CPU immediately runs out of cards:
+```JSON
+{
+    "player": {
+        "name": "PLAYER",
+        "hand": ["Fiery Blowhog"],
+        "starting_hand_num": 10,
+        "deck_index": 1,
+        "deck_override": []
+    },
+    "cpu": {
+        "name": "CPU",
+        "hand": [],
+        "starting_hand_num": 1,
+        "deck_index": -1,
+        "deck_override": ["Blue Pikmin"]
+    },
+    "starting_player": 0,
+    "num_lanes": 5,
+    "current_day": 5,
+    "simulate_days": true
+}
+```
 
 # Suggestions for basic additions:
 - Separate **Health** and **MaxHealth** in cards. This way, cards won't heal over their base HP, but can still have HP increased by OverHeal.
