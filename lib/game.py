@@ -25,7 +25,7 @@ class Lane:
         return any(minions for minions in self.minions)
 
     def HasArea(self) -> bool:
-        return self.area is not None and self.area_owner >= 0
+        return self.area is not None and self.area_owner != -1
 
 
 class Playable:
@@ -50,12 +50,14 @@ class Game:
             player_index = self.players.index(player)
             return [
                 lane
-                for lane in (lanes if lanes else self.lanes)
+                for lane in (lanes if lanes is not None else self.lanes)
                 if not lane.HasMinions(player_index)
             ]
 
         return [
-            lane for lane in (lanes if lanes else self.lanes) if not lane.HasMinions()
+            lane
+            for lane in (lanes if lanes is not None else self.lanes)
+            if not lane.HasMinions()
         ]
 
     def GetEmptyLaneIndices(
@@ -95,7 +97,7 @@ class Game:
         # Check energy requirements
         if card.energy > player.energy:
             # Cards with Explorer trait need 1 less energy in lanes with an area
-            if "Explorer" in card.traits:
+            if "Explorer" in card.traits and player.energy + 1 <= card.energy:
                 # get all empty lanes on the board that have an area set
                 area_lanes = self.GetEmptyLaneIndicesWithAreas(player)
                 for i in area_lanes:
@@ -414,24 +416,38 @@ class Game:
         sleep(0.5)
         moves = []
         while True:
-            empty_lanes = self.GetEmptyLaneIndices(self.players[player_index])
-            if len(empty_lanes) == 0:
-                break
-
-            lane = empty_lanes[random.randint(0, len(empty_lanes) - 1)]
+            # get this player's current hand playable lanes (list of card + its playable lanes)
             playable = self.GetHandPlayableLanes(self.players[player_index])
-            playable = [p for p in playable if p.lanes[lane]]
+            playable = [p for p in playable if any(l for l in p.lanes)]
+            for p in playable:
+                print(f"[DEBUG] Playable [{player_index}]: {p.card.name}, {p.lanes}")
+
+            # if there are no playable cards in hand, end the turn
             if len(playable) == 0:
                 break
 
+            # get any empty lanes that cards could be played in
+            empty_lanes = self.GetEmptyLaneIndices(self.players[player_index])
+            # if there are none, end the turn
+            if len(empty_lanes) == 0:
+                break
+
+            # grab a random lane index that's empty
+            lane = empty_lanes[random.randint(0, len(empty_lanes) - 1)]
+
+            # grab a random playable card
             card = playable[random.randint(0, len(playable) - 1)].card
+
+            # place the card in the lane and remove it from the player's hand
             self.lanes[lane].minions[player_index].append(card)
             self.players[player_index].hand.remove(card)
 
+            # update time
             if self.morning_player == self.players[player_index]:
                 self.time += card.time
             else:
                 self.time -= card.time
+            # update energy
             self.players[player_index].energy -= card.energy
 
             moves.append(f'CPU [{player_index}] played "{card.name}" in Lane {lane + 1}!')
