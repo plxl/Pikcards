@@ -1,6 +1,6 @@
 from card import *
 
-
+# Base minion data, stats and actions
 class Minion(Card):
     def __init__(self,
                  set,
@@ -19,7 +19,10 @@ class Minion(Card):
                  base_attack,
                  base_health,
                  defense,
-                 maxcarry
+                 maxcarry,
+
+                 weaknessDescriptions: list[str] = [],
+                 abilityDescriptions: list[str] = []
                  ):
         # Attributes for Card class
         self.set = set
@@ -39,8 +42,10 @@ class Minion(Card):
         self.immunities = immunities
         self.traits = traits
 
-        self.weaknessDescription: list[str] = []
-        self.abilityDescription: list[str] = []
+        self.weaknessDescription = weaknessDescriptions  # Descriptions of all weaknesses
+        self.base_wd = weaknessDescriptions  # Weaknesses which the base card has
+        self.abilityDescription = abilityDescriptions  # Descriptions of all abilities
+        self.base_ad = abilityDescriptions  # Abilities which the base card has
 
         self.owner: int = -1  # Owner player, p1 is 0, p2 is 1
         self.lane_index: int = -1  # Lane this is currently in. -1 for cards outside the field.
@@ -65,10 +70,23 @@ class Minion(Card):
         self.bubble_time = 0  # Whether the card is bubbled. If the card has bubble, this is set to 12. If zero, it is not bubbled.
         self.hasBeenDamaged = False  # Whether the card took damage this turn, for stalemate/staredown damage
 
+        # Modifiers
 
-    def getDescription():
-        pass
 
+    # Provides description that shows what the abilities of the class are
+    def getDescription(self):
+        description: str = "MINION\n"
+        if len(self.weaknessDescription) > 0:
+            description += "WEAKNESSES:\n"
+            description += "\n".join(self.weaknessDescription)
+            description += "\n"
+        
+        if len(self.abilityDescription) > 0:
+            description += "ABILITIES:\n"
+            description += "\n".join(self.abilityDescription)
+        return description
+
+    # Reset stats for when a card is Returned or Discarded
     def resetStats(self):
         self.lane_index = -1
         self.attack = self.base_attack
@@ -86,8 +104,10 @@ class Minion(Card):
         self.panic = False
         self.bubble_time = 0
         self.hasBeenDamaged = False
+        self.weaknessDescription = self.base_wd
+        self.abilityDescription = self.base_ad
 
-    
+
     # Basic function for entering a lane
     def onBeingPlayed(self, lane_index: int):
 

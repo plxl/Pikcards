@@ -40,6 +40,11 @@ class CardTrait:
     MultiAttack = 11
     Indirect = 12
 
+    GrubDog = 100
+    Amphituber = 101
+    Snavian = 102
+    Mockiwi = 103
+
 # Rarity which cards can have
 Rarity = Enum(
     value="Rarity",
@@ -51,8 +56,7 @@ Rarity = Enum(
 
 
 
-
-# Base card abilities and stats 
+# Base card data, stats and actions
 class Card(ABC):
     def __init__(self,
                  set,
@@ -66,7 +70,10 @@ class Card(ABC):
                  base_time,
                  elements,
                  immunities,
-                 traits
+                 traits,
+
+                 weaknessDescriptions: list[str] = [],
+                 abilityDescriptions: list[str] = []
                  ):
         self.set = set
         self.number = number
@@ -85,17 +92,21 @@ class Card(ABC):
         self.immunities = immunities
         self.traits = traits
 
-        self.weaknessDescription: list[str] = []
-        self.abilityDescription: list[str] = []
+        self.weaknessDescription = weaknessDescriptions  # Descriptions of all weaknesses
+        self.base_wd = weaknessDescriptions  # Weaknesses which the base card has
+        self.abilityDescription = abilityDescriptions  # Descriptions of all abilities
+        self.base_ad = abilityDescriptions  # Abilities which the base card has
 
         self.owner: int = -1  # Owner player, p1 is 0, p2 is 1
         self.lane_index: int = -1  # Lane this is currently in. -1 for cards outside the field.
+        
+        # Modifiers
 
     
 
     # Provides description that shows what the abilities of the class are
     @abstractmethod
-    def getDescription():
+    def getDescription(self):
         raise NotImplemented("Subclasses must implement this method")
     
     # Reset stats for when a card is Returned or Discarded
@@ -108,7 +119,7 @@ class Card(ABC):
     # Basic function for entering a lane
     def onBeingPlayed(self, lane_index: int):
 
-        ### Perform anything that should be done upon playing ###
+        ### Perform anything that should be done upon being played ###
 
         # ALWAYS go to entering a lane after
         self.onEnterLane(lane_index)
