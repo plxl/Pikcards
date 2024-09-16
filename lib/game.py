@@ -2,6 +2,7 @@ from .classes import *
 from beautifultable import BeautifulTable
 import platform, subprocess
 from time import sleep
+import sys
 
 
 class Lane:
@@ -437,8 +438,9 @@ class Game:
             # get this player's current hand playable lanes (list of card + its playable lanes)
             playable = self.GetHandPlayableLanes(self.players[player_index])
             playable = [p for p in playable if any(l for l in p.lanes)]
-            for p in playable:
-                print(f"[DEBUG] Playable [{player_index}]: {p.card.name}, {p.lanes}")
+            if "--debug" in sys.argv:
+                for p in playable:
+                    print(f"[DEBUG] Playable [{player_index}]: {p.card.name}, {p.lanes}")
 
             # if there are no playable cards in hand, end the turn
             if len(playable) == 0:
