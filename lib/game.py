@@ -11,7 +11,7 @@ class Lane:
         self.items: list[list[Card]] = [[] for i in range(num_players)]
         self.area: list[Card] = None
         self.area_owner: int = -1
-        self.lane_index = index
+        self.lane_index: int = index
 
     def GetItems(self, player_index: int):
         return self.items[player_index]

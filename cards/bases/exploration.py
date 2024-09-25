@@ -45,6 +45,7 @@ class Exploration(Card):
         # Attributes unique to Areas
         
         # Modifiers
+        self.bePlayedModifiers: list[BePlayedModifier] = []
 
     
 

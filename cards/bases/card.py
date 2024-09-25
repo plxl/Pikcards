@@ -3,6 +3,31 @@ from enum import Enum
 from modifiers import *
 
 
+
+"""
+    TO DO:
+    THINGS ABILITIES SHOULD BE ABLE TO TO FROM THE OUTSIDE:
+    - For onReturned, Player or the Game needs a callable function that makes them remove a card from the field, then put it in the given player's hand
+    - For some abilities and modifiers, somewhere needs a caalable function for:
+        - Getting the entire field to read what's in it
+        - Getting the entire Lane to read what's in it
+        - Getting a specific player's hand
+    - Observer type methods to the game, which cards can subscribe and unsubscribe to.
+        - For other cards entering the field
+        - For other cards leaving the field
+    - More specific functions a card should be able to call:
+        - Make specific player draw a card, potentially a specific one
+        - Make specific player conjure a specific card
+
+    OTHER:
+    - Function in card itself to call the Draw or Conjure functions. This one should check if it has a status. If it does, fail to complete the action
+"""
+
+
+
+
+
+
 # Classes that a card can have
 class CardClass:
     NONE = 0
@@ -101,6 +126,17 @@ class Card(ABC):
         self.lane_index: int = -1  # Lane this is currently in. -1 for cards outside the field.
         
         # Modifiers
+        self.bePlayedModifiers: list[BePlayedModifier] = []
+        self.enterLaneModifiers: list[EnterLaneModifier] = []
+        self.roundStartModifiers: list[RoundStartModifier] = []
+        self.turnStartModifiers: list[TurnStartModifier] = []
+        self.nightStartModifiers: list[NightStartModifier] = []
+        self.nightEndModifiers: list[NightEndModifier] = []
+        self.roundEndModifiers: list[RoundEndModifier] = []
+        self.returnedModifiers: list[ReturnedModifier] = []
+        self.discardedModifiers: list[DiscardedModifier] = []
+        self.otherCardPlayedModifiers: list[OtherCardPlayedModifier] = []
+        self.otherCardLeavesModifiers: list[OtherCardLeavesModifier] = []
 
     
 
@@ -117,17 +153,84 @@ class Card(ABC):
 
 
     # Basic function for entering a lane
-    def onBeingPlayed(self, lane_index: int):
+    def onBeingPlayed(self, enteredLane: 'Lane'):
 
-        ### Perform anything that should be done upon being played ###
+        for playMod in self.bePlayedModifiers:
+            playMod.modify(self, Lane)
 
         # ALWAYS go to entering a lane after
-        self.onEnterLane(lane_index)
+        self.onEnterLane(Lane)
 
 
     # Basic function for entering a lane
     # This also changes the card's lane value
-    def onEnterLane(self, lane_index: int):
-        self.lane_index = lane_index
+    def onEnterLane(self, enteredLane: 'Lane'):
+        self.lane_index = Lane.lane_index
 
-        ### Perform anything that should be done upon entering a lane ###
+        for enterMod in self.enterLaneModifiers:
+            enterMod.modify(self, Lane)
+
+
+    # Basic function for the card being returned
+    def onReturned(self, returnedByCard: Card):
+        for returnMod in self.returnedModifiers:
+            returnMod.modify(self, returnedByCard)
+        
+        self.resetStats()
+
+        # Call remote function to return this card, with possibility to call specific player(s)
+
+
+    # Basic function for the card being discarded
+    def onDiscarded(self):
+        for discMod in self.discardedModifiers:
+            discMod.modify(self)
+        
+        self.resetStats()
+
+        # Call remote function to discard this card
+
+
+
+
+    # Basic function for abilities that trigger upon round start
+    def onRoundStart(self, round: int):
+        for rsMod in self.roundStartModifiers:
+            rsMod.modify(self, round)
+
+
+    # Basic function for abilities that trigger upon turn start
+    def onTurnStart(self):
+        for tsMod in self.turnStartModifiers:
+            tsMod.modify(self)
+
+
+    # Basic function for abilities that trigger upon night start
+    def onNightStart(self):
+        for nsMod in self.nightStartModifiers:
+            nsMod.modify(self)
+
+
+    # Basic function for abilities that trigger upon night end
+    def onNightEnd(self):
+        for neMod in self.nightEndModifiers:
+            neMod.modify(self)
+
+
+    # Basic function for abilities that trigger upon round end
+    def onRoundEnd(self):
+        for reMod in self.nightEndModifiers:
+            reMod.modify(self)
+
+
+
+    # Basic function for abilities that trigger upon another card entering the field
+    def onOtherCardPlayed(self, otherCard: Card, playedInLane: 'Lane'):
+        for otherPlayedMod in self.otherCardPlayedModifiers:
+            otherPlayedMod.modify(self, otherCard, playedInLane)
+
+
+    # Basic function for abilities that trigger upon another card leaving a lane for any reason
+    def onOtherCardLeaves(self, otherCard: Card, leavesLane: 'Lane', leftBecause: str):
+        for otherLeftMod in self.otherCardLeavesModifiers:
+            otherLeftMod.modify(self, otherCard, leavesLane, leftBecause)
