@@ -1,8 +1,8 @@
 from .classes import *
 from beautifultable import BeautifulTable
-from os import path, getcwd
 import platform, subprocess
 from time import sleep
+import sys
 
 
 class Lane:
@@ -27,7 +27,7 @@ class Lane:
         return any(minions for minions in self.minions)
 
     def HasArea(self) -> bool:
-        return self.area is not None and self.area_owner >= 0
+        return self.area is not None and self.area_owner != -1
 
 
 class Playable:
@@ -45,6 +45,7 @@ class Game:
         self.num_lanes: int = num_lanes
         self.time: int = 1
 
+
     def GetEmptyLanes(
         self, player: Player | None = None, lanes: list[Lane] = None
     ) -> list[Lane]:
@@ -52,28 +53,35 @@ class Game:
             player_index = self.players.index(player)
             return [
                 lane
-                for lane in (lanes if lanes else self.lanes)
+                for lane in (lanes if lanes is not None else self.lanes)
                 if not lane.HasMinions(player_index)
             ]
 
         return [
-            lane for lane in (lanes if lanes else self.lanes) if not lane.HasMinions()
+            lane
+            for lane in (lanes if lanes is not None else self.lanes)
+            if not lane.HasMinions()
         ]
+
 
     def GetEmptyLaneIndices(
         self, player: Player | None = None, lanes: list[Lane] = None
     ) -> list[int]:
         return [self.lanes.index(lane) for lane in self.GetEmptyLanes(player, lanes)]
 
+
     def GetLanesWithAreas(self) -> list[Lane]:
         return [lane for lane in self.lanes if lane.HasArea()]
+
 
     def GetEmptyLaneIndicesWithAreas(self, player: Player | None = None) -> list[int]:
         area_lanes = self.GetLanesWithAreas()
         return self.GetEmptyLaneIndices(player, area_lanes)
 
+
     def GetLaneIndicesWithAreas(self) -> list[int]:
         return [self.lanes.index(lane) for lane in self.GetLanesWithAreas()]
+
 
     def GetCardPlayableLanes(self, player: Player, card: Card) -> list[bool]:
         """
@@ -97,7 +105,7 @@ class Game:
         # Check energy requirements
         if card.energy > player.energy:
             # Cards with Explorer trait need 1 less energy in lanes with an area
-            if "Explorer" in card.traits:
+            if "Explorer" in card.traits and player.energy + 1 <= card.energy:
                 # get all empty lanes on the board that have an area set
                 area_lanes = self.GetEmptyLaneIndicesWithAreas(player)
                 for i in area_lanes:
@@ -116,11 +124,13 @@ class Game:
 
         return lanes
 
+
     def GetHandPlayableLanes(self, player: Player) -> list[Playable]:
         return [
             Playable(card, self.GetCardPlayableLanes(player, card))
             for card in player.hand
         ]
+
 
     def IsValidMove(self, move: str, player: Player) -> bool:
         if not "l" in move.lower():
@@ -169,6 +179,7 @@ class Game:
         )
 
         return True
+
 
     def print_board(self):
         print()
@@ -248,6 +259,7 @@ class Game:
 
 
 
+
     # Main game loop
     def game_loop(self):
         p1 = self.players[0]
@@ -271,80 +283,8 @@ class Game:
 
             # START NIGHT PHASE
             input(f"Press enter to start the battle!")
-            for lane in self.lanes:
-                lane_index = lane.lane_index
-
-                ls = f"Lane {lane_index + 1}: "
-                minions = lane.minions
-
-                p1_has_minion = len(minions[0]) > 0
-                p2_has_minion = len(minions[1]) > 0
-
-                attacksP1: list[AttackClass] = []
-                attacksP2: list[AttackClass] = []
-
-                # Register the attacks that may be performed later
-                m1 = None
-                if p1_has_minion:
-                    m1 = minions[0][0]
-                    attacksP1 = m1.performAttack()
-                
-                m2 = None
-                if p2_has_minion:
-                    m2 = minions[1][0]
-                    attacksP2 = m2.performAttack()
-
-
-                # First Strike check on p1, only applies if there are two minions in a lane
-                fs = "First Strike"
-                if p1_has_minion and fs in m1.traits and p2_has_minion and not (fs in m2.traits):
-                    
-                    print(f"\n{ls}{m1.name} has the first strike!")
-                    self.processAttacks(attacksP1)
-
-                    # Second Minion only attacks if still alive
-                    if len(minions[1]) > 0:
-                        print(f"\n{ls}Now {m2.name} gets to attack!")
-                        self.processAttacks(attacksP2)
-
-                    continue
-
-
-                # First Strike check on p2, only applies if there are two minions in a lane
-                elif p2_has_minion and fs in m2.traits and p1_has_minion and not (fs in m1.traits):
-                    
-                    print(f"\n{ls}{m2.name} has the first strike!")
-                    self.processAttacks(attacksP2)
-
-                    # Second Minion only attacks if still alive
-                    if len(minions[0]) > 0:
-                        print(f"\n{ls}Now {m1.name} gets to attack!")
-                        self.processAttacks(attacksP1)
-
-                    continue
-
-
-                # neither has First Strike or both have First Strike, so simultaneous attack
-                # P1 has priority, so if P1 and P2 minions would both kill the opposing player, P2 would lose.
-                # However, if P1 Minion defeats P2 Minion, P2 Minion still gets to process its attack.
-                else:
-                    if p1_has_minion and not p2_has_minion:
-                        print(f"\n{ls}{m1.name} attacks!")
-                        self.processAttacks(attacksP1)
-
-                    elif p2_has_minion and not p1_has_minion:
-                        print(f"\n{ls}{m2.name} attacks!")
-                        self.processAttacks(attacksP2)
-                        
-                    elif p1_has_minion and p2_has_minion:
-                        print(f"\n{ls}{m1.name} and {m2.name} both attack!")
-                        self.processAttacks(attacksP1)
-                        self.processAttacks(attacksP2)
-
-                sleep(1)
-
-
-
+            self.battle_phase()
+            sleep(1)
             input(f"\nPress enter to continue to Round {self.round + 2}...\n")
 
             self.morning_player = self.players[
@@ -355,6 +295,80 @@ class Game:
             for player in self.players:
                 player.Draw(1)
                 player.energy = self.round + 1
+
+
+    def battle_phase(self):
+        for lane in self.lanes:
+            lane_index = lane.lane_index
+
+            ls = f"Lane {lane_index + 1}: "
+            minions = lane.minions
+
+            p1_has_minion = len(minions[0]) > 0
+            p2_has_minion = len(minions[1]) > 0
+
+            attacksP1: list[AttackClass] = []
+            attacksP2: list[AttackClass] = []
+
+            # Register the attacks that may be performed later
+            m1 = None
+            if p1_has_minion:
+                m1 = minions[0][0]
+                attacksP1 = m1.performAttack()
+                
+            m2 = None
+            if p2_has_minion:
+                m2 = minions[1][0]
+                attacksP2 = m2.performAttack()
+
+
+            # First Strike check on p1, only applies if there are two minions in a lane
+            fs = "First Strike"
+            if p1_has_minion and fs in m1.traits and p2_has_minion and not (fs in m2.traits):
+
+                print(f"\n{ls}{m1.name} has the first strike!")
+                self.processAttacks(attacksP1)
+
+                # Second Minion only attacks if still alive
+                if len(minions[1]) > 0:
+                    print(f"\n{ls}Now {m2.name} gets to attack!")
+                    self.processAttacks(attacksP2)
+
+                continue
+
+
+            # First Strike check on p2, only applies if there are two minions in a lane
+            elif p2_has_minion and fs in m2.traits and p1_has_minion and not (fs in m1.traits):
+
+                print(f"\n{ls}{m2.name} has the first strike!")
+                self.processAttacks(attacksP2)
+
+                # Second Minion only attacks if still alive
+                if len(minions[0]) > 0:
+                    print(f"\n{ls}Now {m1.name} gets to attack!")
+                    self.processAttacks(attacksP1)
+
+                continue
+
+
+            # neither has First Strike or both have First Strike, so simultaneous attack
+            # P1 has priority, so if P1 and P2 minions would both kill the opposing player, P2 would lose.
+            # However, if P1 Minion defeats P2 Minion, P2 Minion still gets to process its attack.
+            else:
+                if p1_has_minion and not p2_has_minion:
+                    print(f"\n{ls}{m1.name} attacks!")
+                    self.processAttacks(attacksP1)
+
+                elif p2_has_minion and not p1_has_minion:
+                    print(f"\n{ls}{m2.name} attacks!")
+                    self.processAttacks(attacksP2)
+                        
+                elif p1_has_minion and p2_has_minion:
+                    print(f"\n{ls}{m1.name} and {m2.name} both attack!")
+                    self.processAttacks(attacksP1)
+                    self.processAttacks(attacksP2)
+    
+
 
     def player_turn(self, player: Player):
         player.PrintHand()
@@ -382,11 +396,29 @@ class Game:
         move = ""
         while True:
             move = input("Type your move: ")
-            if move == "debug":
+            if move == "debugme":
                 print("These are your playable options:")
                 t = BeautifulTable()
                 t.columns.header = ["Card", "1", "2", "3", "4", "5"]
                 for p in self.GetHandPlayableLanes(player):
+                    t.rows.append(
+                        [
+                            p.card.name,
+                            "✔" if p.lanes[0] else "",
+                            "✔" if p.lanes[1] else "",
+                            "✔" if p.lanes[2] else "",
+                            "✔" if p.lanes[3] else "",
+                            "✔" if p.lanes[4] else "",
+                        ]
+                    )
+                print(t)
+                continue
+
+            elif move == "debugcpu":
+                print("These are the CPU's playable options:")
+                t = BeautifulTable()
+                t.columns.header = ["Card", "1", "2", "3", "4", "5"]
+                for p in self.GetHandPlayableLanes(self.players[1]):
                     t.rows.append(
                         [
                             p.card.name,
@@ -444,36 +476,49 @@ class Game:
 
             self.IsValidMove(move, player)
 
-    def cpu_turn(self) -> list[str]:
-        print(f"It's {self.players[1].name}'s turn!")
+
+    def cpu_turn(self, player_index: int = 1) -> list[str]:
+        print(f"It's {self.players[player_index].name}'s turn!")
         sleep(0.5)
         moves = []
         while True:
-            empty_lanes = self.GetEmptyLaneIndices(self.players[1])
-            if len(empty_lanes) == 0:
-                break
+            # get this player's current hand playable lanes (list of card + its playable lanes)
+            playable = self.GetHandPlayableLanes(self.players[player_index])
+            playable = [p for p in playable if any(l for l in p.lanes)]
+            if "--debug" in sys.argv:
+                for p in playable:
+                    print(f"[DEBUG] Playable [{player_index}]: {p.card.name}, {p.lanes}")
 
-            lane = empty_lanes[random.randint(0, len(empty_lanes) - 1)]
-            playable = self.GetHandPlayableLanes(self.players[1])
-            playable = [p for p in playable if p.lanes[lane]]
+            # if there are no playable cards in hand, end the turn
             if len(playable) == 0:
                 break
 
-            card = playable[random.randint(0, len(playable) - 1)].card
-            self.lanes[lane].minions[1].append(card)
-            self.players[1].hand.remove(card)
+            # get any empty lanes that cards could be played in
+            empty_lanes = self.GetEmptyLaneIndices(self.players[player_index])
+            # if there are none, end the turn
+            if len(empty_lanes) == 0:
+                break
 
-            if self.morning_player == self.players[1]:
+            # grab a random lane index that's empty
+            lane = empty_lanes[random.randint(0, len(empty_lanes) - 1)]
+
+            # grab a random playable card
+            card = playable[random.randint(0, len(playable) - 1)].card
+
+            # place the card in the lane and remove it from the player's hand
+            self.lanes[lane].minions[player_index].append(card)
+            self.players[player_index].hand.remove(card)
+
+            # update time
+            if self.morning_player == self.players[player_index]:
                 self.time += card.time
             else:
                 self.time -= card.time
-            self.players[1].energy -= card.energy
+            # update energy
+            self.players[player_index].energy -= card.energy
 
-            # Make card perform actions it has upon being played
-            card.onBeingPlayed(lane)
-
-            moves.append(f'CPU played "{card.name}" in Lane {lane + 1}!')
+            moves.append(f'CPU [{player_index}] played "{card.name}" in Lane {lane + 1}!')
 
         if len(moves) == 0:
-            moves.append("CPU made no moves this round.")
+            moves.append(f"CPU [{player_index}] made no moves this round.")
         return moves

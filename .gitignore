@@ -2,5 +2,9 @@
 __pycache__
 /allcards.tsv
 /cards.zip
-/cards/images/*.png
+*.png
+*.otf
 .DS_Store
+.vscode
+debug.json
+decks.json
