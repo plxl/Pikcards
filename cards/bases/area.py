@@ -45,6 +45,18 @@ class Area(Card):
         # Attributes unique to Areas
         
         # Modifiers
+        self.bePlayedModifiers: list[BePlayedModifier] = []
+        self.enterLaneModifiers: list[EnterLaneModifier] = []
+        self.roundStartModifiers: list[RoundStartModifier] = []
+        self.turnStartModifiers: list[TurnStartModifier] = []
+        self.nightStartModifiers: list[NightStartModifier] = []
+        self.roundEndModifiers: list[NightEndModifier] = []
+        self.returnedModifiers: list[ReturnedModifier] = []
+        self.discardedModifiers: list[DiscardedModifier] = []
+        self.otherCardPlayedModifiers: list[OtherCardPlayedModifier] = []
+        self.otherCardLeavesModifiers: list[OtherCardLeavesModifier] = []
+
+        self.areaEnteredModifiers: list[OtherCardPlayedModifier] = []
 
     
 

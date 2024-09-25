@@ -1,5 +1,13 @@
 from card import *
 
+
+"""
+    TO DO:
+    - General works for Items, like what has to happen when one is played/adding abilities to the holder if the case
+"""
+
+
+
 # Base minion data, stats and actions
 class Item(Card):
     def __init__(self,
@@ -47,7 +55,35 @@ class Item(Card):
         
         # Attributes unique to Items
     
-        # Modifiers
+
+        # Modifiers for the Item itself
+        self.bePlayedModifiers: list[BePlayedModifier] = []
+        self.enterLaneModifiers: list[EnterLaneModifier] = []
+        self.roundStartModifiers: list[RoundStartModifier] = []
+        self.turnStartModifiers: list[TurnStartModifier] = []
+        self.nightStartModifiers: list[NightStartModifier] = []
+        self.roundEndModifiers: list[NightEndModifier] = []
+        self.returnedModifiers: list[ReturnedModifier] = []
+        self.discardedModifiers: list[DiscardedModifier] = []
+        self.otherCardPlayedModifiers: list[OtherCardPlayedModifier] = []
+        self.otherCardLeavesModifiers: list[OtherCardLeavesModifier] = []
+
+
+        # Modifiers that are added to the holder
+        self.bePlayedMinionModifiers: list[BePlayedModifier] = []
+        self.enterLaneMinionModifiers: list[EnterLaneModifier] = []
+        self.roundStartMinionModifiers: list[RoundStartModifier] = []
+        self.turnStartMinionModifiers: list[TurnStartModifier] = []
+        self.nightStartMinionModifiers: list[NightStartModifier] = []
+        self.roundEndMinionModifiers: list[NightEndModifier] = []
+        self.returnedMinionModifiers: list[ReturnedModifier] = []
+        self.discardedMinionModifiers: list[DiscardedModifier] = []
+        self.otherCardPlayedMinionModifiers: list[OtherCardPlayedModifier] = []
+        self.otherCardLeavesMinionModifiers: list[OtherCardLeavesModifier] = []
+
+        self.dealDamageMinionModifiers: list[DealDamageModifier] = []
+        self.takeDamageMinionModifiers: list[TakeDamageModifier] = []
+        self.beKilledMinionModifiers: list[BeKilledModifier] = []
 
 
 

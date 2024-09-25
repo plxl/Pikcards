@@ -1,4 +1,24 @@
 from card import *
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from item import Item
+
+
+"""
+    TO DO:
+    - Make owner get nectar if card is killed while petrified in onDiscarded
+    - Make walls discard upon reaching timer in onRoundStart
+    - Stalemate/Staredown damage, using a Minion's hasBeenDamaged
+
+    - If a Minion with Items is Discarded or Returned, first Discard their Items, then perform the Minion action
+
+    - The entirity of Bubbled
+"""
+
+
+
+
+
 
 # Base minion data, stats and actions
 class Minion(Card):
@@ -54,10 +74,12 @@ class Minion(Card):
         self.base_attack = base_attack  # Standard attack power of the card
         self.attack = base_attack  # Current attack power of the card
         self.base_health = base_health  # Standard Max Health of the card, used to prevent a card from healing over this number
+        self.max_health = base_health  # Max Health of the card in gameplay, can be changed by Overhealing and such
         self.health = base_health  # Current Health of the card, used to calculate how much damage was taken
         self.base_defense = defense  # Standard max Defense of the card
         self.defense = defense  # Defense of the card
         self.maxcarry = maxcarry  # Maximum number of Items this card can hold
+        self.heldItems: list['Item'] = []  # Items that this is holding
 
         self.blind = False  # Whether the card is displayed as a Blind Card
         self.burrowed = False  # Whether the card is burrowed
@@ -67,10 +89,25 @@ class Minion(Card):
         self.petrified = False  # Whether the card is petrified
         self.petrified_nightstarted = False  # So petrified cards know Night has begun
         self.panic = False  # Whether the card is panicked
+        self.panicCounter = 0  # Counts the rounds it has been panicked, max of 3
         self.bubble_time = 0  # Whether the card is bubbled. If the card has bubble, this is set to 12. If zero, it is not bubbled.
         self.hasBeenDamaged = False  # Whether the card took damage this turn, for stalemate/staredown damage
 
         # Modifiers
+        self.bePlayedModifiers: list[BePlayedModifier] = []
+        self.enterLaneModifiers: list[EnterLaneModifier] = []
+        self.roundStartModifiers: list[RoundStartModifier] = []
+        self.turnStartModifiers: list[TurnStartModifier] = []
+        self.nightStartModifiers: list[NightStartModifier] = []
+        self.roundEndModifiers: list[NightEndModifier] = []
+        self.returnedModifiers: list[ReturnedModifier] = []
+        self.discardedModifiers: list[DiscardedModifier] = []
+        self.otherCardPlayedModifiers: list[OtherCardPlayedModifier] = []
+        self.otherCardLeavesModifiers: list[OtherCardLeavesModifier] = []
+
+        self.dealDamageModifiers: list[DealDamageModifier] = []
+        self.takeDamageModifiers: list[TakeDamageModifier] = []
+        self.beKilledModifiers: list[BeKilledModifier] = []
 
 
     # Provides description that shows what the abilities of the class are
@@ -90,6 +127,7 @@ class Minion(Card):
     def resetStats(self):
         self.lane_index = -1
         self.attack = self.base_attack
+        self.max_health = self.base_health
         self.health = self.base_health
         self.energy = self.base_energy
         self.time = self.base_time
@@ -102,27 +140,12 @@ class Minion(Card):
         self.petrified = False
         self.petrified_nightstarted = False
         self.panic = False
+        self.panicCounter = 0
         self.bubble_time = 0
         self.hasBeenDamaged = False
         self.weaknessDescription = self.base_wd
         self.abilityDescription = self.base_ad
 
-
-    # Basic function for entering a lane
-    def onBeingPlayed(self, lane_index: int):
-
-        ### Perform anything that should be done upon playing ###
-
-        # ALWAYS go to entering a lane after
-        self.onEnterLane(lane_index)
-
-
-    # Basic function for entering a lane
-    # This also changes the card's lane value
-    def onEnterLane(self, lane_index: int):
-        self.lane_index = lane_index
-
-        ### Perform anything that should be done upon entering a lane ###
 
 
 
@@ -149,7 +172,10 @@ class Minion(Card):
                 damage = 1
 
             # Create the attack
-            ac = AttackClass(damage, self.lane_index, targetside, self.elements, self.traits)
+            ac = AttackClass(damage, self.lane_index, targetside, self)
+
+            for attMod in self.dealDamageModifiers:
+                ac = attMod.modify(ac)
             attacks.append(ac)
 
             return attacks
@@ -182,24 +208,120 @@ class Minion(Card):
 
             if self.panic:
                 self.panic = not self.panic
+                self.panicCounter = 0
                 print(f"{self.name} is no longer Panicking")
 
 
     # Basic function for taking damage, without weaknesses
     # If the card takes damage, remove Panicked state
     def takeDamage(self, incomingAttack: AttackClass):
-        damage = incomingAttack.damageValue
+        # Apply take damage modifiers
+        modifiedAttack = incomingAttack
+        for attMod in self.takeDamageModifiers:
+            modifiedAttack = attMod.modify(self, modifiedAttack)
         
+        damage = modifiedAttack.damageValue
+        
+        attackerTraits = modifiedAttack.attackerCard.traits
+
         # Check if immune
-        if bool(set(incomingAttack.attackElements).intersection(self.immunities)) or bool(set(incomingAttack.attackTraits).intersection(self.immunities)):
+        if bool(set(modifiedAttack.attackerCard.elements).intersection(self.immunities)) or bool(set(attackerTraits).intersection(self.immunities)):
             print(f"{self.name} was immune to the attack")
         
-        elif "Passive" in self.traits and "Passive" in incomingAttack.attackTraits:
-            self.applyDamageOnDefense(1, incomingAttack.attackTraits)
+        elif "Passive" in self.traits and "Passive" in attackerTraits:
+            self.applyDamageOnDefense(1, attackerTraits)
 
-        elif self.burrowed and "Digging" in incomingAttack.attackTraits:
+        elif self.burrowed and "Digging" in attackerTraits:
             damage += 2
-            self.applyDamageOnDefense(damage, incomingAttack.attackTraits)
+            self.applyDamageOnDefense(damage, attackerTraits)
         
         else:
-            self.applyDamageOnDefense(damage, incomingAttack.attackTraits)
+            self.applyDamageOnDefense(damage, attackerTraits)
+
+
+    # Minion function for the card being discarded, checks if killed by another cards as well
+    def onDiscarded(self, killedBy: Card = None):
+        if killedBy is not None:
+            for killedMod in self.beKilledModifiers:
+                killedMod.modify(self, killedBy)
+
+            if self.petrified:
+                # Provide the owner with Nectar
+                print(f"{self.name} was killed while Petrified, so its owner should get a Nectar!")
+        
+        for discMod in self.discardedModifiers:
+            discMod.modify(self)
+        
+        self.resetStats()
+
+        # Call remote function to discard this card
+
+
+    # Minion Function for being healed
+    def beHealed(self, amount: int, overheal: bool = False):
+        if overheal:
+            print(f"{self.name} overhealed by {amount} Health")
+            self.health += amount
+            if self.health > self.max_health:
+                self.max_health = self.base_health
+        else:
+            self.health = min(self.max_health, self.health + amount)
+            print(f"{self.name} healed by {amount} Health")
+
+
+
+
+    def onRoundStart(self, round: int):
+        if "Wall" in self.traits:
+            self.wallcounter += 1
+
+        self.hasBeenDamaged = False
+
+        if self.burrowed:
+            self.burrowed = not self.burrowed
+            self.just_unburrowed = True
+            print(f"{self.name} just unburrowed")
+
+        if self.wallcounter < 3:
+            for rsMod in self.roundStartModifiers:
+                rsMod.modify(self, round)
+        else:
+            print(f"{self.name} is a long-lasting wall and disappears")
+            # Call remote function to discard this
+
+
+    def onRoundEnd(self):
+        if self.panic:
+            self.panicCounter += 1
+
+            if self.panicCounter > 2:
+                self.panic = not self.panic
+                self.panicCounter = 0
+                print(f"{self.name} is no longer Panicking")
+        
+        if self.burrowed:
+            self.beHealed(1)
+
+        if self.just_unburrowed:
+            self.just_unburrowed = not self.just_unburrowed
+        
+        for reMod in self.nightEndModifiers:
+            reMod.modify(self)
+
+
+    def onNightStart(self):
+        if self.petrified:
+            self.petrified_nightstarted = True
+        
+        for nsMod in self.nightStartModifiers:
+            nsMod.modify(self)
+
+
+    def onNightEnd(self):
+        if self.petrified and self.petrified_nightstarted:
+            self.petrified = not self.petrified
+            self.petrified_nightstarted = not self.petrified_nightstarted
+            print(f"{self.name} is no longer Petrified")
+        
+        for neMod in self.nightEndModifiers:
+            neMod.modify(self)
