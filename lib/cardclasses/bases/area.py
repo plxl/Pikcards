@@ -1,7 +1,7 @@
-from card import *
+from .card import *
 
-# Base exploration data, stats and actions
-class Exploration(Card):
+# Base area data, stats and actions
+class Area(Card):
     def __init__(self,
                  set,
                  number,
@@ -46,13 +46,24 @@ class Exploration(Card):
         
         # Modifiers
         self.bePlayedModifiers: list[BePlayedModifier] = []
+        self.enterLaneModifiers: list[EnterLaneModifier] = []
+        self.roundStartModifiers: list[RoundStartModifier] = []
+        self.turnStartModifiers: list[TurnStartModifier] = []
+        self.nightStartModifiers: list[NightStartModifier] = []
+        self.roundEndModifiers: list[NightEndModifier] = []
+        self.returnedModifiers: list[ReturnedModifier] = []
+        self.discardedModifiers: list[DiscardedModifier] = []
+        self.otherCardPlayedModifiers: list[OtherCardPlayedModifier] = []
+        self.otherCardLeavesModifiers: list[OtherCardLeavesModifier] = []
+
+        self.areaEnteredModifiers: list[OtherCardPlayedModifier] = []
 
     
 
     # Provides description that shows what the abilities of the class are
     @abstractmethod
     def getDescription(self):
-        fullDescription: str = "Exploration\n"
+        fullDescription: str = "AREA\n"
         fullDescription += self.description
         return fullDescription
     

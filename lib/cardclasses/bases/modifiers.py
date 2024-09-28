@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from card import Card
-    from minion import Minion
+    from .card import Card
+    from .minion import Minion
     from lib.game import Lane, Game
     
 

@@ -1,4 +1,4 @@
-from card import *
+from .card import *
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from item import Item
@@ -224,7 +224,8 @@ class Minion(Card):
         
         attackerTraits = modifiedAttack.attackerCard.traits
 
-        # Check if immune
+        # Check if immune, whether both are passive or if burrowed and attacked by a digger
+        # Else don't edit special damage rules
         if bool(set(modifiedAttack.attackerCard.elements).intersection(self.immunities)) or bool(set(attackerTraits).intersection(self.immunities)):
             print(f"{self.name} was immune to the attack")
         
