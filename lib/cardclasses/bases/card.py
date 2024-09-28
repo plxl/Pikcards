@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from enum import Enum
-from modifiers import *
+from .modifiers import *
 
 
 
@@ -156,23 +156,23 @@ class Card(ABC):
     def onBeingPlayed(self, enteredLane: 'Lane'):
 
         for playMod in self.bePlayedModifiers:
-            playMod.modify(self, Lane)
+            playMod.modify(self, enteredLane)
 
         # ALWAYS go to entering a lane after
-        self.onEnterLane(Lane)
+        self.onEnterLane(enteredLane)
 
 
     # Basic function for entering a lane
     # This also changes the card's lane value
     def onEnterLane(self, enteredLane: 'Lane'):
-        self.lane_index = Lane.lane_index
+        self.lane_index = enteredLane.lane_index
 
         for enterMod in self.enterLaneModifiers:
-            enterMod.modify(self, Lane)
+            enterMod.modify(self, enteredLane)
 
 
     # Basic function for the card being returned
-    def onReturned(self, returnedByCard: Card):
+    def onReturned(self, returnedByCard: 'Card'):
         for returnMod in self.returnedModifiers:
             returnMod.modify(self, returnedByCard)
         
@@ -225,12 +225,12 @@ class Card(ABC):
 
 
     # Basic function for abilities that trigger upon another card entering the field
-    def onOtherCardPlayed(self, otherCard: Card, playedInLane: 'Lane'):
+    def onOtherCardPlayed(self, otherCard: 'Card', playedInLane: 'Lane'):
         for otherPlayedMod in self.otherCardPlayedModifiers:
             otherPlayedMod.modify(self, otherCard, playedInLane)
 
 
     # Basic function for abilities that trigger upon another card leaving a lane for any reason
-    def onOtherCardLeaves(self, otherCard: Card, leavesLane: 'Lane', leftBecause: str):
+    def onOtherCardLeaves(self, otherCard: 'Card', leavesLane: 'Lane', leftBecause: str):
         for otherLeftMod in self.otherCardLeavesModifiers:
             otherLeftMod.modify(self, otherCard, leavesLane, leftBecause)
