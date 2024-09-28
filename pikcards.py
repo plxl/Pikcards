@@ -50,7 +50,7 @@ def start_debugging():
         player.SetDeck(decks[po["deck_index"]]["cards"])
     # Make cards know who their owner is
     for c1 in player.deck:
-        c1.owner = 1
+        c1.owner = 0
         
     # same as above, but for cpu
     dprint("Creating CPU deck from debug options...")
@@ -66,7 +66,9 @@ def start_debugging():
     if len(po["hand"]) > 0:
         for c in po["hand"]:
             # gets a deepcopy of the card and puts it in the player's hand
-            player.hand.append(deepcopy([C for C in Cards if C.name == c][0]))
+            startcard = deepcopy([C for C in Cards if C.name == c][0])
+            startcard.owner = 0
+            player.hand.append(startcard)
     # draw any remaining cards up until specified in the starting hand quantity debug
     # unless it is -1, then don't draw any more
     if (po["starting_hand_num"] != -1):
@@ -75,7 +77,10 @@ def start_debugging():
     # same as above, but for cpu
     dprint("Creating CPU hand from debug options...")
     if len(co["hand"]) > 0:
-        for c in co["hand"]: cpu.hand.append(deepcopy([C for C in Cards if C.name == c][0]))
+        for c in co["hand"]: 
+            startcard = deepcopy([C for C in Cards if C.name == c][0])
+            startcard.owner = 1
+            cpu.hand.append(startcard)
     if (co["starting_hand_num"] != -1): cpu.Draw(co["starting_hand_num"] - len(co["hand"]))
         
     # get starting player
