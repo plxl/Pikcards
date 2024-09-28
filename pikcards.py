@@ -48,6 +48,9 @@ def start_debugging():
     # otherwise, set the deck to the specified index
     else:
         player.SetDeck(decks[po["deck_index"]]["cards"])
+    # Make cards know who their owner is
+    for c1 in player.deck:
+        c1.owner = 1
         
     # same as above, but for cpu
     dprint("Creating CPU deck from debug options...")
@@ -55,6 +58,8 @@ def start_debugging():
         if len(co["deck_override"]) > 0: cpu.SetDeck(co["deck_override"])
         else: cpu.SetDeck(get_random_deck())
     else: cpu.SetDeck(decks[co["deck_index"]]["cards"])
+    for c2 in cpu.deck:
+        c2.owner = 1
     
     # get debugging hand for player
     dprint("Creating player hand from debug options...")
@@ -137,12 +142,12 @@ else:
     p1: Player = Player(pname, True)
     p1.SetDeck(deepcopy(deck))
     for c1 in p1.deck:
-        c1.owner = 1
+        c1.owner = 0
 
     p2: Player = Player("CPU", False)
     p2.SetDeck(cpu_deck.copy())
     for c2 in p2.deck:
-        c2.owner = 2
+        c2.owner = 1
 
     p1.Draw(4)
 
@@ -230,13 +235,10 @@ else:
         starting_player = random.randint(0, 1)
     elif p2pref == 2:
         starting_player = pref
-    elif p2pref == 1:
-        if pref == 2:
-            starting_player = 0
-        elif pref == 0:
-            starting_player = 1
+    elif pref == 2:
+        starting_player = p2pref
     elif p2pref == 0:
-        starting_player = 1 - pref
+        starting_player = 1
 
     starting_player: Player = p1 if starting_player == 0 else p2
 
