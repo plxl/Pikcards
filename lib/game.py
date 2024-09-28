@@ -508,6 +508,7 @@ class Game:
             # place the card in the lane and remove it from the player's hand
             self.lanes[lane].minions[player_index].append(card)
             self.players[player_index].hand.remove(card)
+            card.onBeingPlayed(lane)
 
             # update time
             if self.morning_player == self.players[player_index]:
