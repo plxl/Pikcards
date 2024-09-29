@@ -1,12 +1,42 @@
-import json
 import random
-from .card import *
+import os
+from .cardclasses.bases.card import *
+from .cardclasses.bases.minion import *
+from .cardclasses.bases.item import *
+from .cardclasses.bases.exploration import *
+from .cardclasses.bases.area import *
+from .cardclasses.bases.modifiers import *
+
 from copy import deepcopy
 from beautifultable import BeautifulTable
+# import all the cards
+dirname = os.path.dirname(__file__)
+filename = os.path.join(dirname, 'cardclasses\cards')
+for card_file in os.scandir(filename):
+    if card_file.is_file():
+        card_string = os.path.join(filename, card_file.name)
+
+        import_string = f'from .cardclasses.cards import {card_file.name}'[:-3]
+        exec (import_string)
 
 
-def oprint(obj):
-    print(json.dumps(obj, default=lambda o: o.__dict__, indent=4))
+
+# List containing all cards
+Cards: list[Card] = []
+
+# Loads all existing cards from individual json files
+def load_cards():
+    print("Loading Cards...")
+
+    for card_file in os.scandir(filename):
+        print(card_file)
+        try:
+            load_string = f'Cards.append({card_file.name[:-3]}.load_me())'
+            exec(load_string)
+        except:
+            print(f"Load failed for {card_file.name}\n")
+
+
 
 
 class Player:
@@ -91,14 +121,25 @@ class Player:
 
         for i in range(len(self.hand)):
             c = self.hand[i]
-            fields = [
-                i + 1,
-                c.name,
-                c.energy,
-                c.time,
-                c.attack,
-                c.health,
-            ]
+            if isinstance(c, Minion):
+                fields = [
+                    i + 1,
+                    c.name,
+                    c.energy,
+                    c.time,
+                    c.attack,
+                    c.health,
+                ]
+            else:
+                fields = [
+                    i + 1,
+                    c.name,
+                    c.energy,
+                    c.time,
+                    "x",
+                    "x",
+                ]
+
             if redrawn > 0:
                 if i >= len(self.hand) - redrawn:
                     fields.append("✔")
@@ -110,13 +151,13 @@ class Player:
         print()
 
     def HasMinions(self) -> bool:
-        if any(c.cardtype == CardType.Minion for c in self.hand):
+        if any(isinstance(c, Minion) for c in self.hand):
             return True
 
         return False
 
     def HasItems(self) -> bool:
-        if any(c.cardtype == CardType.Item for c in self.hand):
+        if any(isinstance(c, Item) for c in self.hand):
             return True
 
         return False

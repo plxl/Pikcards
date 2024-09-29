@@ -4,8 +4,10 @@ from time import sleep
 import json
 from copy import deepcopy
 
+
 # Load all cards from JSON into memory
-Card.load_cards()
+load_cards()
+
 
 # load sample decks
 with open("decks.json") as f:
@@ -13,6 +15,7 @@ with open("decks.json") as f:
 # sample deck functions
 def get_random_deck() -> list[Card]:
     return decks[random.randint(0, len(decks) - 1)]["cards"]
+
 
 # debug function (uses ./debug.json for configuration)
 def start_debugging():
@@ -119,12 +122,15 @@ def start_debugging():
     dprint("Beginning game loop...")
     game.game_loop()
 
+
 # get argument variables
 if '--debug' in sys.argv:
     start_debugging()
 
+
 # Get player name (or options such as 'debug')
 pname = input("What is your name?\n")
+
 
 if pname == "debug":
     start_debugging()
