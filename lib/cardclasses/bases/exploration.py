@@ -18,8 +18,8 @@ class Exploration(Card):
 
                  description: str,
 
-                 weaknessDescriptions: list[str] = [],
-                 abilityDescriptions: list[str] = []
+                 weakness_descriptions: list[str] = [],
+                 ability_descriptions: list[str] = []
                  ):
         # Attributes for Card class
         self.set = set
@@ -40,12 +40,12 @@ class Exploration(Card):
         self.traits = traits
 
         self.description = description
-        self.baseDesc = description
+        self.base_desc = description
 
-        self.weaknessDescription = weaknessDescriptions  # Descriptions of all weaknesses
-        self.base_wd = weaknessDescriptions  # Weaknesses which the base card has
-        self.abilityDescription = abilityDescriptions  # Descriptions of all abilities
-        self.base_ad = abilityDescriptions  # Abilities which the base card has
+        self.weakness_description = weakness_descriptions  # Descriptions of all weaknesses
+        self.base_wd = weakness_descriptions  # Weaknesses which the base card has
+        self.ability_description = ability_descriptions  # Descriptions of all abilities
+        self.base_ad = ability_descriptions  # Abilities which the base card has
 
         self.owner: int = -1  # Owner player, p1 is 0, p2 is 1
         self.lane_index: int = -1  # Lane this is currently in. -1 for cards outside the field.
@@ -58,14 +58,14 @@ class Exploration(Card):
     
 
     # Provides description that shows what the abilities of the class are
-    def getDescription(self):
-        fullDescription: str = f"Exploration {self.name}\n"
-        fullDescription += self.description
-        return fullDescription
+    def get_description(self):
+        full_description: str = f"Exploration {self.name}\n"
+        full_description += self.description
+        return full_description
     
     # Reset stats for when a card is Returned or Discarded
-    def resetStats(self):
+    def reset_stats(self):
         self.lane_index = -1
         self.energy = self.base_energy
         self.time = self.base_time
-        self.description = self.baseDesc
+        self.description = self.base_desc

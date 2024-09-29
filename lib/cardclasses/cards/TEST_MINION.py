@@ -2,7 +2,7 @@ from ..bases.minion import *
 
 class TestMinion(Minion):
     # When overwriting a def, make sure to put the original loop in as well
-    def performAttack(self):
+    def perform_attack(self):
         attacks: list[AttackClass] = []
 
         print("\nSpecial TESTMINION attack ability modifier")
@@ -14,20 +14,20 @@ class TestMinion(Minion):
         
         elif not self.burrowed and not self.petrified:
             # If not burrowed and not petrified, perform attack in this lane
-            targetside = 0
+            target_side = 0
             damage = self.attack
 
             if self.owner == 0:
-                targetside = 1
+                target_side = 1
 
             # If Panicked, only deal 1 damage
             if self.panic:
                 damage = 1
 
             # Create the attack
-            ac = AttackClass(damage, self.lane_index, targetside, self)
+            ac = AttackClass(damage, self.lane_index, target_side, self)
 
-            for attMod in self.dealDamageModifiers:
+            for attMod in self.deal_damage_modifiers:
                 ac = attMod.modify(ac)
             attacks.append(ac)
 
@@ -43,5 +43,5 @@ def load_me():
                       ["Weak1: Testweaknessdesc", "Weak2: Other testdesc"],
                       ["Empty Ability 1", "Empty Ability 2"])
     
-    print(f"\nMINION: {this_minion.getDescription()}\n")
+    print(f"\nLOADED:\n{this_minion.get_description()}\n")
     return this_minion

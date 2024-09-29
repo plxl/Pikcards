@@ -9,6 +9,7 @@ if TYPE_CHECKING:
     - Make owner get nectar if card is killed while petrified in onDiscarded
     - Make walls discard upon reaching timer in onRoundStart
     - Stalemate/Staredown damage, using a Minion's hasBeenDamaged
+    - Make hasBeenDamaged reset after round ended, after game checks if stalemate damage should be applied
 
     - If a Minion with Items is Discarded or Returned, first Discard their Items, then perform the Minion action
 
@@ -41,8 +42,8 @@ class Minion(Card):
                  defense,
                  maxcarry,
 
-                 weaknessDescriptions: list[str] = [],
-                 abilityDescriptions: list[str] = []
+                 weakness_descriptions: list[str] = [],
+                 ability_descriptions: list[str] = []
                  ):
         # Attributes for Card class
         self.set = set
@@ -62,10 +63,10 @@ class Minion(Card):
         self.immunities = immunities
         self.traits = traits
 
-        self.weaknessDescription = weaknessDescriptions  # Descriptions of all weaknesses
-        self.base_wd = weaknessDescriptions  # Weaknesses which the base card has
-        self.abilityDescription = abilityDescriptions  # Descriptions of all abilities
-        self.base_ad = abilityDescriptions  # Abilities which the base card has
+        self.weakness_description = weakness_descriptions  # Descriptions of all weaknesses
+        self.base_wd = weakness_descriptions  # Weaknesses which the base card has
+        self.ability_description = ability_descriptions  # Descriptions of all abilities
+        self.base_ad = ability_descriptions  # Abilities which the base card has
 
         self.owner: int = -1  # Owner player, p1 is 0, p2 is 1
         self.lane_index: int = -1  # Lane this is currently in. -1 for cards outside the field.
@@ -79,52 +80,53 @@ class Minion(Card):
         self.base_defense = defense  # Standard max Defense of the card
         self.defense = defense  # Defense of the card
         self.maxcarry = maxcarry  # Maximum number of Items this card can hold
-        self.heldItems: list['Item'] = []  # Items that this is holding
+        self.held_items: list['Item'] = []  # Items that this is holding
 
         self.blind = False  # Whether the card is displayed as a Blind Card
         self.burrowed = False  # Whether the card is burrowed
         self.just_unburrowed = False  # Whether the card has unburrowed during the round
-        self.wallcounter = 0  # Counter for wall cards being on the field
+        self.wall_counter = 0  # Counter for wall cards being on the field
         self.stun = False  # Whether the card is stunned
         self.petrified = False  # Whether the card is petrified
         self.petrified_nightstarted = False  # So petrified cards know Night has begun
         self.panic = False  # Whether the card is panicked
-        self.panicCounter = 0  # Counts the rounds it has been panicked, max of 3
+        self.panic_counter = 0  # Counts the rounds it has been panicked, max of 3
         self.bubble_time = 0  # Whether the card is bubbled. If the card has bubble, this is set to 12. If zero, it is not bubbled.
-        self.hasBeenDamaged = False  # Whether the card took damage this turn, for stalemate/staredown damage
+        self.has_been_damaged = False  # Whether the card took damage this turn, for stalemate/staredown damage
 
         # Modifiers
-        self.bePlayedModifiers: list[BePlayedModifier] = []
-        self.enterLaneModifiers: list[EnterLaneModifier] = []
-        self.roundStartModifiers: list[RoundStartModifier] = []
-        self.turnStartModifiers: list[TurnStartModifier] = []
-        self.nightStartModifiers: list[NightStartModifier] = []
-        self.roundEndModifiers: list[NightEndModifier] = []
-        self.returnedModifiers: list[ReturnedModifier] = []
-        self.discardedModifiers: list[DiscardedModifier] = []
-        self.otherCardPlayedModifiers: list[OtherCardPlayedModifier] = []
-        self.otherCardLeavesModifiers: list[OtherCardLeavesModifier] = []
+        self.be_played_modifiers: list[BePlayedModifier] = []
+        self.enter_lane_modifiers: list[EnterLaneModifier] = []
+        self.round_start_modifiers: list[RoundStartModifier] = []
+        self.turn_start_modifiers: list[TurnStartModifier] = []
+        self.night_start_modifiers: list[NightStartModifier] = []
+        self.night_end_modifiers: list[NightEndModifier] = []
+        self.round_end_modifiers: list[RoundEndModifier] = []
+        self.returned_modifiers: list[ReturnedModifier] = []
+        self.discarded_modifiers: list[DiscardedModifier] = []
+        self.other_card_played_modifiers: list[OtherCardPlayedModifier] = []
+        self.other_card_leaves_modifiers: list[OtherCardLeavesModifier] = []
 
-        self.dealDamageModifiers: list[DealDamageModifier] = []
-        self.takeDamageModifiers: list[TakeDamageModifier] = []
-        self.beKilledModifiers: list[BeKilledModifier] = []
+        self.deal_damage_modifiers: list[DealDamageModifier] = []
+        self.take_damage_modifiers: list[TakeDamageModifier] = []
+        self.be_killed_modifiers: list[BeKilledModifier] = []
 
 
     # Provides description that shows what the abilities of the class are
-    def getDescription(self):
-        description: str = f"MINION {self.name}\n"
-        if len(self.weaknessDescription) > 0:
+    def get_description(self):
+        description: str = f"Minion {self.name}\n"
+        if len(self.weakness_description) > 0:
             description += "WEAKNESSES:\n"
-            description += "\n".join(self.weaknessDescription)
+            description += "\n".join(self.weakness_description)
             description += "\n"
         
-        if len(self.abilityDescription) > 0:
+        if len(self.ability_description) > 0:
             description += "ABILITIES:\n"
-            description += "\n".join(self.abilityDescription)
+            description += "\n".join(self.ability_description)
         return description
 
     # Reset stats for when a card is Returned or Discarded
-    def resetStats(self):
+    def reset_stats(self):
         self.lane_index = -1
         self.attack = self.base_attack
         self.max_health = self.base_health
@@ -135,23 +137,23 @@ class Minion(Card):
         self.blind = False
         self.burrowed = False
         self.just_unburrowed = False
-        self.wallcounter = 0
+        self.wall_counter = 0
         self.stun = False
         self.petrified = False
         self.petrified_nightstarted = False
         self.panic = False
-        self.panicCounter = 0
+        self.panic_counter = 0
         self.bubble_time = 0
-        self.hasBeenDamaged = False
-        self.weaknessDescription = self.base_wd
-        self.abilityDescription = self.base_ad
+        self.has_been_damaged = False
+        self.weakness_description = self.base_wd
+        self.ability_description = self.base_ad
 
 
 
 
     # Basic attack function.
     # Returns a list of targets (temporary)
-    def performAttack(self):
+    def perform_attack(self):
         attacks: list[AttackClass] = []
 
         if self.stun:
@@ -161,20 +163,20 @@ class Minion(Card):
         
         elif not self.burrowed and not self.petrified:
             # If not burrowed and not petrified, perform attack in this lane
-            targetside = 0
+            target_side = 0
             damage = self.attack
 
             if self.owner == 0:
-                targetside = 1
+                target_side = 1
 
             # If Panicked, only deal 1 damage
             if self.panic:
                 damage = 1
 
             # Create the attack
-            ac = AttackClass(damage, self.lane_index, targetside, self)
+            ac = AttackClass(damage, self.lane_index, target_side, self)
 
-            for attMod in self.dealDamageModifiers:
+            for attMod in self.deal_damage_modifiers:
                 ac = attMod.modify(ac)
             attacks.append(ac)
 
@@ -185,81 +187,81 @@ class Minion(Card):
             
     
     # Used by takeDamage only
-    def applyDamageOnDefense(self, damage, traits):
+    def apply_damage_on_defense(self, damage, traits):
         defense = self.defense
-        finaldamage = damage
+        final_damage = damage
 
         if self.petrified:
             defense = 0
-            finaldamage += 2
+            final_damage += 2
         elif "Gloom" in traits:
             defense = 0
         elif "Explosive" in traits and defense > 0:
             defense -= 1
         
-        finaldamage = max(0, finaldamage - defense)
-        self.health -= finaldamage
+        final_damage = max(0, final_damage - defense)
+        self.health -= final_damage
         
-        print(f"{self.name} took {finaldamage} damage!")
+        print(f"{self.name} took {final_damage} damage!")
 
         # Set to damage taken and remove Panic upon taking any damage
-        if finaldamage > 0:
-            self.hasBeenDamaged = True
+        if final_damage > 0:
+            self.has_been_damaged = True
 
             if self.panic:
                 self.panic = not self.panic
-                self.panicCounter = 0
+                self.panic_counter = 0
                 print(f"{self.name} is no longer Panicking")
 
 
     # Basic function for taking damage, without weaknesses
     # If the card takes damage, remove Panicked state
-    def takeDamage(self, incomingAttack: AttackClass):
+    def take_damage(self, incoming_attack: AttackClass):
         # Apply take damage modifiers
-        modifiedAttack = incomingAttack
-        for attMod in self.takeDamageModifiers:
-            modifiedAttack = attMod.modify(self, modifiedAttack)
+        modified_attack = incoming_attack
+        for attMod in self.take_damage_modifiers:
+            modified_attack = attMod.modify(self, modified_attack)
         
-        damage = modifiedAttack.damageValue
+        damage = modified_attack.damage_value
         
-        attackerTraits = modifiedAttack.attackerCard.traits
+        attacker_traits = modified_attack.attacker_card.traits
 
         # Check if immune, whether both are passive or if burrowed and attacked by a digger
         # Else don't edit special damage rules
-        if bool(set(modifiedAttack.attackerCard.elements).intersection(self.immunities)) or bool(set(attackerTraits).intersection(self.immunities)):
+        if bool(set(modified_attack.attacker_card.elements).intersection(self.immunities)) or bool(set(attacker_traits).intersection(self.immunities)):
             print(f"{self.name} was immune to the attack")
         
-        elif "Passive" in self.traits and "Passive" in attackerTraits:
-            self.applyDamageOnDefense(1, attackerTraits)
+        elif "Passive" in self.traits and "Passive" in attacker_traits:
+            self.apply_damage_on_defense(1, attacker_traits)
 
-        elif self.burrowed and "Digging" in attackerTraits:
+        elif self.burrowed and "Digging" in attacker_traits:
             damage += 2
-            self.applyDamageOnDefense(damage, attackerTraits)
+            self.apply_damage_on_defense(damage, attacker_traits)
         
         else:
-            self.applyDamageOnDefense(damage, attackerTraits)
+            self.apply_damage_on_defense(damage, attacker_traits)
 
 
     # Minion function for the card being discarded, checks if killed by another cards as well
-    def onDiscarded(self, killedBy: Card = None):
-        if killedBy is not None:
-            for killedMod in self.beKilledModifiers:
-                killedMod.modify(self, killedBy)
+    def on_discarded(self, killed_by: Card = None):
+        if killed_by is not None:
+            for killedMod in self.be_killed_modifiers:
+                killedMod.modify(self, killed_by)
 
             if self.petrified:
                 # Provide the owner with Nectar
                 print(f"{self.name} was killed while Petrified, so its owner should get a Nectar!")
         
-        for discMod in self.discardedModifiers:
+        for discMod in self.discarded_modifiers:
             discMod.modify(self)
         
-        self.resetStats()
+        self.reset_stats()
 
         # Call remote function to discard this card
 
 
     # Minion Function for being healed
-    def beHealed(self, amount: int, overheal: bool = False):
+    def be_healed(self, amount: int, overheal: bool = False):
         if overheal:
             print(f"{self.name} overhealed by {amount} Health")
             self.health += amount
@@ -272,57 +274,57 @@ class Minion(Card):
 
 
 
-    def onRoundStart(self, round: int):
+    def on_round_start(self, round: int):
         if "Wall" in self.traits:
-            self.wallcounter += 1
+            self.wall_counter += 1
 
-        self.hasBeenDamaged = False
+        self.has_been_damaged = False
 
         if self.burrowed:
             self.burrowed = not self.burrowed
             self.just_unburrowed = True
             print(f"{self.name} just unburrowed")
 
-        if self.wallcounter < 3:
-            for rsMod in self.roundStartModifiers:
+        if self.wall_counter < 3:
+            for rsMod in self.round_start_modifiers:
                 rsMod.modify(self, round)
         else:
             print(f"{self.name} is a long-lasting wall and disappears")
             # Call remote function to discard this
 
 
-    def onRoundEnd(self):
+    def on_round_end(self):
         if self.panic:
-            self.panicCounter += 1
+            self.panic_counter += 1
 
-            if self.panicCounter > 2:
+            if self.panic_counter > 2:
                 self.panic = not self.panic
-                self.panicCounter = 0
+                self.panic_counter = 0
                 print(f"{self.name} is no longer Panicking")
         
         if self.burrowed:
-            self.beHealed(1)
+            self.be_healed(1)
 
         if self.just_unburrowed:
             self.just_unburrowed = not self.just_unburrowed
         
-        for reMod in self.nightEndModifiers:
+        for reMod in self.night_end_modifiers:
             reMod.modify(self)
 
 
-    def onNightStart(self):
+    def on_night_start(self):
         if self.petrified:
             self.petrified_nightstarted = True
         
-        for nsMod in self.nightStartModifiers:
+        for nsMod in self.night_start_modifiers:
             nsMod.modify(self)
 
 
-    def onNightEnd(self):
+    def on_night_end(self):
         if self.petrified and self.petrified_nightstarted:
             self.petrified = not self.petrified
             self.petrified_nightstarted = not self.petrified_nightstarted
             print(f"{self.name} is no longer Petrified")
         
-        for neMod in self.nightEndModifiers:
+        for neMod in self.night_end_modifiers:
             neMod.modify(self)
