@@ -112,7 +112,7 @@ class Minion(Card):
 
     # Provides description that shows what the abilities of the class are
     def getDescription(self):
-        description: str = "MINION\n"
+        description: str = f"MINION {self.name}\n"
         if len(self.weaknessDescription) > 0:
             description += "WEAKNESSES:\n"
             description += "\n".join(self.weaknessDescription)

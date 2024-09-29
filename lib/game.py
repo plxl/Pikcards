@@ -3,21 +3,22 @@ from beautifultable import BeautifulTable
 import platform, subprocess
 from time import sleep
 import sys
+from os import path, getcwd
 
 
 class Lane:
     def __init__(self, index: int, num_players: int = 2) -> None:
-        self.minions: list[list[Card]] = [[] for i in range(num_players)]
-        self.items: list[list[Card]] = [[] for i in range(num_players)]
-        self.area: list[Card] = None
+        self.minions: list[list[Minion]] = [[] for i in range(num_players)]
+        self.items: list[list[Item]] = [[] for i in range(num_players)]
+        self.area: list[Area] = None
         self.area_owner: int = -1
         self.lane_index: int = index
 
     def GetItems(self, player_index: int):
         return self.items[player_index]
 
-    def GetMinion(self, player_index: int) -> Card:
-        if self.HasMinion(player_index):
+    def GetMinion(self, player_index: int) -> Minion:
+        if self.HasMinions(player_index):
             return self.minions[player_index][0]
 
     def HasMinions(self, player_index: int = -1) -> bool:
@@ -99,13 +100,13 @@ class Game:
             return lanes
 
         # force the card to be a minion (temporary)
-        if card.cardtype != CardType.Minion:
+        if not isinstance(card, Minion):
             return lanes
 
         # Check energy requirements
         if card.energy > player.energy:
             # Cards with Explorer trait need 1 less energy in lanes with an area
-            if "Explorer" in card.traits and player.energy + 1 <= card.energy:
+            if "Explorer" in card.traits and player.energy + 1 <= card.energy and isinstance(card, Minion):
                 # get all empty lanes on the board that have an area set
                 area_lanes = self.GetEmptyLaneIndicesWithAreas(player)
                 for i in area_lanes:
@@ -170,7 +171,7 @@ class Game:
         player.energy -= card_playable.card.energy
 
         # Make card perform actions it has upon being played
-        card_playable.card.onBeingPlayed(lane_index)
+        card_playable.card.onBeingPlayed(self.lanes[lane_index])
 
         self.print_board()
         player.PrintHand()
@@ -230,7 +231,7 @@ class Game:
 
     # Call this once something should have taken damage, to see if it has died.
     # If a Player was attacked, do not send a Minion and Lane
-    def processDamageTaken(self, targetPlayer: Player, lane: Lane = None, targetMinion: Card = None):
+    def processDamageTaken(self, targetPlayer: Player, lane: Lane = None, targetMinion: Minion = None):
 
         # If a Minion was said to be attacked and it's health 0, kill and discard it
         if targetMinion is not None and targetMinion.health <= 0:
@@ -297,6 +298,8 @@ class Game:
                 player.energy = self.round + 1
 
 
+
+    # Night Phase
     def battle_phase(self):
         for lane in self.lanes:
             lane_index = lane.lane_index
@@ -508,7 +511,7 @@ class Game:
             # place the card in the lane and remove it from the player's hand
             self.lanes[lane].minions[player_index].append(card)
             self.players[player_index].hand.remove(card)
-            card.onBeingPlayed(lane)
+            card.onBeingPlayed(self.lanes[lane])
 
             # update time
             if self.morning_player == self.players[player_index]:

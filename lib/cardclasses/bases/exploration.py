@@ -16,7 +16,10 @@ class Exploration(Card):
                  immunities,
                  traits,
 
-                 description: str
+                 description: str,
+
+                 weaknessDescriptions: list[str] = [],
+                 abilityDescriptions: list[str] = []
                  ):
         # Attributes for Card class
         self.set = set
@@ -39,6 +42,11 @@ class Exploration(Card):
         self.description = description
         self.baseDesc = description
 
+        self.weaknessDescription = weaknessDescriptions  # Descriptions of all weaknesses
+        self.base_wd = weaknessDescriptions  # Weaknesses which the base card has
+        self.abilityDescription = abilityDescriptions  # Descriptions of all abilities
+        self.base_ad = abilityDescriptions  # Abilities which the base card has
+
         self.owner: int = -1  # Owner player, p1 is 0, p2 is 1
         self.lane_index: int = -1  # Lane this is currently in. -1 for cards outside the field.
         
@@ -50,14 +58,12 @@ class Exploration(Card):
     
 
     # Provides description that shows what the abilities of the class are
-    @abstractmethod
     def getDescription(self):
-        fullDescription: str = "Exploration\n"
+        fullDescription: str = f"Exploration {self.name}\n"
         fullDescription += self.description
         return fullDescription
     
     # Reset stats for when a card is Returned or Discarded
-    @abstractmethod
     def resetStats(self):
         self.lane_index = -1
         self.energy = self.base_energy

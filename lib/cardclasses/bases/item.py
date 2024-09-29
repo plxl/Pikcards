@@ -88,7 +88,7 @@ class Item(Card):
 
 
     def getDescription(self):
-        description: str = "ITEM\n"
+        description: str = f"ITEM {self.name}\n"
         if len(self.weaknessDescription) > 0:
             description += "WEAKNESSES:\n"
             description += "\n".join(self.weaknessDescription)
