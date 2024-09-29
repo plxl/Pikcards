@@ -2,10 +2,10 @@ from ..bases.exploration import *
 
 class TestExploration(Exploration):
     # When overwriting a def, make sure to put the original loop in as well
-    def onNightStart(self):
+    def on_night_start(self):
         print(f"EXPLORATION {self.name} is excited for the upcoming battle")
 
-        for nsMod in self.nightStartModifiers:
+        for nsMod in self.night_start_modifiers:
             nsMod.modify(self)
 
 
@@ -14,5 +14,5 @@ def load_me():
                       2, 2, [], [], [],
                       "Empty Exploration Description")
     
-    print(f"\nEXPLORATION: {this_exploration.getDescription()}\n")
+    print(f"\nLOADED:\n{this_exploration.get_description()}\n")
     return this_exploration

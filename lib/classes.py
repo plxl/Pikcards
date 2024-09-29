@@ -26,15 +26,15 @@ Cards: list[Card] = []
 
 # Loads all existing cards from individual json files
 def load_cards():
-    print("Loading Cards...")
+    print("\n\nLoading Cards...")
 
     for card_file in os.scandir(filename):
-        print(card_file)
         try:
             load_string = f'Cards.append({card_file.name[:-3]}.load_me())'
             exec(load_string)
         except:
-            print(f"Load failed for {card_file.name}\n")
+            print(f"Load failed for {card_file.name}")
+        print("\n-----------------------------\n")
 
 
 

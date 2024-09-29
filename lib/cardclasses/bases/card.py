@@ -97,8 +97,8 @@ class Card(ABC):
                  immunities,
                  traits,
 
-                 weaknessDescriptions: list[str] = [],
-                 abilityDescriptions: list[str] = []
+                 weakness_descriptions: list[str] = [],
+                 ability_descriptions: list[str] = []
                  ):
         self.set = set
         self.number = number
@@ -117,76 +117,76 @@ class Card(ABC):
         self.immunities = immunities
         self.traits = traits
 
-        self.weaknessDescription = weaknessDescriptions  # Descriptions of all weaknesses
-        self.base_wd = weaknessDescriptions  # Weaknesses which the base card has
-        self.abilityDescription = abilityDescriptions  # Descriptions of all abilities
-        self.base_ad = abilityDescriptions  # Abilities which the base card has
+        self.weakness_description = weakness_descriptions  # Descriptions of all weaknesses
+        self.base_wd = weakness_descriptions  # Weaknesses which the base card has
+        self.ability_description = ability_descriptions  # Descriptions of all abilities
+        self.base_ad = ability_descriptions  # Abilities which the base card has
 
         self.owner: int = -1  # Owner player, p1 is 0, p2 is 1
         self.lane_index: int = -1  # Lane this is currently in. -1 for cards outside the field.
         
         # Modifiers
-        self.bePlayedModifiers: list[BePlayedModifier] = []
-        self.enterLaneModifiers: list[EnterLaneModifier] = []
-        self.roundStartModifiers: list[RoundStartModifier] = []
-        self.turnStartModifiers: list[TurnStartModifier] = []
-        self.nightStartModifiers: list[NightStartModifier] = []
-        self.nightEndModifiers: list[NightEndModifier] = []
-        self.roundEndModifiers: list[RoundEndModifier] = []
-        self.returnedModifiers: list[ReturnedModifier] = []
-        self.discardedModifiers: list[DiscardedModifier] = []
-        self.otherCardPlayedModifiers: list[OtherCardPlayedModifier] = []
-        self.otherCardLeavesModifiers: list[OtherCardLeavesModifier] = []
+        self.be_played_modifiers: list[BePlayedModifier] = []
+        self.enter_lane_modifiers: list[EnterLaneModifier] = []
+        self.round_start_modifiers: list[RoundStartModifier] = []
+        self.turn_start_modifiers: list[TurnStartModifier] = []
+        self.night_start_modifiers: list[NightStartModifier] = []
+        self.night_end_modifiers: list[NightEndModifier] = []
+        self.round_end_modifiers: list[RoundEndModifier] = []
+        self.returned_modifiers: list[ReturnedModifier] = []
+        self.discarded_modifiers: list[DiscardedModifier] = []
+        self.other_card_played_modifiers: list[OtherCardPlayedModifier] = []
+        self.other_card_leaves_modifiers: list[OtherCardLeavesModifier] = []
 
     
 
     # Provides description that shows what the abilities of the class are
     @abstractmethod
-    def getDescription(self):
+    def get_description(self):
         raise NotImplemented("Subclasses must implement this method")
     
     # Reset stats for when a card is Returned or Discarded
     @abstractmethod
-    def resetStats(self):
+    def reset_stats(self):
         raise NotImplemented("Subclasses must implement this method")
     
 
 
     # Basic function for entering a lane
-    def onBeingPlayed(self, enteredLane: 'Lane'):
+    def on_being_played(self, entered_lane: 'Lane'):
 
-        for playMod in self.bePlayedModifiers:
-            playMod.modify(self, enteredLane)
+        for playMod in self.be_played_modifiers:
+            playMod.modify(self, entered_lane)
 
         # ALWAYS go to entering a lane after
-        self.onEnterLane(enteredLane)
+        self.on_enter_lane(entered_lane)
 
 
     # Basic function for entering a lane
     # This also changes the card's lane value
-    def onEnterLane(self, enteredLane: 'Lane'):
-        self.lane_index = enteredLane.lane_index
+    def on_enter_lane(self, entered_lane: 'Lane'):
+        self.lane_index = entered_lane.lane_index
 
-        for enterMod in self.enterLaneModifiers:
-            enterMod.modify(self, enteredLane)
+        for enterMod in self.enter_lane_modifiers:
+            enterMod.modify(self, entered_lane)
 
 
     # Basic function for the card being returned
-    def onReturned(self, returnedByCard: 'Card'):
-        for returnMod in self.returnedModifiers:
-            returnMod.modify(self, returnedByCard)
+    def on_returned(self, returned_by_card: 'Card'):
+        for returnMod in self.returned_modifiers:
+            returnMod.modify(self, returned_by_card)
         
-        self.resetStats()
+        self.reset_stats()
 
         # Call remote function to return this card, with possibility to call specific player(s)
 
 
     # Basic function for the card being discarded
-    def onDiscarded(self):
-        for discMod in self.discardedModifiers:
+    def on_discarded(self):
+        for discMod in self.discarded_modifiers:
             discMod.modify(self)
         
-        self.resetStats()
+        self.reset_stats()
 
         # Call remote function to discard this card
 
@@ -194,43 +194,43 @@ class Card(ABC):
 
 
     # Basic function for abilities that trigger upon round start
-    def onRoundStart(self, round: int):
-        for rsMod in self.roundStartModifiers:
+    def on_round_start(self, round: int):
+        for rsMod in self.round_start_modifiers:
             rsMod.modify(self, round)
 
 
     # Basic function for abilities that trigger upon turn start
-    def onTurnStart(self):
-        for tsMod in self.turnStartModifiers:
+    def on_turn_start(self):
+        for tsMod in self.turn_start_modifiers:
             tsMod.modify(self)
 
 
     # Basic function for abilities that trigger upon night start
-    def onNightStart(self):
-        for nsMod in self.nightStartModifiers:
+    def on_night_start(self):
+        for nsMod in self.night_start_modifiers:
             nsMod.modify(self)
 
 
     # Basic function for abilities that trigger upon night end
-    def onNightEnd(self):
-        for neMod in self.nightEndModifiers:
+    def on_night_end(self):
+        for neMod in self.night_end_modifiers:
             neMod.modify(self)
 
 
     # Basic function for abilities that trigger upon round end
-    def onRoundEnd(self):
-        for reMod in self.nightEndModifiers:
+    def on_round_end(self):
+        for reMod in self.round_end_modifiers:
             reMod.modify(self)
 
 
 
     # Basic function for abilities that trigger upon another card entering the field
-    def onOtherCardPlayed(self, otherCard: 'Card', playedInLane: 'Lane'):
-        for otherPlayedMod in self.otherCardPlayedModifiers:
-            otherPlayedMod.modify(self, otherCard, playedInLane)
+    def on_other_card_played(self, other_card: 'Card', played_in_lane: 'Lane'):
+        for otherPlayedMod in self.other_card_played_modifiers:
+            otherPlayedMod.modify(self, other_card, played_in_lane)
 
 
     # Basic function for abilities that trigger upon another card leaving a lane for any reason
-    def onOtherCardLeaves(self, otherCard: 'Card', leavesLane: 'Lane', leftBecause: str):
-        for otherLeftMod in self.otherCardLeavesModifiers:
-            otherLeftMod.modify(self, otherCard, leavesLane, leftBecause)
+    def on_other_card_leaves(self, other_card: 'Card', leaves_lane: 'Lane', left_because: str):
+        for otherLeftMod in self.other_card_leaves_modifiers:
+            otherLeftMod.modify(self, other_card, leaves_lane, left_because)

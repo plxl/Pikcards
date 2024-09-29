@@ -17,6 +17,7 @@ def get_random_deck() -> list[Card]:
     return decks[random.randint(0, len(decks) - 1)]["cards"]
 
 
+
 # debug function (uses ./debug.json for configuration)
 def start_debugging():
     # easy debug print

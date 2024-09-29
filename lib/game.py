@@ -171,7 +171,7 @@ class Game:
         player.energy -= card_playable.card.energy
 
         # Make card perform actions it has upon being played
-        card_playable.card.onBeingPlayed(self.lanes[lane_index])
+        card_playable.card.on_being_played(self.lanes[lane_index])
 
         self.print_board()
         player.PrintHand()
@@ -212,37 +212,40 @@ class Game:
     
 
     # Processes attacks from an AttackClass
-    def processAttacks(self, attacks: list[AttackClass]):
+    def process_attacks(self, attacks: list[AttackClass]):
         for att in attacks:
-            targetLane = self.lanes[att.targetLane]
-            targetPlayer = self.players[att.targetPlayer]
+            target_lane = self.lanes[att.target_lane]
+            target_player = self.players[att.target_player]
             
             # If the side has a Minion, attack said Minion
-            if len(targetLane.minions[att.targetPlayer]) > 0:
-                targetMinion = targetLane.minions[att.targetPlayer][0]
-                targetMinion.takeDamage(att)
-                self.processDamageTaken(targetPlayer, targetLane, targetMinion)
+            if len(target_lane.minions[att.target_player]) > 0:
+                target_minion = target_lane.minions[att.target_player][0]
+                target_minion.take_damage(att)
+                self.process_damage_taken(target_player, target_lane, target_minion)
             # Otherwise, attack the player
             else:
-                targetPlayer.health -= att.damageValue
-                print(f"{targetPlayer.name} took {att.damageValue} damage.")
-                self.processDamageTaken(targetPlayer)
+                target_player.health -= att.damage_value
+                print(f"{target_player.name} took {att.damage_value} damage.")
+                self.process_damage_taken(target_player)
 
 
     # Call this once something should have taken damage, to see if it has died.
     # If a Player was attacked, do not send a Minion and Lane
-    def processDamageTaken(self, targetPlayer: Player, lane: Lane = None, targetMinion: Minion = None):
+    def process_damage_taken(self, target_player: Player, lane: Lane = None, target_minion: Minion = None):
 
         # If a Minion was said to be attacked and it's health 0, kill and discard it
-        if targetMinion is not None and targetMinion.health <= 0:
+        if target_minion is not None and target_minion.health <= 0:
             print(
-            f"{targetPlayer.name}'s {targetMinion.name} was defeated!"
+            f"{target_player.name}'s {target_minion.name} was defeated!"
             )
-            targetMinion.resetStats()
-            if targetPlayer == self.players[0]:
-                lane.minions[0].remove(targetMinion)
+
+            # This block should later refer to on-being-killed() instead
+            # That can only be done once cards can call the game to remove themselves instead
+            target_minion.reset_stats()
+            if target_player == self.players[0]:
+                lane.minions[0].remove(target_minion)
             else:
-                lane.minions[1].remove(targetMinion)
+                lane.minions[1].remove(target_minion)
             
         # If no Minion was attacked, check if the players are still alive
         if self.players[0].health <= 0:
@@ -317,12 +320,12 @@ class Game:
             m1 = None
             if p1_has_minion:
                 m1 = minions[0][0]
-                attacksP1 = m1.performAttack()
+                attacksP1 = m1.perform_attack()
                 
             m2 = None
             if p2_has_minion:
                 m2 = minions[1][0]
-                attacksP2 = m2.performAttack()
+                attacksP2 = m2.perform_attack()
 
 
             # First Strike check on p1, only applies if there are two minions in a lane
@@ -330,12 +333,12 @@ class Game:
             if p1_has_minion and fs in m1.traits and p2_has_minion and not (fs in m2.traits):
 
                 print(f"\n{ls}{m1.name} has the first strike!")
-                self.processAttacks(attacksP1)
+                self.process_attacks(attacksP1)
 
                 # Second Minion only attacks if still alive
                 if len(minions[1]) > 0:
                     print(f"\n{ls}Now {m2.name} gets to attack!")
-                    self.processAttacks(attacksP2)
+                    self.process_attacks(attacksP2)
 
                 continue
 
@@ -344,12 +347,12 @@ class Game:
             elif p2_has_minion and fs in m2.traits and p1_has_minion and not (fs in m1.traits):
 
                 print(f"\n{ls}{m2.name} has the first strike!")
-                self.processAttacks(attacksP2)
+                self.process_attacks(attacksP2)
 
                 # Second Minion only attacks if still alive
                 if len(minions[0]) > 0:
                     print(f"\n{ls}Now {m1.name} gets to attack!")
-                    self.processAttacks(attacksP1)
+                    self.process_attacks(attacksP1)
 
                 continue
 
@@ -360,16 +363,16 @@ class Game:
             else:
                 if p1_has_minion and not p2_has_minion:
                     print(f"\n{ls}{m1.name} attacks!")
-                    self.processAttacks(attacksP1)
+                    self.process_attacks(attacksP1)
 
                 elif p2_has_minion and not p1_has_minion:
                     print(f"\n{ls}{m2.name} attacks!")
-                    self.processAttacks(attacksP2)
+                    self.process_attacks(attacksP2)
                         
                 elif p1_has_minion and p2_has_minion:
                     print(f"\n{ls}{m1.name} and {m2.name} both attack!")
-                    self.processAttacks(attacksP1)
-                    self.processAttacks(attacksP2)
+                    self.process_attacks(attacksP1)
+                    self.process_attacks(attacksP2)
     
 
 
@@ -511,7 +514,7 @@ class Game:
             # place the card in the lane and remove it from the player's hand
             self.lanes[lane].minions[player_index].append(card)
             self.players[player_index].hand.remove(card)
-            card.onBeingPlayed(self.lanes[lane])
+            card.on_being_played(self.lanes[lane])
 
             # update time
             if self.morning_player == self.players[player_index]:

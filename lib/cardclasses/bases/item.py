@@ -24,8 +24,8 @@ class Item(Card):
                  immunities,
                  traits,
 
-                 weaknessDescriptions: list[str] = [],
-                 abilityDescriptions: list[str] = []
+                 weakness_descriptions: list[str] = [],
+                 ability_descriptions: list[str] = []
                  ):
         # Attributes for Card class
         self.set = set
@@ -45,10 +45,10 @@ class Item(Card):
         self.immunities = immunities
         self.traits = traits
 
-        self.weaknessDescription = weaknessDescriptions  # Descriptions of all weaknesses
-        self.base_wd = weaknessDescriptions  # Weaknesses which the base card has
-        self.abilityDescription = abilityDescriptions  # Descriptions of all abilities
-        self.base_ad = abilityDescriptions  # Abilities which the base card has
+        self.weakness_description = weakness_descriptions  # Descriptions of all weaknesses
+        self.base_wd = weakness_descriptions  # Weaknesses which the base card has
+        self.ability_description = ability_descriptions  # Descriptions of all abilities
+        self.base_ad = ability_descriptions  # Abilities which the base card has
 
         self.owner: int = -1  # Owner player, p1 is 0, p2 is 1
         self.lane_index: int = -1  # Lane this is currently in. -1 for cards outside the field.
@@ -57,51 +57,53 @@ class Item(Card):
     
 
         # Modifiers for the Item itself
-        self.bePlayedModifiers: list[BePlayedModifier] = []
-        self.enterLaneModifiers: list[EnterLaneModifier] = []
-        self.roundStartModifiers: list[RoundStartModifier] = []
-        self.turnStartModifiers: list[TurnStartModifier] = []
-        self.nightStartModifiers: list[NightStartModifier] = []
-        self.roundEndModifiers: list[NightEndModifier] = []
-        self.returnedModifiers: list[ReturnedModifier] = []
-        self.discardedModifiers: list[DiscardedModifier] = []
-        self.otherCardPlayedModifiers: list[OtherCardPlayedModifier] = []
-        self.otherCardLeavesModifiers: list[OtherCardLeavesModifier] = []
+        self.be_played_modifiers: list[BePlayedModifier] = []
+        self.enter_lane_modifiers: list[EnterLaneModifier] = []
+        self.round_start_modifiers: list[RoundStartModifier] = []
+        self.turn_start_modifiers: list[TurnStartModifier] = []
+        self.night_start_modifiers: list[NightStartModifier] = []
+        self.night_end_modifiers: list[NightEndModifier] = []
+        self.round_end_modifiers: list[RoundEndModifier] = []
+        self.returned_modifiers: list[ReturnedModifier] = []
+        self.discarded_modifiers: list[DiscardedModifier] = []
+        self.other_card_played_modifiers: list[OtherCardPlayedModifier] = []
+        self.other_card_leaves_modifiers: list[OtherCardLeavesModifier] = []
 
 
         # Modifiers that are added to the holder
-        self.bePlayedMinionModifiers: list[BePlayedModifier] = []
-        self.enterLaneMinionModifiers: list[EnterLaneModifier] = []
-        self.roundStartMinionModifiers: list[RoundStartModifier] = []
-        self.turnStartMinionModifiers: list[TurnStartModifier] = []
-        self.nightStartMinionModifiers: list[NightStartModifier] = []
-        self.roundEndMinionModifiers: list[NightEndModifier] = []
-        self.returnedMinionModifiers: list[ReturnedModifier] = []
-        self.discardedMinionModifiers: list[DiscardedModifier] = []
-        self.otherCardPlayedMinionModifiers: list[OtherCardPlayedModifier] = []
-        self.otherCardLeavesMinionModifiers: list[OtherCardLeavesModifier] = []
+        self.minion_be_played_modifiers: list[BePlayedModifier] = []
+        self.minion_enter_lane_modifiers: list[EnterLaneModifier] = []
+        self.minion_round_start_modifiers: list[RoundStartModifier] = []
+        self.minion_turn_start_modifiers: list[TurnStartModifier] = []
+        self.minion_night_start_modifiers: list[NightStartModifier] = []
+        self.minion_night_end_modifiers: list[NightEndModifier] = []
+        self.minion_round_end_modifiers: list[RoundEndModifier] = []
+        self.minion_returned_modifiers: list[ReturnedModifier] = []
+        self.minion_discarded_modifiers: list[DiscardedModifier] = []
+        self.minion_other_card_played_modifiers: list[OtherCardPlayedModifier] = []
+        self.minion_other_card_leaves_modifiers: list[OtherCardLeavesModifier] = []
 
-        self.dealDamageMinionModifiers: list[DealDamageModifier] = []
-        self.takeDamageMinionModifiers: list[TakeDamageModifier] = []
-        self.beKilledMinionModifiers: list[BeKilledModifier] = []
+        self.minion_deal_damage_modifiers: list[DealDamageModifier] = []
+        self.minion_take_damage_modifiers: list[TakeDamageModifier] = []
+        self.minion_be_killed_modifiers: list[BeKilledModifier] = []
 
 
 
-    def getDescription(self):
-        description: str = f"ITEM {self.name}\n"
-        if len(self.weaknessDescription) > 0:
+    def get_description(self):
+        description: str = f"Item {self.name}\n"
+        if len(self.weakness_description) > 0:
             description += "WEAKNESSES:\n"
-            description += "\n".join(self.weaknessDescription)
+            description += "\n".join(self.weakness_description)
             description += "\n"
         
-        if len(self.abilityDescription) > 0:
+        if len(self.ability_description) > 0:
             description += "ABILITIES:\n"
-            description += "\n".join(self.abilityDescription)
+            description += "\n".join(self.ability_description)
         return description
 
-    def resetStats(self):
+    def reset_stats(self):
         self.lane_index = -1
         self.energy = self.base_energy
         self.time = self.base_time
-        self.weaknessDescription = self.base_wd
-        self.abilityDescription = self.base_ad
+        self.weakness_description = self.base_wd
+        self.ability_description = self.base_ad
