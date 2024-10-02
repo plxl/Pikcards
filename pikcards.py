@@ -198,6 +198,7 @@ else:
     if len(available) == 0:
         print("There are no cards left in your deck that can be selected as a 5th...")
         print("Instead, you will simply draw the next card.")
+        p1.Draw(1)
 
     else:
 
