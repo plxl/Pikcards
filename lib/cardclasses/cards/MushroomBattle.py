@@ -15,8 +15,8 @@ def load_me():
         cardclass = 5, # int
         base_energy = 2, # int
         base_time = 4, # int
-        elements = ['"Mushroom"'], # list[str]
-        immunities = ['"Mushroom"'], # list[str]
+        elements = ['Mushroom'], # list[str]
+        immunities = ['Mushroom'], # list[str]
         traits = [], # list[str]
         description = "Description", # str
         weakness_descriptions = [], # list[str](optional)

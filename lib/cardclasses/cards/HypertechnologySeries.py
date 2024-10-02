@@ -15,9 +15,9 @@ def load_me():
         cardclass = 2, # int
         base_energy = 3, # int
         base_time = 3, # int
-        elements = ['"Electricity"'], # list[str]
-        immunities = ['"Electricity"'], # list[str]
-        traits = ['"Debt Treasure"'], # list[str]
+        elements = ['Electricity'], # list[str]
+        immunities = ['Electricity'], # list[str]
+        traits = ['Debt Treasure'], # list[str]
         weakness_descriptions = [], # list[str](optional)
         ability_descriptions = ['Stun'] # list[str](optional)
     )

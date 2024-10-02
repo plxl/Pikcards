@@ -15,9 +15,9 @@ def load_me():
         cardclass = 1, # int
         base_energy = 4, # int
         base_time = 5, # int
-        elements = ['"Crush"'], # list[str]
+        elements = ['Crush'], # list[str]
         immunities = [], # list[str]
-        traits = ['"Indirect"', '"Digging"'], # list[str]
+        traits = ['Indirect', 'Digging'], # list[str]
         base_attack = 4, # int
         base_health = 2, # int
         defense = 0, # int

@@ -17,7 +17,7 @@ def load_me():
         base_time = 8, # int
         elements = [], # list[str]
         immunities = [], # list[str]
-        traits = ['"Dolphin Part"'], # list[str]
+        traits = ['Dolphin Part'], # list[str]
         weakness_descriptions = [], # list[str](optional)
         ability_descriptions = ['Element Spin', 'One-Time Use'] # list[str](optional)
     )

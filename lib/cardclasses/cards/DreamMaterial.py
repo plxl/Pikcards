@@ -16,8 +16,8 @@ def load_me():
         base_energy = 2, # int
         base_time = 10, # int
         elements = [], # list[str]
-        immunities = ['"Electricity"'], # list[str]
-        traits = ['"Debt Treasure"'], # list[str]
+        immunities = ['Electricity'], # list[str]
+        traits = ['Debt Treasure'], # list[str]
         weakness_descriptions = [], # list[str](optional)
         ability_descriptions = ['Rub Off'] # list[str](optional)
     )
