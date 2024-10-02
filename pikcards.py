@@ -247,8 +247,10 @@ else:
         starting_player = random.randint(0, 1)
     elif p2pref == 2:
         starting_player = pref
-    elif pref == 2:
-        starting_player = p2pref
+    elif pref == 2 and p2pref == 1:
+        starting_player = 0
+    elif pref == 2 and p2pref == 0:
+        starting_player = 1
     elif p2pref == 0:
         starting_player = 1
 
