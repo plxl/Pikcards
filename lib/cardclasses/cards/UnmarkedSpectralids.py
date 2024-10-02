@@ -17,7 +17,7 @@ def load_me():
         base_time = 0, # int
         elements = [], # list[str]
         immunities = [], # list[str]
-        traits = ['"Passive"', '"6 Swarm"'], # list[str]
+        traits = ['Passive', '6 Swarm'], # list[str]
         base_attack = 0, # int
         base_health = 1, # int
         defense = 0, # int

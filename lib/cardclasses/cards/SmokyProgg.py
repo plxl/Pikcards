@@ -15,9 +15,9 @@ def load_me():
         cardclass = 2, # int
         base_energy = 7, # int
         base_time = 9, # int
-        elements = ['"Gloom"'], # list[str]
+        elements = ['Gloom'], # list[str]
         immunities = [], # list[str]
-        traits = ['"Indirect"'], # list[str]
+        traits = ['Indirect'], # list[str]
         base_attack = 2, # int
         base_health = 5, # int
         defense = 0, # int

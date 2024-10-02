@@ -33,8 +33,9 @@ def load_cards():
             load_string = f'Cards.append({card_file.name[:-3]}.load_me())'
             exec(load_string)
         except:
+            print("\n-----------------------------")
             print(f"Load failed for {card_file.name}")
-        print("\n-----------------------------\n")
+            print("-----------------------------\n")
 
 
 

@@ -17,7 +17,7 @@ def load_me():
         base_time = 2, # int
         elements = [], # list[str]
         immunities = [], # list[str]
-        traits = ['"Explosive"', '"Indirect"'], # list[str]
+        traits = ['Explosive', 'Indirect'], # list[str]
         weakness_descriptions = ['Water'], # list[str](optional)
         ability_descriptions = ['One-Time Use'] # list[str](optional)
     )

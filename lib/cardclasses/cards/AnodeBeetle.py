@@ -15,9 +15,9 @@ def load_me():
         cardclass = 4, # int
         base_energy = 3, # int
         base_time = 2, # int
-        elements = ['"Electricity"'], # list[str]
-        immunities = ['"Explosive"'], # list[str]
-        traits = ['"Defense"', '"Swarm"'], # list[str]
+        elements = ['Electricity'], # list[str]
+        immunities = ['Explosive'], # list[str]
+        traits = ['Defense', 'Swarm'], # list[str]
         base_attack = 0, # int
         base_health = 2, # int
         defense = 1, # int

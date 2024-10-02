@@ -82,7 +82,6 @@ def parse_allcards_tsv():
             str(values[4]),  # name
             "",  # image
             CardClass[str(values[5]).upper()].value,  # class
-            CardType[str(values[6]).title()].value,  # type
             0,
             0,
             0,

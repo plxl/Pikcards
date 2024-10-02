@@ -65,9 +65,9 @@ for c in cards:
         cardclass = {card_class}, # int
         base_energy = {c.base_energy}, # int
         base_time = {c.base_time}, # int
-        elements = {str([f'"{e}"' for e in c.elements])}, # list[str]
-        immunities = {str([f'"{e}"' for e in c.immunities])}, # list[str]
-        traits = {str([f'"{e}"' for e in c.traits])}, # list[str]
+        elements = {str([f'{e}' for e in c.elements])}, # list[str]
+        immunities = {str([f'{e}' for e in c.immunities])}, # list[str]
+        traits = {str([f'{e}' for e in c.traits])}, # list[str]
 """.strip()
 
 
