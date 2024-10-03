@@ -21,7 +21,7 @@ def load_me():
         traits=["Indirect"],  # list[str]
         base_attack=0,  # int
         base_health=5,  # int
-        defense=0,  # int
+        base_defense=0,  # int
         maxcarry=1,  # int
         base_weaknesses=[],  # list[str](optional)
         base_abilities=["Mega Income", "Sales Pitch", "Big Heal"],  # list[str](optional)

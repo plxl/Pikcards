@@ -39,7 +39,7 @@ class Minion(Card):
         traits,
         base_attack,
         base_health,
-        defense,
+        base_defense,
         maxcarry,
         base_weaknesses: list[str] = [],
         base_abilities: list[str] = [],
@@ -76,8 +76,8 @@ class Minion(Card):
         self.base_health = base_health  # Standard Max Health of the card, used to prevent a card from healing over this number
         self.max_health = base_health  # Max Health of the card in gameplay, can be changed by Overhealing and such
         self.health = base_health  # Current Health of the card, used to calculate how much damage was taken
-        self.base_defense = defense  # Standard max Defense of the card
-        self.defense = defense  # Defense of the card
+        self.base_defense = base_defense  # Standard max Defense of the card
+        self.defense = base_defense  # Defense of the card
         self.maxcarry = maxcarry  # Maximum number of Items this card can hold
         self.held_items: list['Item'] = []  # Items that this is holding
 

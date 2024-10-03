@@ -21,7 +21,7 @@ def load_me():
         traits=["Burrowing"],  # list[str]
         base_attack=5,  # int
         base_health=6,  # int
-        defense=0,  # int
+        base_defense=0,  # int
         maxcarry=1,  # int
         base_weaknesses=["Fire", "Poison"],  # list[str](optional)
         base_abilities=["Re-Burrow", "Failed Attack"],  # list[str](optional)

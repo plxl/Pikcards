@@ -21,7 +21,7 @@ def load_me():
         traits=["Digging", "Passive", "Pikmin"],  # list[str]
         base_attack=12,  # int
         base_health=3,  # int
-        defense=0,  # int
+        base_defense=0,  # int
         maxcarry=1,  # int
         base_weaknesses=["Fire"],  # list[str](optional)
         base_abilities=["Carrot Power", "Lure", "Profit"],  # list[str](optional)

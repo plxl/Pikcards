@@ -21,7 +21,7 @@ def load_me():
         traits=["Indirect", "Burrowing"],  # list[str]
         base_attack=3,  # int
         base_health=3,  # int
-        defense=0,  # int
+        base_defense=0,  # int
         maxcarry=1,  # int
         base_weaknesses=["Up High"],  # list[str](optional)
         base_abilities=["Transform"],  # list[str](optional)

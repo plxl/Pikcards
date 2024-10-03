@@ -21,7 +21,7 @@ def load_me():
         traits=["Passive"],  # list[str]
         base_attack=11,  # int
         base_health=5,  # int
-        defense=0,  # int
+        base_defense=0,  # int
         maxcarry=1,  # int
         base_weaknesses=["Indirect"],  # list[str](optional)
         base_abilities=["Counter Only"],  # list[str](optional)

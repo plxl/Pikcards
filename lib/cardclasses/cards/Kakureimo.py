@@ -21,7 +21,7 @@ def load_me():
         traits=["Digging", "Explorer", "Swarm"],  # list[str]
         base_attack=1,  # int
         base_health=5,  # int
-        defense=0,  # int
+        base_defense=0,  # int
         maxcarry=1,  # int
         base_weaknesses=[],  # list[str](optional)
         base_abilities=["Conjure"],  # list[str](optional)
