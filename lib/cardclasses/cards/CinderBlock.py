@@ -22,7 +22,7 @@ def load_me():
         base_attack=0,  # int
         base_health=9,  # int
         base_defense=2,  # int
-        maxcarry=1,  # int
+        max_carry=1,  # int
         base_weaknesses=["Explosive", "Louie"],  # list[str](optional)
         base_abilities=[],  # list[str](optional)
     )

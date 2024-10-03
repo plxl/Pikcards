@@ -40,7 +40,7 @@ class Minion(Card):
         base_attack,
         base_health,
         base_defense,
-        maxcarry,
+        max_carry,
         base_weaknesses: list[str] = [],
         base_abilities: list[str] = [],
     ):
@@ -78,7 +78,7 @@ class Minion(Card):
         self.health = base_health  # Current Health of the card, used to calculate how much damage was taken
         self.base_defense = base_defense  # Standard max Defense of the card
         self.defense = base_defense  # Defense of the card
-        self.maxcarry = maxcarry  # Maximum number of Items this card can hold
+        self.max_carry = max_carry  # Maximum number of Items this card can hold
         self.held_items: list['Item'] = []  # Items that this is holding
 
         self.blind = False  # Whether the card is displayed as a Blind Card
