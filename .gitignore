@@ -1,10 +1,9 @@
 .venv
+.vscode
+.DS_Store
 __pycache__
-/allcards.tsv
-/cards.zip
 *.png
 *.otf
-.DS_Store
-.vscode
 debug.json
 decks.json
+cards/json/
