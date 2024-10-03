@@ -23,28 +23,27 @@ if TYPE_CHECKING:
 
 # Base minion data, stats and actions
 class Minion(Card):
-    def __init__(self,
-                 set,
-                 number,
-                 fifth,
-                 rarity,
-                 name,
-                 image,
-                 cardclass,
-                 base_energy,
-                 base_time,
-                 elements,
-                 immunities,
-                 traits,
-
-                 base_attack,
-                 base_health,
-                 defense,
-                 maxcarry,
-
-                 weakness_descriptions: list[str] = [],
-                 ability_descriptions: list[str] = []
-                 ):
+    def __init__(
+        self,
+        set,
+        number,
+        fifth,
+        rarity,
+        name,
+        image,
+        cardclass,
+        base_energy,
+        base_time,
+        elements,
+        immunities,
+        traits,
+        base_attack,
+        base_health,
+        defense,
+        maxcarry,
+        base_weaknesses: list[str] = [],
+        base_abilities: list[str] = [],
+    ):
         # Attributes for Card class
         self.set = set
         self.number = number
@@ -63,10 +62,10 @@ class Minion(Card):
         self.immunities = immunities
         self.traits = traits
 
-        self.weakness_description = weakness_descriptions  # Descriptions of all weaknesses
-        self.base_wd = weakness_descriptions  # Weaknesses which the base card has
-        self.ability_description = ability_descriptions  # Descriptions of all abilities
-        self.base_ad = ability_descriptions  # Abilities which the base card has
+        self.base_weaknesses = base_weaknesses  # Weaknesses which the base card has
+        self.weaknesses = base_weaknesses  # Descriptions of all weaknesses
+        self.base_abilities = base_abilities  # Abilities which the base card has
+        self.abilities = base_abilities  # Descriptions of all abilities
 
         self.owner: int = -1  # Owner player, p1 is 0, p2 is 1
         self.lane_index: int = -1  # Lane this is currently in. -1 for cards outside the field.
@@ -115,14 +114,14 @@ class Minion(Card):
     # Provides description that shows what the abilities of the class are
     def get_description(self):
         description: str = f"Minion {self.name}\n"
-        if len(self.weakness_description) > 0:
+        if len(self.weaknesses) > 0:
             description += "WEAKNESSES:\n"
-            description += "\n".join(self.weakness_description)
+            description += "\n".join(self.weaknesses)
             description += "\n"
-        
-        if len(self.ability_description) > 0:
+
+        if len(self.abilities) > 0:
             description += "ABILITIES:\n"
-            description += "\n".join(self.ability_description)
+            description += "\n".join(self.abilities)
         return description
 
     # Reset stats for when a card is Returned or Discarded
@@ -145,11 +144,8 @@ class Minion(Card):
         self.panic_counter = 0
         self.bubble_time = 0
         self.has_been_damaged = False
-        self.weakness_description = self.base_wd
-        self.ability_description = self.base_ad
-
-
-
+        self.weaknesses = self.base_weaknesses
+        self.abilities = self.base_abilities
 
     # Basic attack function.
     # Returns a list of targets (temporary)

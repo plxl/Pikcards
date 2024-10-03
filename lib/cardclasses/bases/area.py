@@ -2,26 +2,24 @@ from .card import *
 
 # Base area data, stats and actions
 class Area(Card):
-    def __init__(self,
-                 set,
-                 number,
-                 fifth,
-                 rarity,
-                 name,
-                 image,
-                 cardclass,
-                 base_energy,
-                 base_time,
-                 elements,
-                 immunities,
-                 traits,
-
-                 description: str,
-
-                 weakness_descriptions: list[str] = [],
-                 ability_descriptions: list[str] = []
-                 
-                 ):
+    def __init__(
+        self,
+        set,
+        number,
+        fifth,
+        rarity,
+        name,
+        image,
+        cardclass,
+        base_energy,
+        base_time,
+        elements,
+        immunities,
+        traits,
+        description: str,
+        base_weaknesses: list[str] = [],
+        base_abilities: list[str] = [],
+    ):
         # Attributes for Card class
         self.set = set
         self.number = number
@@ -43,10 +41,10 @@ class Area(Card):
         self.description = description
         self.base_desc = description
 
-        self.weakness_description = weakness_descriptions  # Descriptions of all weaknesses
-        self.base_wd = weakness_descriptions  # Weaknesses which the base card has
-        self.ability_description = ability_descriptions  # Descriptions of all abilities
-        self.base_ad = ability_descriptions  # Abilities which the base card has
+        self.base_weaknesses = base_weaknesses  # Weaknesses which the base card has
+        self.weaknesses = base_weaknesses  # Descriptions of all weaknesses
+        self.base_abilities = base_abilities  # Abilities which the base card has
+        self.abilities = base_abilities  # Descriptions of all abilities
 
         self.owner: int = -1  # Owner player, p1 is 0, p2 is 1
         self.lane_index: int = -1  # Lane this is currently in. -1 for cards outside the field.
