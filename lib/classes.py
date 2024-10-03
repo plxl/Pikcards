@@ -9,20 +9,21 @@ from .cardclasses.bases.modifiers import *
 
 from copy import deepcopy
 from beautifultable import BeautifulTable
+
 # import all the cards
 dirname = os.path.dirname(__file__)
-filename = os.path.join(dirname, 'cardclasses\cards')
+filename = os.path.join(dirname, "cardclasses\cards")
 for card_file in os.scandir(filename):
     if card_file.is_file():
         card_string = os.path.join(filename, card_file.name)
 
-        import_string = f'from .cardclasses.cards import {card_file.name}'[:-3]
-        exec (import_string)
-
+        import_string = f"from .cardclasses.cards import {card_file.name}"[:-3]
+        exec(import_string)
 
 
 # List containing all cards
 Cards: list[Card] = []
+
 
 # Loads all existing cards from individual json files
 def load_cards():
@@ -30,14 +31,12 @@ def load_cards():
 
     for card_file in os.scandir(filename):
         try:
-            load_string = f'Cards.append({card_file.name[:-3]}.load_me())'
+            load_string = f"Cards.append({card_file.name[:-3]}.load_me())"
             exec(load_string)
         except:
             print("\n-----------------------------")
             print(f"Load failed for {card_file.name}")
             print("-----------------------------\n")
-
-
 
 
 class Player:
@@ -90,9 +89,7 @@ class Player:
 
     def DrawSpecific(self, card: Card) -> None:
         if not card in self.deck:
-            raise Exception(
-                "Attempted to give specific card when does not exist in deck"
-            )
+            raise Exception("Attempted to give specific card when does not exist in deck")
 
         self.hand.append(card)
         self.deck.remove(card)

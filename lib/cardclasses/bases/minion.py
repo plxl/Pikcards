@@ -1,5 +1,6 @@
 from .card import *
 from typing import TYPE_CHECKING
+
 if TYPE_CHECKING:
     from item import Item
 
@@ -15,10 +16,6 @@ if TYPE_CHECKING:
 
     - The entirity of Bubbled
 """
-
-
-
-
 
 
 # Base minion data, stats and actions
@@ -79,7 +76,7 @@ class Minion(Card):
         self.base_defense = base_defense  # Standard max Defense of the card
         self.defense = base_defense  # Defense of the card
         self.max_carry = max_carry  # Maximum number of Items this card can hold
-        self.held_items: list['Item'] = []  # Items that this is holding
+        self.held_items: list["Item"] = []  # Items that this is holding
 
         self.blind = False  # Whether the card is displayed as a Blind Card
         self.burrowed = False  # Whether the card is burrowed
@@ -109,7 +106,6 @@ class Minion(Card):
         self.deal_damage_modifiers: list[DealDamageModifier] = []
         self.take_damage_modifiers: list[TakeDamageModifier] = []
         self.be_killed_modifiers: list[BeKilledModifier] = []
-
 
     # Provides description that shows what the abilities of the class are
     def get_description(self):
@@ -153,10 +149,10 @@ class Minion(Card):
         attacks: list[AttackClass] = []
 
         if self.stun:
-        # If stunned, do not attack, but remove the Stun
+            # If stunned, do not attack, but remove the Stun
             self.stun = False
             return attacks
-        
+
         elif not self.burrowed and not self.petrified:
             # If not burrowed and not petrified, perform attack in this lane
             target_side = 0
@@ -180,8 +176,7 @@ class Minion(Card):
 
         # Else it is always either burrowed or petrified, so don't attack
         return attacks
-            
-    
+
     # Used by takeDamage only
     def apply_damage_on_defense(self, damage, traits):
         defense = self.defense
@@ -194,10 +189,10 @@ class Minion(Card):
             defense = 0
         elif "Explosive" in traits and defense > 0:
             defense -= 1
-        
+
         final_damage = max(0, final_damage - defense)
         self.health -= final_damage
-        
+
         print(f"{self.name} took {final_damage} damage!")
 
         # Set to damage taken and remove Panic upon taking any damage
@@ -209,7 +204,6 @@ class Minion(Card):
                 self.panic_counter = 0
                 print(f"{self.name} is no longer Panicking")
 
-
     # Basic function for taking damage, without weaknesses
     # If the card takes damage, remove Panicked state
     def take_damage(self, incoming_attack: AttackClass):
@@ -217,26 +211,27 @@ class Minion(Card):
         modified_attack = incoming_attack
         for attMod in self.take_damage_modifiers:
             modified_attack = attMod.modify(self, modified_attack)
-        
+
         damage = modified_attack.damage_value
-        
+
         attacker_traits = modified_attack.attacker_card.traits
 
         # Check if immune, whether both are passive or if burrowed and attacked by a digger
         # Else don't edit special damage rules
-        if bool(set(modified_attack.attacker_card.elements).intersection(self.immunities)) or bool(set(attacker_traits).intersection(self.immunities)):
+        if bool(set(modified_attack.attacker_card.elements).intersection(self.immunities)) or bool(
+            set(attacker_traits).intersection(self.immunities)
+        ):
             print(f"{self.name} was immune to the attack")
-        
+
         elif "Passive" in self.traits and "Passive" in attacker_traits:
             self.apply_damage_on_defense(1, attacker_traits)
 
         elif self.burrowed and "Digging" in attacker_traits:
             damage += 2
             self.apply_damage_on_defense(damage, attacker_traits)
-        
+
         else:
             self.apply_damage_on_defense(damage, attacker_traits)
-
 
     # Minion function for the card being discarded, checks if killed by another cards as well
     def on_discarded(self, killed_by: Card = None):
@@ -247,14 +242,13 @@ class Minion(Card):
             if self.petrified:
                 # Provide the owner with Nectar
                 print(f"{self.name} was killed while Petrified, so its owner should get a Nectar!")
-        
+
         for discMod in self.discarded_modifiers:
             discMod.modify(self)
-        
+
         self.reset_stats()
 
         # Call remote function to discard this card
-
 
     # Minion Function for being healed
     def be_healed(self, amount: int, overheal: bool = False):
@@ -266,9 +260,6 @@ class Minion(Card):
         else:
             self.health = min(self.max_health, self.health + amount)
             print(f"{self.name} healed by {amount} Health")
-
-
-
 
     def on_round_start(self, round: int):
         if "Wall" in self.traits:
@@ -288,7 +279,6 @@ class Minion(Card):
             print(f"{self.name} is a long-lasting wall and disappears")
             # Call remote function to discard this
 
-
     def on_round_end(self):
         if self.panic:
             self.panic_counter += 1
@@ -297,30 +287,28 @@ class Minion(Card):
                 self.panic = not self.panic
                 self.panic_counter = 0
                 print(f"{self.name} is no longer Panicking")
-        
+
         if self.burrowed:
             self.be_healed(1)
 
         if self.just_unburrowed:
             self.just_unburrowed = not self.just_unburrowed
-        
+
         for reMod in self.night_end_modifiers:
             reMod.modify(self)
-
 
     def on_night_start(self):
         if self.petrified:
             self.petrified_nightstarted = True
-        
+
         for nsMod in self.night_start_modifiers:
             nsMod.modify(self)
-
 
     def on_night_end(self):
         if self.petrified and self.petrified_nightstarted:
             self.petrified = not self.petrified
             self.petrified_nightstarted = not self.petrified_nightstarted
             print(f"{self.name} is no longer Petrified")
-        
+
         for neMod in self.night_end_modifiers:
             neMod.modify(self)

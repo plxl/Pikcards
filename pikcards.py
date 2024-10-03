@@ -12,10 +12,11 @@ load_cards()
 # load sample decks
 with open("decks.json") as f:
     decks = json.loads(f.read())
+
+
 # sample deck functions
 def get_random_deck() -> list[Card]:
     return decks[random.randint(0, len(decks) - 1)]["cards"]
-
 
 
 # debug function (uses ./debug.json for configuration)
@@ -23,7 +24,7 @@ def start_debugging():
     # easy debug print
     def dprint(s: str):
         print(f"[DEBUG] {s}")
-        
+
     # read debug options from debug.json
     dprint("Reading debug options...")
     # open file, read, then close using with statement
@@ -32,12 +33,12 @@ def start_debugging():
     # po for player options, co for cpu options
     po = debug_options["player"]
     co = debug_options["cpu"]
-    
+
     # initialise player objects
     dprint(f"Creating player objects... ['{po["name"]}', '{co["name"]}']")
     player = Player(po["name"], True)
     cpu = Player(co["name"], False)
-    
+
     # note: we must initialise decks before hands in the event that they still need to draw cards
     # get debugging deck for player
     # if the deck index is -1, then check if there is a deck override
@@ -55,16 +56,19 @@ def start_debugging():
     # Make cards know who their owner is
     for c1 in player.deck:
         c1.owner = 0
-        
+
     # same as above, but for cpu
     dprint("Creating CPU deck from debug options...")
     if co["deck_index"] == -1:
-        if len(co["deck_override"]) > 0: cpu.SetDeck(co["deck_override"])
-        else: cpu.SetDeck(get_random_deck())
-    else: cpu.SetDeck(decks[co["deck_index"]]["cards"])
+        if len(co["deck_override"]) > 0:
+            cpu.SetDeck(co["deck_override"])
+        else:
+            cpu.SetDeck(get_random_deck())
+    else:
+        cpu.SetDeck(decks[co["deck_index"]]["cards"])
     for c2 in cpu.deck:
         c2.owner = 1
-    
+
     # get debugging hand for player
     dprint("Creating player hand from debug options...")
     if len(po["hand"]) > 0:
@@ -75,28 +79,29 @@ def start_debugging():
             player.hand.append(startcard)
     # draw any remaining cards up until specified in the starting hand quantity debug
     # unless it is -1, then don't draw any more
-    if (po["starting_hand_num"] != -1):
+    if po["starting_hand_num"] != -1:
         player.Draw(po["starting_hand_num"] - len(po["hand"]))
-            
+
     # same as above, but for cpu
     dprint("Creating CPU hand from debug options...")
     if len(co["hand"]) > 0:
-        for c in co["hand"]: 
+        for c in co["hand"]:
             startcard = deepcopy([C for C in Cards if C.name == c][0])
             startcard.owner = 1
             cpu.hand.append(startcard)
-    if (co["starting_hand_num"] != -1): cpu.Draw(co["starting_hand_num"] - len(co["hand"]))
-        
+    if co["starting_hand_num"] != -1:
+        cpu.Draw(co["starting_hand_num"] - len(co["hand"]))
+
     # get starting player
     dprint(f"Setting starting player... [{debug_options["starting_player"]}]")
     sp = [player, cpu][debug_options["starting_player"]]
-    
+
     # create game object
     # important: num_lanes is very experimental
     # only some functions have been designed to support more/less than 5 lanes
     dprint(f"Creating game object... [num_lanes: {debug_options["num_lanes"]}]")
     game = Game([player, cpu], sp, debug_options["num_lanes"])
-    
+
     # simulate days (rounds)
     game.round = debug_options["current_day"]
     if debug_options["simulate_days"]:
@@ -119,13 +124,13 @@ def start_debugging():
         game.time = game.round + 1
         player.energy = game.round + 1
         cpu.energy = game.round + 1
-    
+
     dprint("Beginning game loop...")
     game.game_loop()
 
 
 # get argument variables
-if '--debug' in sys.argv:
+if "--debug" in sys.argv:
     start_debugging()
 
 
@@ -135,20 +140,24 @@ pname = input("What is your name?\n")
 
 if pname == "debug":
     start_debugging()
-    
+
 else:
     print("Select a deck:")
     for deck in decks:
         i = decks.index(deck)
         print(f"{i + 1}. {deck["name"]}")
-        
+
     deck_selection = input("Select a number or leave blank for random: ")
-    if not deck_selection.isnumeric() or int(deck_selection) <= 0 or int(deck_selection) > len(decks):
+    if (
+        not deck_selection.isnumeric()
+        or int(deck_selection) <= 0
+        or int(deck_selection) > len(decks)
+    ):
         deck_selection = random.randint(1, len(decks))
-        
+
     deck = decks[int(deck_selection) - 1]["cards"]
     del decks[int(deck_selection) - 1]
-    
+
     cpu_deck = get_random_deck()
 
     p1: Player = Player(pname, True)

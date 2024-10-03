@@ -1,5 +1,6 @@
 from .card import *
 
+
 # Base exploration data, stats and actions
 class Exploration(Card):
     def __init__(
@@ -48,20 +49,18 @@ class Exploration(Card):
 
         self.owner: int = -1  # Owner player, p1 is 0, p2 is 1
         self.lane_index: int = -1  # Lane this is currently in. -1 for cards outside the field.
-        
+
         # Attributes unique to Areas
-        
+
         # Modifiers
         self.bePlayedModifiers: list[BePlayedModifier] = []
-
-    
 
     # Provides description that shows what the abilities of the class are
     def get_description(self):
         full_description: str = f"Exploration {self.name}\n"
         full_description += self.description
         return full_description
-    
+
     # Reset stats for when a card is Returned or Discarded
     def reset_stats(self):
         self.lane_index = -1

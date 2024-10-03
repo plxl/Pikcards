@@ -1,5 +1,6 @@
 from .card import *
 
+
 # Base area data, stats and actions
 class Area(Card):
     def __init__(
@@ -48,9 +49,9 @@ class Area(Card):
 
         self.owner: int = -1  # Owner player, p1 is 0, p2 is 1
         self.lane_index: int = -1  # Lane this is currently in. -1 for cards outside the field.
-        
+
         # Attributes unique to Areas
-        
+
         # Modifiers
         self.be_played_modifiers: list[BePlayedModifier] = []
         self.enter_lane_modifiers: list[EnterLaneModifier] = []
@@ -66,14 +67,12 @@ class Area(Card):
 
         self.this_area_entered_modifiers: list[OtherCardPlayedModifier] = []
 
-    
-
     # Provides description that shows what the abilities of the class are
     def get_description(self):
         full_description: str = f"Area {self.name}\n"
         full_description += self.description
         return full_description
-    
+
     # Reset stats for when a card is Returned or Discarded
     def reset_stats(self):
         self.lane_index = -1

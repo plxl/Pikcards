@@ -7,7 +7,6 @@ from .card import *
 """
 
 
-
 # Base minion data, stats and actions
 class Item(Card):
     def __init__(
@@ -52,9 +51,8 @@ class Item(Card):
 
         self.owner: int = -1  # Owner player, p1 is 0, p2 is 1
         self.lane_index: int = -1  # Lane this is currently in. -1 for cards outside the field.
-        
+
         # Attributes unique to Items
-    
 
         # Modifiers for the Item itself
         self.be_played_modifiers: list[BePlayedModifier] = []
@@ -68,7 +66,6 @@ class Item(Card):
         self.discarded_modifiers: list[DiscardedModifier] = []
         self.other_card_played_modifiers: list[OtherCardPlayedModifier] = []
         self.other_card_leaves_modifiers: list[OtherCardLeavesModifier] = []
-
 
         # Modifiers that are added to the holder
         self.minion_be_played_modifiers: list[BePlayedModifier] = []
@@ -86,8 +83,6 @@ class Item(Card):
         self.minion_deal_damage_modifiers: list[DealDamageModifier] = []
         self.minion_take_damage_modifiers: list[TakeDamageModifier] = []
         self.minion_be_killed_modifiers: list[BeKilledModifier] = []
-
-
 
     def get_description(self):
         description: str = f"Item {self.name}\n"
