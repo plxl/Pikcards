@@ -26,7 +26,24 @@ class Item(Card):
         base_weaknesses: list[str] = [],
         base_abilities: list[str] = [],
     ):
-        # Attributes for Card class
+        """General inheritable class for an Item type card
+
+        Args:
+            set (str): Card set number or letter
+            number (int): Card number in set
+            fifth (bool): Card can be selected as a fifth choice in starting hand
+            rarity (int): Card level of rarity
+            name (str): Card name
+            image (str): Card image file name
+            cardclass (int): Card class type (see CardClass type)
+            base_energy (int): Card default energy cost, used when reset
+            base_time (int): Card default time cost, used when reset
+            elements (list[str]): Card elements, used for weaknesses/abilities
+            immunities (list[str]): Card immunities, used for weaknesses/abilities
+            traits (list[str]): Card traits, used for weaknesses/abilities
+            base_weaknesses (list[str], optional): Card weaknesses and their descriptions. Defaults to [].
+            base_abilities (list[str], optional): Card abilities and their descriptions. Defaults to [].
+        """
         self.set = set
         self.number = number
         self.fifth = fifth

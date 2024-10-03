@@ -16,6 +16,14 @@ class AttackClass:
         target_player: int,
         attacker_card: "Minion" = None,
     ):
+        """General inheritable Attack class for attacker and damage information
+
+        Args:
+            damage_value (int): Amount of damage being sent
+            target_lane (int): Index of the Lane being targetted
+            target_player (int): Index of the Player being targetted
+            attacker_card (Minion, optional): The card performing the Attack. Defaults to None.
+        """
         self.damage_value = damage_value  # Amount of damage being sent
         self.attacker_card = attacker_card  # The one performing the Attack
         self.target_lane = target_lane  # Lane which is targeted
