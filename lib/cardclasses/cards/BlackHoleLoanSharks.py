@@ -13,7 +13,7 @@ def load_me():
         rarity=2,  # int
         name="Black Hole Loan Sharks",  # str
         image="25_Black_Hole_Loan_Sharks.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=6,  # int
         base_time=3,  # int
         elements=["Gloom", "Ice"],  # list[str]

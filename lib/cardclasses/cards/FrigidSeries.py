@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Frigid Series",  # str
         image="065_Frigid_Series.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=2,  # int
         base_time=2,  # int
         elements=[],  # list[str]

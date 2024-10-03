@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Hermit Crawmad",  # str
         image="035_Hermit_Crawmad.png",  # str
-        cardclass=4,  # int
+        card_class=4,  # int
         base_energy=2,  # int
         base_time=4,  # int
         elements=["Piercing"],  # list[str]

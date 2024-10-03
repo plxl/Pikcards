@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Cardboard Box",  # str
         image="75_Cardboard_Box.png",  # str
-        cardclass=2,  # int
+        card_class=2,  # int
         base_energy=3,  # int
         base_time=3,  # int
         elements=[],  # list[str]

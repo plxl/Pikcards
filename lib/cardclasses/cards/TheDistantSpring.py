@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="The Distant Spring",  # str
         image="79_The_Distant_Spring.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=4,  # int
         base_time=5,  # int
         elements=[],  # list[str]

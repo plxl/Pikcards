@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Ranging Bloyster",  # str
         image="050_Ranging_Bloyster.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=4,  # int
         base_time=8,  # int
         elements=["Water", "Poison"],  # list[str]

@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Pellet Posy",  # str
         image="11_Pellet_Posy.png",  # str
-        cardclass=4,  # int
+        card_class=4,  # int
         base_energy=2,  # int
         base_time=7,  # int
         elements=[],  # list[str]

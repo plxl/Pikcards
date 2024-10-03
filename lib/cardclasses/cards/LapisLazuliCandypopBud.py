@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Lapis Lazuli Candypop Bud",  # str
         image="10_Lapis_Lazuli_Candypop_Bud.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=2,  # int
         base_time=2,  # int
         elements=[],  # list[str]

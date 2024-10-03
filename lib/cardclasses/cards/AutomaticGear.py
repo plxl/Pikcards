@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Automatic Gear",  # str
         image="49_Automatic_Gear.png",  # str
-        cardclass=1,  # int
+        card_class=1,  # int
         base_energy=4,  # int
         base_time=8,  # int
         elements=[],  # list[str]

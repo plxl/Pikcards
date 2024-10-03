@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Decorated Cannon Beetle",  # str
         image="021_Decorated_Cannon_Beetle.png",  # str
-        cardclass=1,  # int
+        card_class=1,  # int
         base_energy=4,  # int
         base_time=5,  # int
         elements=["Crush"],  # list[str]

@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Nectar Weed",  # str
         image="05_Nectar_Weed.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=2,  # int
         base_time=3,  # int
         elements=[],  # list[str]

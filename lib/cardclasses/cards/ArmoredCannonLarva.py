@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Armored Cannon Larva",  # str
         image="020_Armored_Cannon_Larva.png",  # str
-        cardclass=2,  # int
+        card_class=2,  # int
         base_energy=3,  # int
         base_time=3,  # int
         elements=["Crush"],  # list[str]

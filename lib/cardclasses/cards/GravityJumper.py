@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Gravity Jumper",  # str
         image="51_Gravity_Jumper.png",  # str
-        cardclass=2,  # int
+        card_class=2,  # int
         base_energy=2,  # int
         base_time=1,  # int
         elements=[],  # list[str]

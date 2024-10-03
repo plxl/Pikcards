@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Wolpole",  # str
         image="22_Wolpole.png",  # str
-        cardclass=4,  # int
+        card_class=4,  # int
         base_energy=1,  # int
         base_time=2,  # int
         elements=["Water"],  # list[str]

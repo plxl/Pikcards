@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Subterranean Complex",  # str
         image="108_Subterranean_Complex.png",  # str
-        cardclass=1,  # int
+        card_class=1,  # int
         base_energy=3,  # int
         base_time=3,  # int
         elements=[],  # list[str]

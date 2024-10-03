@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="The Forest Navel",  # str
         image="78_The_Forest_Navel.png",  # str
-        cardclass=2,  # int
+        card_class=2,  # int
         base_energy=3,  # int
         base_time=2,  # int
         elements=[],  # list[str]

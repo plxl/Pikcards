@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Queen Candypop Bud",  # str
         image="007_Queen_Candypop_Bud.png",  # str
-        cardclass=4,  # int
+        card_class=4,  # int
         base_energy=4,  # int
         base_time=5,  # int
         elements=[],  # list[str]

@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="The Night Juicer",  # str
         image="17_The_Night_Juicer.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=2,  # int
         base_time=2,  # int
         elements=[],  # list[str]

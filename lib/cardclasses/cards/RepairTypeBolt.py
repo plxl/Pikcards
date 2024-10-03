@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Repair-Type Bolt",  # str
         image="55_Repair-Type_Bolt.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=3,  # int
         base_time=3,  # int
         elements=[],  # list[str]

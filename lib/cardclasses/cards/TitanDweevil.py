@@ -13,7 +13,7 @@ def load_me():
         rarity=2,  # int
         name="Titan Dweevil",  # str
         image="053_Titan_Dweevil.png",  # str
-        cardclass=2,  # int
+        card_class=2,  # int
         base_energy=3,  # int
         base_time=3,  # int
         elements=["Fire", "Water", "Electricity", "Poison"],  # list[str]

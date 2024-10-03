@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Burgeoning Spiderwort",  # str
         image="008_Burgeoning_Spiderwort.png",  # str
-        cardclass=4,  # int
+        card_class=4,  # int
         base_energy=4,  # int
         base_time=1,  # int
         elements=[],  # list[str]

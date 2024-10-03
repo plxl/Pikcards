@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Unmarked Spectralids",  # str
         image="042_Unmarked_Spectralids.png",  # str
-        cardclass=4,  # int
+        card_class=4,  # int
         base_energy=4,  # int
         base_time=0,  # int
         elements=[],  # list[str]

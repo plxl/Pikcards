@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Pearly Clamclamp",  # str
         image="34_Pearly_Clamclamp.png",  # str
-        cardclass=1,  # int
+        card_class=1,  # int
         base_energy=4,  # int
         base_time=5,  # int
         elements=[],  # list[str]

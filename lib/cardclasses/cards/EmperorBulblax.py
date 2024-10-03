@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Emperor Bulblax",  # str
         image="045_Emperor_Bulblax.png",  # str
-        cardclass=1,  # int
+        card_class=1,  # int
         base_energy=4,  # int
         base_time=5,  # int
         elements=[],  # list[str]

@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Guard Satellite",  # str
         image="66_Guard_Satellite.png",  # str
-        cardclass=1,  # int
+        card_class=1,  # int
         base_energy=3,  # int
         base_time=7,  # int
         elements=[],  # list[str]

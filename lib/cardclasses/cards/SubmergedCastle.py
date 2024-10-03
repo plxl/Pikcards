@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Submerged Castle",  # str
         image="117_Submerged_Castle.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=1,  # int
         base_time=2,  # int
         elements=[],  # list[str]

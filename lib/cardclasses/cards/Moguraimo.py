@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Moguraimo",  # str
         image="07_Moguraimo.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=2,  # int
         base_time=4,  # int
         elements=["Poison"],  # list[str]

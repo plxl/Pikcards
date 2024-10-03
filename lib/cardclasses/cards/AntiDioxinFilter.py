@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Anti-Dioxin Filter",  # str
         image="50_Anti-Dioxin_Filter.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=2,  # int
         base_time=1,  # int
         elements=[],  # list[str]

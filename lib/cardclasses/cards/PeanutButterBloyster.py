@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Peanut Butter Bloyster",  # str
         image="14_Peanut_Butter_Bloyster.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=4,  # int
         base_time=4,  # int
         elements=["Water", "Gloom", "Poison"],  # list[str]

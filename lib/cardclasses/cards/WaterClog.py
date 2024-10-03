@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Water Clog",  # str
         image="29_Water_Clog.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=1,  # int
         base_time=3,  # int
         elements=[],  # list[str]

@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Sweet Tooth Series",  # str
         image="059_Sweet_Tooth_Series.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=3,  # int
         base_time=3,  # int
         elements=["Piercing", "Ice"],  # list[str]

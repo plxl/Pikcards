@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Geiger Counter",  # str
         image="64_Geiger_Counter.png",  # str
-        cardclass=2,  # int
+        card_class=2,  # int
         base_energy=2,  # int
         base_time=4,  # int
         elements=[],  # list[str]

@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Space Float",  # str
         image="48_Space_Float.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=2,  # int
         base_time=4,  # int
         elements=[],  # list[str]

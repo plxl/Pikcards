@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Nova Blaster",  # str
         image="44_Nova_Blaster.png",  # str
-        cardclass=1,  # int
+        card_class=1,  # int
         base_energy=4,  # int
         base_time=6,  # int
         elements=[],  # list[str]

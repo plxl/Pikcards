@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Greater Spotted Jellyfloat",  # str
         image="039_Greater_Spotted_Jellyfloat.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=4,  # int
         base_time=5,  # int
         elements=[],  # list[str]

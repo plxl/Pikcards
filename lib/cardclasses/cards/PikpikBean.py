@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Pikpik Bean?",  # str
         image="02_Pikpik_Bean.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=0,  # int
         base_time=0,  # int
         elements=[],  # list[str]

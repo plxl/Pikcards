@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Stellar Orb",  # str
         image="084_Stellar_Orb.png",  # str
-        cardclass=2,  # int
+        card_class=2,  # int
         base_energy=1,  # int
         base_time=6,  # int
         elements=[],  # list[str]

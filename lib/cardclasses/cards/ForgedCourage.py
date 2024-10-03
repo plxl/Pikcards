@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Forged Courage",  # str
         image="085_Forged_Courage.png",  # str
-        cardclass=4,  # int
+        card_class=4,  # int
         base_energy=3,  # int
         base_time=1,  # int
         elements=["Fire"],  # list[str]

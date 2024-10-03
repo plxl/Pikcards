@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Waterwraith",  # str
         image="052_Waterwraith.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=2,  # int
         base_time=5,  # int
         elements=["Crush"],  # list[str]

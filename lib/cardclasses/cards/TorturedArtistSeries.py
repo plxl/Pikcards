@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Tortured Artist Series",  # str
         image="063_Tortured_Artist_Series.png",  # str
-        cardclass=2,  # int
+        card_class=2,  # int
         base_energy=2,  # int
         base_time=2,  # int
         elements=["Poison", "Gloom", "Piercing"],  # list[str]

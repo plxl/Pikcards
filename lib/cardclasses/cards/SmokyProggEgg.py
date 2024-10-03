@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Smoky Progg Egg",  # str
         image="22_Smoky_Progg_Egg.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=4,  # int
         base_time=9,  # int
         elements=[],  # list[str]

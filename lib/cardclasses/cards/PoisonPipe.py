@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Poison Pipe",  # str
         image="099_Poison_Pipe.png",  # str
-        cardclass=2,  # int
+        card_class=2,  # int
         base_energy=2,  # int
         base_time=6,  # int
         elements=["Poison"],  # list[str]

@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="The Forest of Hope",  # str
         image="77_The_Forest_of_Hope.png",  # str
-        cardclass=1,  # int
+        card_class=1,  # int
         base_energy=2,  # int
         base_time=2,  # int
         elements=[],  # list[str]

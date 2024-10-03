@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Hole of Heroes",  # str
         image="119_Hole_of_Heroes.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=2,  # int
         base_time=3,  # int
         elements=[],  # list[str]

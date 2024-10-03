@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Massage Machine",  # str
         image="60_Massage_Machine.png",  # str
-        cardclass=4,  # int
+        card_class=4,  # int
         base_energy=4,  # int
         base_time=3,  # int
         elements=[],  # list[str]

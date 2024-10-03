@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Industrial Set",  # str
         image="067_Industrial_Set.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=4,  # int
         base_time=3,  # int
         elements=[],  # list[str]

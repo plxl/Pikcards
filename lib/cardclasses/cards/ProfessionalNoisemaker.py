@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Professional Noisemaker",  # str
         image="089_Professional_Noisemaker.png",  # str
-        cardclass=1,  # int
+        card_class=1,  # int
         base_energy=2,  # int
         base_time=3,  # int
         elements=["Piercing"],  # list[str]

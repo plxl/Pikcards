@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Cloaking Burrow-nit",  # str
         image="025_Cloaking_Burrow-nit.png",  # str
-        cardclass=4,  # int
+        card_class=4,  # int
         base_energy=3,  # int
         base_time=3,  # int
         elements=["Piercing"],  # list[str]

@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Creeping Chrysanthemum (Underground)",  # str
         image="026_Creeping_Chrysanthemum_(Underground).png",  # str
-        cardclass=2,  # int
+        card_class=2,  # int
         base_energy=4,  # int
         base_time=8,  # int
         elements=[],  # list[str]

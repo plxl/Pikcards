@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="caveinfo",  # str
         image="36_caveinfo.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=0,  # int
         base_time=3,  # int
         elements=[],  # list[str]

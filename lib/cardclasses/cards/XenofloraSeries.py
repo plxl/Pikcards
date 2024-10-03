@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Xenoflora Series",  # str
         image="057_Xenoflora_Series.png",  # str
-        cardclass=4,  # int
+        card_class=4,  # int
         base_energy=4,  # int
         base_time=4,  # int
         elements=[],  # list[str]

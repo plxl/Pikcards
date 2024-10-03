@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Scale Blocks",  # str
         image="32_Scale_Blocks.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=2,  # int
         base_time=5,  # int
         elements=[],  # list[str]

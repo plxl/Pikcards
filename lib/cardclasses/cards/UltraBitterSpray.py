@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Ultra-Bitter Spray",  # str
         image="096_Ultra-Bitter_Spray.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=3,  # int
         base_time=3,  # int
         elements=[],  # list[str]

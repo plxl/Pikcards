@@ -88,7 +88,7 @@ class Card(ABC):
         rarity: int,
         name: str,
         image: str,
-        cardclass: int,
+        card_class: int,
         base_energy: int,
         base_time: int,
         elements: list[str],
@@ -106,7 +106,7 @@ class Card(ABC):
             rarity (int): Card level of rarity
             name (str): Card name
             image (str): Card image file name
-            cardclass (int): Card class type (see CardClass type)
+            card_class (int): Card class type (see CardClass type)
             base_energy (int): Card default energy cost, used when reset
             base_time (int): Card default time cost, used when reset
             elements (list[str]): Card elements, used for weaknesses/abilities
@@ -121,7 +121,7 @@ class Card(ABC):
         self.rarity = rarity
         self.name = name
         self.image = image
-        self.cardclass = cardclass
+        self.card_class = card_class
 
         self.base_energy = base_energy  # Standard energy cost of the card
         self.energy = base_energy  # current energy cost of the card

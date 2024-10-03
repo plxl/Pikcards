@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Geographic Projection",  # str
         image="079_Geographic_Projection.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=3,  # int
         base_time=5,  # int
         elements=[],  # list[str]

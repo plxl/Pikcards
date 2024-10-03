@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Eternal Fuel Dynamo",  # str
         image="41_Eternal_Fuel_Dynamo.png",  # str
-        cardclass=1,  # int
+        card_class=1,  # int
         base_energy=2,  # int
         base_time=10,  # int
         elements=[],  # list[str]

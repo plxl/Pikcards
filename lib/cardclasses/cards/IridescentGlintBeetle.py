@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Iridescent Glint Beetle",  # str
         image="023_Iridescent_Glint_Beetle.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=3,  # int
         base_time=3,  # int
         elements=[],  # list[str]

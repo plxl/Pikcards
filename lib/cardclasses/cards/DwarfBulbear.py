@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Dwarf Bulbear",  # str
         image="15_Dwarf_Bulbear.png",  # str
-        cardclass=1,  # int
+        card_class=1,  # int
         base_energy=2,  # int
         base_time=4,  # int
         elements=[],  # list[str]

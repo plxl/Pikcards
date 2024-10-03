@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Occupational Hazards",  # str
         image="19_Occupational_Hazards.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=4,  # int
         base_time=5,  # int
         elements=[],  # list[str]

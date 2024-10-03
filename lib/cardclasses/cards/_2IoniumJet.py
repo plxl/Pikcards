@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="#2 Ionium Jet",  # str
         image="54_#2_Ionium_Jet.png",  # str
-        cardclass=4,  # int
+        card_class=4,  # int
         base_energy=1,  # int
         base_time=1,  # int
         elements=[],  # list[str]

@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="UV Lamp",  # str
         image="61_UV_Lamp.png",  # str
-        cardclass=2,  # int
+        card_class=2,  # int
         base_energy=1,  # int
         base_time=4,  # int
         elements=[],  # list[str]

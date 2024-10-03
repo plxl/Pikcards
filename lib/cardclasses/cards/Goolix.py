@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Goolix",  # str
         image="35_Goolix.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=4,  # int
         base_time=9,  # int
         elements=["Water"],  # list[str]

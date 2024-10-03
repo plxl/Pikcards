@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Flare Cannon",  # str
         image="092_Flare_Cannon.png",  # str
-        cardclass=2,  # int
+        card_class=2,  # int
         base_energy=2,  # int
         base_time=4,  # int
         elements=["Fire"],  # list[str]

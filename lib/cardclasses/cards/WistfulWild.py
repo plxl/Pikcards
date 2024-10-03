@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Wistful Wild",  # str
         image="106_Wistful_Wild.png",  # str
-        cardclass=1,  # int
+        card_class=1,  # int
         base_energy=5,  # int
         base_time=1,  # int
         elements=[],  # list[str]

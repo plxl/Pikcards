@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Antenna Beetle",  # str
         image="036_Antenna_Beetle.png",  # str
-        cardclass=2,  # int
+        card_class=2,  # int
         base_energy=2,  # int
         base_time=1,  # int
         elements=[],  # list[str]

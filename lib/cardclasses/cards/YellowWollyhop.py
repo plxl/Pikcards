@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Yellow Wollyhop",  # str
         image="23_Yellow_Wollyhop.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=3,  # int
         base_time=4,  # int
         elements=["Crush"],  # list[str]

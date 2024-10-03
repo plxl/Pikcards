@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Justice Alloy",  # str
         image="087_Justice_Alloy.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=4,  # int
         base_time=3,  # int
         elements=[],  # list[str]

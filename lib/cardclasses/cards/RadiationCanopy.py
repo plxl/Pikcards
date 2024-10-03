@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Radiation Canopy",  # str
         image="63_Radiation_Canopy.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=2,  # int
         base_time=2,  # int
         elements=[],  # list[str]

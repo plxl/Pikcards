@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Doodlebug",  # str
         image="024_Doodlebug.png",  # str
-        cardclass=1,  # int
+        card_class=1,  # int
         base_energy=4,  # int
         base_time=7,  # int
         elements=["Poison"],  # list[str]

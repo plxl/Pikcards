@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="The Key",  # str
         image="090_The_Key.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=2,  # int
         base_time=1,  # int
         elements=[],  # list[str]

@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Whimsical Radar",  # str
         image="42_Whimsical_Radar.png",  # str
-        cardclass=2,  # int
+        card_class=2,  # int
         base_energy=2,  # int
         base_time=4,  # int
         elements=[],  # list[str]

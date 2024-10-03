@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Interstellar Radio",  # str
         image="67_Interstellar_Radio.png",  # str
-        cardclass=2,  # int
+        card_class=2,  # int
         base_energy=4,  # int
         base_time=3,  # int
         elements=[],  # list[str]

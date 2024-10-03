@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Valley of Repose",  # str
         image="103_Valley_of_Repose.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=1,  # int
         base_time=5,  # int
         elements=[],  # list[str]

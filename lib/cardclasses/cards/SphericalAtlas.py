@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Spherical Atlas",  # str
         image="078_Spherical_Atlas.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=3,  # int
         base_time=5,  # int
         elements=[],  # list[str]

@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Crystallized Emotion Series",  # str
         image="070_Crystallized_Emotion_Series.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=2,  # int
         base_time=16,  # int
         elements=[],  # list[str]

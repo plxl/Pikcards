@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Blast Wall",  # str
         image="73_Blast_Wall.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=3,  # int
         base_time=6,  # int
         elements=[],  # list[str]

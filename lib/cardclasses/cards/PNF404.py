@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="PNF-404",  # str
         image="34_PNF-404.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=3,  # int
         base_time=4,  # int
         elements=[],  # list[str]

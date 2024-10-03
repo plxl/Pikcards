@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Skitter Leaf",  # str
         image="028_Skitter_Leaf.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=1,  # int
         base_time=1,  # int
         elements=[],  # list[str]

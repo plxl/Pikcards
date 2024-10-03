@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Bean Onion",  # str
         image="03_Bean_Onion.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=3,  # int
         base_time=3,  # int
         elements=[],  # list[str]

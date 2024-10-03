@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Mystery Disc Series",  # str
         image="28_Mystery_Disc_Series.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=3,  # int
         base_time=2,  # int
         elements=[],  # list[str]

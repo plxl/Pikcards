@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Five-man Napsack",  # str
         image="081_Five-man_Napsack.png",  # str
-        cardclass=3,  # int
+        card_class=3,  # int
         base_energy=2,  # int
         base_time=5,  # int
         elements=[],  # list[str]

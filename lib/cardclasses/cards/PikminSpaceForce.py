@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Pikmin Space Force",  # str
         image="38_Pikmin_Space_Force.png",  # str
-        cardclass=5,  # int
+        card_class=5,  # int
         base_energy=3,  # int
         base_time=1,  # int
         elements=[],  # list[str]

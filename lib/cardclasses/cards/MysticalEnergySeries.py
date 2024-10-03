@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Mystical Energy Series",  # str
         image="073_Mystical_Energy_Series.png",  # str
-        cardclass=4,  # int
+        card_class=4,  # int
         base_energy=4,  # int
         base_time=6,  # int
         elements=[],  # list[str]

@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Monster Pump",  # str
         image="094_Monster_Pump.png",  # str
-        cardclass=4,  # int
+        card_class=4,  # int
         base_energy=2,  # int
         base_time=4,  # int
         elements=["Water"],  # list[str]

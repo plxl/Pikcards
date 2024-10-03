@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Dream Material",  # str
         image="086_Dream_Material.png",  # str
-        cardclass=4,  # int
+        card_class=4,  # int
         base_energy=2,  # int
         base_time=10,  # int
         elements=[],  # list[str]

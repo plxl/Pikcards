@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Puffy Blowhog",  # str
         image="33_Puffy_Blowhog.png",  # str
-        cardclass=2,  # int
+        card_class=2,  # int
         base_energy=2,  # int
         base_time=3,  # int
         elements=[],  # list[str]

@@ -13,7 +13,7 @@ def load_me():
         rarity=0,  # int
         name="Analog Computer",  # str
         image="52_Analog_Computer.png",  # str
-        cardclass=1,  # int
+        card_class=1,  # int
         base_energy=2,  # int
         base_time=5,  # int
         elements=[],  # list[str]

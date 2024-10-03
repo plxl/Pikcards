@@ -13,7 +13,7 @@ def load_me():
         rarity=-1,  # int
         name="Albino Dwarf Bulborb",  # str
         image="Albino_Dwarf_Bulborb.png",  # str
-        cardclass=0,  # int
+        card_class=0,  # int
         base_energy=2,  # int
         base_time=6,  # int
         elements=[],  # list[str]

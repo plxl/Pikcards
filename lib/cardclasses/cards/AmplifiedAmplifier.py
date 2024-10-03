@@ -13,7 +13,7 @@ def load_me():
         rarity=1,  # int
         name="Amplified Amplifier",  # str
         image="088_Amplified_Amplifier.png",  # str
-        cardclass=4,  # int
+        card_class=4,  # int
         base_energy=3,  # int
         base_time=5,  # int
         elements=[],  # list[str]
