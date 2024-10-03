@@ -162,7 +162,7 @@ class Game:
 
         self.print_board()
         player.PrintHand()
-        print(f'{player.name} played "{card_playable.card.name}" in Lane {lane_index + 1}!')
+        print(f"{player.name} played {card_playable.card.name} in Lane {lane_index + 1}!")
 
         return True
 
@@ -489,7 +489,7 @@ class Game:
             # update energy
             self.players[player_index].energy -= card.energy
 
-            moves.append(f'CPU [{player_index}] played "{card.name}" in Lane {lane + 1}!')
+            moves.append(f"CPU [{player_index}] played {card.name} in Lane {lane + 1}!")
 
         if len(moves) == 0:
             moves.append(f"CPU [{player_index}] made no moves this round.")

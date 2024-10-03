@@ -60,7 +60,7 @@ class Player:
                     if c.name.lower().strip() == card.lower().strip()
                 ]
                 if len(cards_found) == 0:
-                    raise Exception(f'"{card}" was not found in the card database')
+                    raise Exception(f"'{card}' was not found in the card database")
 
                 self.original_deck.append(cards_found[0])
 
@@ -82,7 +82,7 @@ class Player:
             for i in range(0, number_of_cards):
                 self.hand.append(self.deck.pop(0))
             print(
-                f"[LOG] Gave {self.name} {number_of_cards} card{'s' if number_of_cards != 1 else ''}"
+                f"[LOG] Gave {self.name} {number_of_cards} card{"s" if number_of_cards != 1 else ""}"
             )
         else:
             print(f"[LOG] {self.name} has 10 cards and cannot hold any more")

@@ -134,7 +134,7 @@ if "--debug" in sys.argv:
     start_debugging()
 
 
-# Get player name (or options such as 'debug')
+# Get player name (or options such as "debug")
 pname = input("What is your name?\n")
 
 
