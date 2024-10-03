@@ -5,12 +5,14 @@
     "rarity": 0,
     "name": "Peanut Butter Bloyster",
     "image": "14_Peanut_Butter_Bloyster.png",
-    "class_": 4,
-    "type": 0,
-    "energy": 4,
-    "time": 4,
-    "attack": 2,
-    "health": 2,
+    "cardclass": 4,
+    "cardtype": 0,
+    "base_energy": 4,
+    "base_time": 4,
+    "base_attack": 2,
+    "base_health": 2,
+    "defense": 0,
+    "maxcarry": 1,
     "additions": [
         false,
         false,
@@ -19,6 +21,7 @@
     ],
     "elements": [
         "Water",
+        "Gloom",
         "Poison"
     ],
     "immunities": [

@@ -1,102 +1,43 @@
-import json
-from os import listdir
 import random
+import os
+from .cardclasses.bases.card import *
+from .cardclasses.bases.minion import *
+from .cardclasses.bases.item import *
+from .cardclasses.bases.exploration import *
+from .cardclasses.bases.area import *
+from .cardclasses.bases.modifiers import *
+
 from copy import deepcopy
-from enum import Enum
 from beautifultable import BeautifulTable
-from os import path, getcwd
+# import all the cards
+dirname = os.path.dirname(__file__)
+filename = os.path.join(dirname, 'cardclasses\cards')
+for card_file in os.scandir(filename):
+    if card_file.is_file():
+        card_string = os.path.join(filename, card_file.name)
+
+        import_string = f'from .cardclasses.cards import {card_file.name}'[:-3]
+        exec (import_string)
 
 
-def oprint(obj):
-    print(json.dumps(obj, default=lambda o: o.__dict__, indent=4))
 
-
-class Class:
-    NONE = 0
-    FIGHTING = 1
-    TRAPPERS = 2
-    SURVIVAL = 3
-    BOOSTER = 4
-    HANDY = 5
-
-
-class Type:
-    Minion = 0
-    Item = 1
-    Area = 2
-    Exploration = 3
-
-
-Rarity = Enum(
-    value="Rarity",
-    names=[
-        ("Plain",     0),
-        ("Common",    1),
-        ("Rare",      2),
-        ("Very Rare", 3)])
-
-
-class Card:
-    def __init__(
-        self,
-        set,
-        number,
-        fifth,
-        rarity,
-        name,
-        image,
-        class_,
-        type,
-        energy,
-        time,
-        attack,
-        health,
-        additions,
-        elements,
-        immunities,
-        weaknesses,
-        traits,
-        abilities,
-        notes,
-    ) -> None:
-        self.set: str = set
-        self.number: int = number
-        self.fifth: bool = fifth
-        self.rarity: int = rarity
-        self.name: str = name
-        self.image: str = image
-        self.class_: int = class_
-        self.type: int = type
-        self.energy: int = energy
-        self.time: int = time
-        self.attack: int = attack
-        self.health: int = health
-        self.additions: list = additions
-        self.elements: list = elements
-        self.immunities: list = immunities
-        self.weaknesses: list = weaknesses
-        self.traits: list = traits
-        self.abilities: list = abilities
-        self.notes: str = notes
-
-    def toJSON(self):
-        return json.dumps(self, default=lambda o: o.__dict__, indent=4)
-
-    def load_cards():
-        folder = path.join(getcwd(), "cards", "json")
-        jsons = [
-            path.join(folder, j) for j in listdir(folder) if j.lower().endswith(".json")
-        ]
-
-        print("Loading Cards...")
-        for j in jsons:
-            # print(f'Loading {j}...')
-            f = open(j, "r")
-            Cards.append(json.loads(f.read(), object_hook=lambda d: Card(**d)))
-            f.close()
-
-
+# List containing all cards
 Cards: list[Card] = []
+
+# Loads all existing cards from individual json files
+def load_cards():
+    print("\n\nLoading Cards...")
+
+    for card_file in os.scandir(filename):
+        try:
+            load_string = f'Cards.append({card_file.name[:-3]}.load_me())'
+            exec(load_string)
+        except:
+            print("\n-----------------------------")
+            print(f"Load failed for {card_file.name}")
+            print("-----------------------------\n")
+
+
 
 
 class Player:
@@ -138,11 +79,14 @@ class Player:
         if number_of_cards > len(self.deck):
             raise Exception("Ran out of cards in the deck, can't draw anymore")
 
-        for i in range(0, number_of_cards):
-            self.hand.append(self.deck.pop(0))
-        print(
-            f"[LOG] Gave {self.name} {number_of_cards} card{'s' if number_of_cards != 1 else ''}"
-        )
+        if len(self.hand) < 10:
+            for i in range(0, number_of_cards):
+                self.hand.append(self.deck.pop(0))
+            print(
+                f"[LOG] Gave {self.name} {number_of_cards} card{'s' if number_of_cards != 1 else ''}"
+            )
+        else:
+            print(f"[LOG] {self.name} has 10 cards and cannot hold any more")
 
     def DrawSpecific(self, card: Card) -> None:
         if not card in self.deck:
@@ -178,14 +122,25 @@ class Player:
 
         for i in range(len(self.hand)):
             c = self.hand[i]
-            fields = [
-                i + 1,
-                c.name,
-                c.energy,
-                c.time,
-                c.attack,
-                c.health,
-            ]
+            if isinstance(c, Minion):
+                fields = [
+                    i + 1,
+                    c.name,
+                    c.energy,
+                    c.time,
+                    c.attack,
+                    c.health,
+                ]
+            else:
+                fields = [
+                    i + 1,
+                    c.name,
+                    c.energy,
+                    c.time,
+                    "x",
+                    "x",
+                ]
+
             if redrawn > 0:
                 if i >= len(self.hand) - redrawn:
                     fields.append("✔")
@@ -197,13 +152,13 @@ class Player:
         print()
 
     def HasMinions(self) -> bool:
-        if any(c.type == Type.Minion for c in self.hand):
+        if any(isinstance(c, Minion) for c in self.hand):
             return True
 
         return False
 
     def HasItems(self) -> bool:
-        if any(c.type == Type.Item for c in self.hand):
+        if any(isinstance(c, Item) for c in self.hand):
             return True
 
         return False

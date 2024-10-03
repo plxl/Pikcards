@@ -4,8 +4,10 @@ from time import sleep
 import json
 from copy import deepcopy
 
+
 # Load all cards from JSON into memory
-Card.load_cards()
+load_cards()
+
 
 # load sample decks
 with open("decks.json") as f:
@@ -13,6 +15,8 @@ with open("decks.json") as f:
 # sample deck functions
 def get_random_deck() -> list[Card]:
     return decks[random.randint(0, len(decks) - 1)]["cards"]
+
+
 
 # debug function (uses ./debug.json for configuration)
 def start_debugging():
@@ -48,6 +52,9 @@ def start_debugging():
     # otherwise, set the deck to the specified index
     else:
         player.SetDeck(decks[po["deck_index"]]["cards"])
+    # Make cards know who their owner is
+    for c1 in player.deck:
+        c1.owner = 0
         
     # same as above, but for cpu
     dprint("Creating CPU deck from debug options...")
@@ -55,13 +62,17 @@ def start_debugging():
         if len(co["deck_override"]) > 0: cpu.SetDeck(co["deck_override"])
         else: cpu.SetDeck(get_random_deck())
     else: cpu.SetDeck(decks[co["deck_index"]]["cards"])
+    for c2 in cpu.deck:
+        c2.owner = 1
     
     # get debugging hand for player
     dprint("Creating player hand from debug options...")
     if len(po["hand"]) > 0:
         for c in po["hand"]:
             # gets a deepcopy of the card and puts it in the player's hand
-            player.hand.append(deepcopy([C for C in Cards if C.name == c][0]))
+            startcard = deepcopy([C for C in Cards if C.name == c][0])
+            startcard.owner = 0
+            player.hand.append(startcard)
     # draw any remaining cards up until specified in the starting hand quantity debug
     # unless it is -1, then don't draw any more
     if (po["starting_hand_num"] != -1):
@@ -70,7 +81,10 @@ def start_debugging():
     # same as above, but for cpu
     dprint("Creating CPU hand from debug options...")
     if len(co["hand"]) > 0:
-        for c in co["hand"]: cpu.hand.append(deepcopy([C for C in Cards if C.name == c][0]))
+        for c in co["hand"]: 
+            startcard = deepcopy([C for C in Cards if C.name == c][0])
+            startcard.owner = 1
+            cpu.hand.append(startcard)
     if (co["starting_hand_num"] != -1): cpu.Draw(co["starting_hand_num"] - len(co["hand"]))
         
     # get starting player
@@ -109,12 +123,15 @@ def start_debugging():
     dprint("Beginning game loop...")
     game.game_loop()
 
+
 # get argument variables
 if '--debug' in sys.argv:
     start_debugging()
 
+
 # Get player name (or options such as 'debug')
 pname = input("What is your name?\n")
+
 
 if pname == "debug":
     start_debugging()
@@ -136,9 +153,13 @@ else:
 
     p1: Player = Player(pname, True)
     p1.SetDeck(deepcopy(deck))
+    for c1 in p1.deck:
+        c1.owner = 0
 
     p2: Player = Player("CPU", False)
     p2.SetDeck(cpu_deck.copy())
+    for c2 in p2.deck:
+        c2.owner = 1
 
     p1.Draw(4)
 
@@ -177,6 +198,7 @@ else:
     if len(available) == 0:
         print("There are no cards left in your deck that can be selected as a 5th...")
         print("Instead, you will simply draw the next card.")
+        p1.Draw(1)
 
     else:
 
@@ -226,13 +248,12 @@ else:
         starting_player = random.randint(0, 1)
     elif p2pref == 2:
         starting_player = pref
-    elif p2pref == 1:
-        if pref == 2:
-            starting_player = 0
-        elif pref == 0:
-            starting_player = 1
+    elif pref == 2 and p2pref == 1:
+        starting_player = 0
+    elif pref == 2 and p2pref == 0:
+        starting_player = 1
     elif p2pref == 0:
-        starting_player = 1 - pref
+        starting_player = 1
 
     starting_player: Player = p1 if starting_player == 0 else p2
 
