@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 # Data needed to perform an attack
 class AttackClass:
-    def __init__(self, damage_value: int, target_lane: int, target_player: int, instakill: bool = False, attacker_card: 'Minion' = None):
+    def __init__(self, damage_value: int, target_lane: int, target_player: int, attacker_card: 'Minion' = None, instakill: bool = False):
         self.damage_value = damage_value  # Amount of damage being sent
         self.attacker_card = attacker_card  # The one performing the Attack
         self.target_lane = target_lane  # Lane which is targeted
