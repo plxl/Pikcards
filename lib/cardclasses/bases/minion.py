@@ -231,6 +231,10 @@ class Minion(Card):
         if bool(set(modified_attack.attacker_card.elements).intersection(self.immunities)) or bool(set(attacker_traits).intersection(self.immunities)):
             print(f"{self.name} was immune to the attack")
         
+        elif incoming_attack.instakill is True:
+            self.health = 0
+            print(f"{self.name} was instantly killed!")
+
         elif "Passive" in self.traits and "Passive" in attacker_traits:
             self.apply_damage_on_defense(1, attacker_traits)
 
